@@ -85,7 +85,6 @@ export default ({
                 }
             }).catch((e) => {
                 let msg = e.response.data
-                console.log("msg", msg)
                 if(msg?.email){
                     this.showMessage('login', 'warn', 'Email', msg?.email[0])
                 }

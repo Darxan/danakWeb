@@ -15,9 +15,9 @@
                     <div class="card_inputs">
                         <span class="first_input input_container">
                             <input 
-                                    type="text" 
-                                    placeholder="Email" 
-                                    v-model="form.email">
+                                type="text" 
+                                placeholder="Email" 
+                                v-model="form.email">
                         </span>
                     </div>
                     <button class="card_submit_button" @click.prevent="forget">Kirish</button>
@@ -36,7 +36,6 @@ export default ({
             form: {
                 email: 'admin@admin.com'
             },
-          
         }
     },
     
@@ -44,30 +43,18 @@ export default ({
         ...mapActions(["forgetPass"]),
         async forget() {
             const {...userdata} = this.form;
-            let resp = await this.forgetPass(userdata)
-            console.log('errror',  resp.response.data[0])    
+            let resp = await this.forgetPass(userdata)    
             if(resp.response.status === 200){
-                console.log(res.response.status, '20TTT')
                 this.showMessage('login', 'success', 'Success', 'Вы успешно вошли в систему')
                 setTimeout(() =>{
                     this.$router.push({ path: '/' })
                 }, 1500)
             }
             if(resp.response.status === 400){
-                console.log(resp.response.status)
                 let msg = "Пользователь с данным электронной адресом не существует"
                 this.showMessage('forget', 'warn', 'Ошибка', msg)
             }
-            // .catch((e) => {
-            //     let msg = e.response.data
-            //     console.log("msg", msg)
-            //     if(msg?.email){
-            //         this.showMessage('login', 'warn', 'Email', msg?.email[0])
-            //     }
-            //     if(msg?.non_field_errors){
-            //         this.showMessage('login', 'warn', 'Password error', msg?.non_field_errors[0])
-            //     }
-            // })
+           
         },
     }
        
