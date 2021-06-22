@@ -6,7 +6,7 @@
             <p class="cash">3000+ CASHBACK BILAN DO'KONLAR VA XIZMATLAR</p>
             <div class="content">
                 <a href="">
-                    <div class="markets" data-aos="fade-right">
+                    <div class="markets">
                         <img src="@/assets/images/ali.png" alt="">
                         <p>0.14 % - dan qaytib keladi </p>
                         <h3>6.46 % gacha</h3>
@@ -14,7 +14,7 @@
                     </div>
                 </a>
                 <a href="">
-                    <div class="markets" data-aos="fade-left">
+                    <div class="markets">
                         <img src="@/assets/images/unishop.png" alt="">
                         <p>0.14 % - dan qaytib keladi </p>
                         <h3>6.46 % gacha</h3>
@@ -23,7 +23,7 @@
                 </a>
             </div>
         </div>
-        <a href="#section_two" class="arrow"><i class="fas fa-chevron-down"></i></a>
+        <a href="#section_two" class="arrow"><img src="@/assets/icons/arrow-down.svg" alt=""></i></a>
     </section>
     <!-- birinchi section tugadi -->
 

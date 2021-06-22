@@ -272,22 +272,33 @@ a:hover{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.arrow img {
+    width: 36px;
+}
 @keyframes animation {
     25%{
-        background-position: left bottom;
+        /* background-position: left bottom;
         position: absolute;
-        bottom: 2%;
+        bottom: 2%; */
+        transform: translateY(-15%);
+        transition: all .3s ease-in-out;
     }
     50%{
-        background-position: right bottom;
+        /* background-position: right bottom; */
+        transform: translateY(-17%);
+        transition: all .3s ease-in-out;
     }
     75%{
-        background-position: right top;
+        /* background-position: right top; */
+        transform: translateY(-15%);
+        transition: all .3s ease-in-out;
     }
     100%{
-        background-position: left top;
+        /* background-position: left top;
         position: absolute;
-        bottom: 5%;
+        bottom: 8%; */
+        transform: translateY(10%);
+        transition: all .3s ease-in-out;
     }
 }
 .section_two {
