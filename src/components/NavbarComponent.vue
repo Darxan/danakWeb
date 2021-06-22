@@ -40,10 +40,12 @@
               </template>
               <LanguageDropdown />
                <!-- bitta button qo'shildi -->
+               <template v-if="isUserAuthenticated">
                 <a @click="profile" class="profile_button">
                   <img src="@/assets/icons/user.svg" alt="">
                 </a>
                 <Profile v-if="profileModal" @close="profileModal = false"/>
+               </template>
           </div>
       </div>
     </nav>

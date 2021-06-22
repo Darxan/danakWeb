@@ -14,7 +14,7 @@
             Siz allaqachon maksimal darajaga erishdingiz
         </p>
         <div class="profile_link">
-            <p>Siz tejaysiz: <strong>$ 1204.06</strong></p>
+            <p>Chiqarib olingan summa: <strong>$ {{ userData.all_transaction }}</strong></p>
             <a href="#"><img src="@/assets/icons/arrow-right-circle.svg" alt="">
             </a>
         </div>
@@ -42,7 +42,7 @@ import { axiosGet } from '@/store/axiosBase'
 export default {
     data:() =>{
         return {
-            userData: null
+          userData: null
         }
     },
     async mounted(){
@@ -71,7 +71,7 @@ export default {
     width: 320px;
     height: 60vh;
     top: 130%;
-    right: 0;
+    right: 5%;
     background: #fff;
     box-shadow: 0 2px 24px 0 rgb(17 27 45 / 11%);
     border-radius: 8px;
