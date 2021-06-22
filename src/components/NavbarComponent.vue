@@ -24,7 +24,7 @@
                           class="login"
                           class-active="active"
                           >
-                          About
+                          {{ $t('About') }}
               </router-link>
               <template v-if="!isUserAuthenticated">
                 <router-link to="/login" class="login">Kirish</router-link>

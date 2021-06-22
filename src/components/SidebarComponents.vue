@@ -7,13 +7,11 @@
                  v-for="item in sidebarMenus"
                  :key="item.id"
                  :to="item.path"
-                 
                  >
-                 <div @click="close">
-                     <img :src="getImgUrl(item.imgUrl)" alt="">
-                    <span >{{ item.title }}</span>
-                 </div>
-                 
+                <div @click="close">
+                    <img :src="getImgUrl(item.imgUrl)" alt="">
+                <span >{{ item.title }}</span>
+                </div>
     </router-link>
 </div>
 </template>
@@ -26,7 +24,7 @@ export default {
                 {id:1, title: 'Bosh sahifa', imgUrl: 'icons/home.svg', path: '/'},
                 {id:2, title: 'About', imgUrl: 'icons/home.svg', path: '/about'},
                 {id:3, title: 'Mening naqd pulim', imgUrl: 'icons/home.svg', path:'/'},
-                {id:4, title: 'To\'lov tarixi', imgUrl: 'icons/home.svg', path:'/'},
+                {id:4, title: 'To\'lov tarixi', imgUrl: 'icons/home.svg', path:'/transaction/history'},
                 {id:5, title: 'Mening hamyonim', imgUrl: 'icons/home.svg', path:'/'},
                 {id:6, title: 'Sozlamalar', imgUrl: 'icons/home.svg', path:'/'},
             ]
