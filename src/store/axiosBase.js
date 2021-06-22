@@ -1,8 +1,6 @@
 /* eslint-disable camelcase */
-
 import axios from "axios";
 import store from "../store";
-// const APIUrl = 'https://api.anordao.uz'
 const APIUrl = "http://127.0.0.1:3000";
 // const APIUrl = "http://185.206.212.179"
 

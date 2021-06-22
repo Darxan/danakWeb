@@ -29,11 +29,11 @@ body {
     display: flex;
     justify-content: space-between;
 }
-.navbar.sticky 
-{
+.navbar.sticky {
     box-shadow: 0 5p 20px rgba(0, 0, 0, 0.05);
     box-shadow: 0 0 10px grey;
     padding: 2.5rem 0;
+    position: fixed;
 }
 .navbar.sticky .imgBx img:nth-child(2){
     display: none;
