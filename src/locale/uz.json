@@ -1,5 +1,29 @@
 {
+
+
   "close": "Chiqish",
   "Language": "Uz",
-  "profile": "Mening saxifam"
+  "profile": "Mening saxifam",
+  "cashback_ustasi": "Cashback ustasi",
+  "sadoqat_darajasi": "- sodiqlik dasturida sizning darajangiz.",
+  "darajani_oshirish": "Darajani qanday oshirish mumkin?",
+  "maksimal_daraja": "Siz allaqachon maksimal darajaga yetgansiz",
+  "chiqarilgan_summa": "Siz saqlab qoldingiz",
+  "qanday_ishlashi": "Bu qanday ishlaydi?",
+  "naqd_pul": "Mening saxifam",
+  "tasdiqlash": "Tasdiqlash kutilmoqda:",
+  "yechib_olish_uchun_mavjud": "Доступно для вывода:",
+  "pulni_olish": "Mablag'larni olish",
+
+
+  "danak": "Danak",
+  "about": "Biz haqimizda",
+  "kirish": "Kirish",
+  "royxatdan_otish": "Ro'yxatdan o'tish",
+
+  "bizga_ergashing": "Bizga ergashing",
+  "footer_title": "Mualliflik huquqi © - Danak barcha huquqlar himoyalangan 2021",
+  "foydalanuvchi_shartnomasi": "Foydalanuvchi shartnomasi",
+  "maxfiylik_siyosati": "Maxfiylik siyosati",
+  "bosh": "Salom"
 }

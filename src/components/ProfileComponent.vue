@@ -8,30 +8,30 @@
         <a @click="closeProfileModal"><img src="@/assets/icons/log-out.svg" alt=""></a>
     </div>
     <div class="profile_texts">
-        <h1>Tangalar ustasi</h1>
-        <p>- sadoqat dasturidagi darajangiz.</p>
-        <p><strong>Qanday qilib darajani oshirish kerak?</strong><br><br>
-            Siz allaqachon maksimal darajaga erishdingiz
+        <h1>{{ $t("cashback_ustasi") }}</h1>
+        <p>{{ $t("sadoqat_darajasi") }}</p>
+        <p><strong>{{ $t("darajani_oshirish") }}</strong><br><br>
+            {{ $t("maksimal_daraja") }}
         </p>
         <div class="profile_link">
-            <p>Chiqarib olingan summa: <strong>$ {{ userData.all_transaction }}</strong></p>
+            <p>{{ $t("chiqarilgan_summa") }}<strong>$ {{ userData.all_transaction }}</strong></p>
             <a href="#"><img src="@/assets/icons/arrow-right-circle.svg" alt="">
             </a>
         </div>
     </div>
     <div class="profile_body">
             <img src="finger.svg" alt="">
-            <p>U qanday ishlaydi?</p>
+            <p>{{ $t("qanday_ishlashi") }}</p>
             <a href="#"><i class="fas fa-chevron-right"></i></a>
     </div>
     <div class="cashback">
-        <h1>Sizning naqd pulingiz</h1>
-        <p>Tasdiqlash kutilmoqda:</p>
+        <h1>{{ $t("naqd_pul") }}</h1>
+        <p>{{ $t("tasdiqlash") }}</p>
         <h2 class="grey_number">$ {{ userData.estimated }}</h2>
         <p class="border_bottom"></p>
-        <p>Yechib olish uchun mavjud:</p>
+        <p>{{ $t("yechib_olish_uchun_mavjud") }}:</p>
         <h2 class="black_number">$ {{ userData.all }}</h2>
-        <button :style="{cursor: !withdrawButton ? 'pointer' : 'not-allowed'}">Pul mablag'larini olish</button>
+        <button :style="{cursor: !withdrawButton ? 'pointer' : 'not-allowed'}">{{ $t("pulni_olish") }}</button>
     </div>
 </div>
 <!-- profil card muvaffaqiyatli yakunlandi -->

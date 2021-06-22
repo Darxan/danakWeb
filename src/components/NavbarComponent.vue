@@ -14,7 +14,7 @@
             <div class="imgBx">
               <router-link to="/"><img src="@/assets/images/danak.png" alt=""></router-link>
               <router-link to="/" style="text-decoration:none;">
-                  <h1>Danak</h1>
+                  <h1>{{ $t("danak") }}</h1>
                 </router-link>
             </div>  
           </div>
@@ -24,11 +24,11 @@
                           class="login"
                           class-active="active"
                           >
-                          About
+                          {{ $t("about") }}
               </router-link>
               <template v-if="!isUserAuthenticated">
-                <router-link to="/login" class="login">Kirish</router-link>
-                <router-link to="/register" class="register" >Ro'yxatdan o'tish</router-link>
+                <router-link to="/login" class="login">{{ $t("kirish")}}</router-link>
+                <router-link to="/register" class="register" >{{ $t("royxatdan_otish")}}</router-link>
               </template>
               <template v-else>
                 <router-link to="/profile" class="login">{{ $t("profile") }}</router-link>

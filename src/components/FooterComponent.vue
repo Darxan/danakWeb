@@ -9,7 +9,7 @@
                 <img src="@/assets/images/qiwi.svg" alt="">
                 <img src="@/assets/images/webmoney.svg" alt="">
             </div>
-            <p class="cash">Bizga ergashing</p>
+            <p class="cash">{{ $t("bizga_ergashing")}}</p>
             <div class="social_btns">
                 <a href="#"><i class="fab fa-vk"></i></a>
                 <a href="#"><i class="fab fa-odnoklassniki"></i></a>
@@ -17,8 +17,9 @@
                 <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
             <div class="texts">
-                <p>Mualliflik huquqi © - Danak barcha huquqlar himoyalangan 2021</p>
-                <span><a href="#">Foydalanuvchi shartnomasi </a><span> va </span><a href="#"> Maxfiylik siyosati</a></span>
+                <!-- Mualliflik huquqi © - Danak barcha huquqlar himoyalangan 2021 -->
+                <p> {{ $t("footer_title") }} </p>
+                <span><a href="#">{{ $t("foydalanuvchi_shartnomasi") }} </a><span> va </span><a href="#"> {{ $t("maxfiylik_siyosati")}}</a></span>
             </div>
             <div class="download_img">
                 <a href="#"><img src="@/assets/images/playmarket.svg" alt=""></a>
