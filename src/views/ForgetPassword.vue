@@ -10,7 +10,7 @@
                     <div class="card_btns">
                     </div>
                     <div class="card_t">
-                    <p>{{ $t("email")}}</p>
+                    <p>{{ $t("Elektron pochta") }}</p>
                     </div>
                     <div class="card_inputs">
                         <span class="first_input input_container">

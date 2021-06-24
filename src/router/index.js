@@ -31,6 +31,11 @@ const routes = [
     component: () => import('@/views/ForgetPassword.vue')
   },
   {
+    path: '/transaction/history',
+    name: 'transaction_history',
+    component: () => import('@/pages/TransactionHistory.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting

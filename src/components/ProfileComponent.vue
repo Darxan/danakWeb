@@ -23,6 +23,9 @@
             <img src="finger.svg" alt="">
             <p>{{ $t("qanday_ishlashi") }}</p>
             <a href="#"><i class="fas fa-chevron-right"></i></a>
+        <img src="finger.svg" alt="">
+        <p>U qanday ishlaydi?</p>
+        <a href="#"><i class="fas fa-chevron-right"></i></a>
     </div>
     <div class="cashback">
         <h1>{{ $t("naqd_pul") }}</h1>
@@ -70,7 +73,7 @@ export default {
     position: absolute;
     width: 320px;
     height: 60vh;
-    top: 130%;
+    top: 110%;
     right: 5%;
     background: #fff;
     box-shadow: 0 2px 24px 0 rgb(17 27 45 / 11%);

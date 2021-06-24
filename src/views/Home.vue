@@ -2,23 +2,23 @@
   <div style="background:#eee;">
         <section class="section_one">
         <div class="container">
-            <h1>Pitsadan sayohatgacha</h1>
-            <p class="cash">3000+ CASHBACK BILAN DO'KONLAR VA XIZMATLAR</p>
+            <h1>{{ $t("pitsa_sayohat") }}</h1>
+            <p class="cash">{{ $t("cashback_dokonlar")}}</p>
             <div class="content">
                 <a href="">
                     <div class="markets">
                         <img src="@/assets/images/ali.png" alt="">
-                        <p>0.14 % - dan qaytib keladi </p>
-                        <h3>6.46 % gacha</h3>
-                        <h4>Aliexpress</h4>
+                        <p>0.14 % - {{ $t("dan_qaytib_keladi") }} </p>
+                        <h3>6.46 % {{ $t("gacha")}}</h3>
+                        <h4>{{ $t("card_title") }}</h4>
                     </div>
                 </a>
                 <a href="">
                     <div class="markets">
                         <img src="@/assets/images/unishop.png" alt="">
-                        <p>0.14 % - dan qaytib keladi </p>
-                        <h3>6.46 % gacha</h3>
-                        <h4>Unishop</h4>
+                        <p>0.14 % - {{ $t("dan_qaytib_keladi") }} </p>
+                        <h3>6.46 % {{ $t("gacha")}}</h3>
+                        <h4> {{ $t("card_title_2") }} </h4>
                     </div>          
                 </a>
             </div>
@@ -29,8 +29,8 @@
 
     <!-- ikkinchi section boshlandi -->
     <section class="section_two" id="section_two">
-        <h1>Tezkor chiqish qulay tarzda</h1>
-        <p>SAQLANGAN MABLAG'LARNING MINIMAL MIQDORI - $ 1,5 DAN</p>
+        <h1> {{ $t("section_2_title") }} </h1>
+        <p> {{ $t("section_2_title_2") }} </p>
         <img src="@/assets/images/paypal.png" alt="">
     </section>
     <!-- ikkinchi section tugadi -->
@@ -38,8 +38,8 @@
     <!-- uchinchi section boshlandi -->
     <section class="section_three">
         <div class="container">
-            <h1>O'zingizni baham ko'ring <i class="fas fa-heart"></i> dunyoni yaxshiroq qiling!</h1>
-            <p class="cash">DO'STLARINGIZGA TEJASH UCHUN ODDIY USUL HAQIDA AYTIB BERING</p>
+            <h1> {{ $t("section_3_title") }}  <i class="fas fa-heart"></i>   {{ $t("section_3_title_2qismi") }} </h1>
+            <p class="cash"> {{ $t("section_3_title_2") }} </p>
             <img src="@/assets/images/jamoa.webp" alt="">
             <div class="social_btns">
                 <a href=""><button><i class="fab fa-facebook-f"></i><p>Facebook</p>&nbsp;<p>1711</p></button></a>
@@ -55,34 +55,34 @@
     <section class="section_four">
         <div class="container">
         <div class="items">
-            <h2>Ko'proq saqlash</h2><br>
-            <a href="#">Aliexpress-da ikki marta naqd pul bekor qilindi!</a><br>
-            <a href="#">Aliexpress uchun qo'shimcha chegirmalar: foydali sotib oling</a><br>
-            <a href="#">Aliexpress-da sotib olayotganda naqd pul: asosiy narsa haqida qisqacha</a><br>
-            <a href="#">Aliexpress uchun keshbekni yuklab olish va uni qanday o'rnatish yaxshiroq</a><br>
-            <a href="#">AliExpressning cash back plaginlari nima va uning afzalliklari qanday?</a><br>
+            <h2> {{ $t("section_4_item_title_1") }} </h2><br>
+            <a href="#"> {{ $t("section_4_item1_link1") }} </a><br>
+            <a href="#"> {{ $t("section_4_item1_link2") }} </a><br>
+            <a href="#"> {{ $t("section_4_item1_link3") }} </a><br>
+            <a href="#"> {{ $t("section_4_item1_link4") }} </a><br>
+            <a href="#"> {{ $t("section_4_item1_link5") }} </a><br>
         </div>
         <div class="items">
-            <h2>Bizga yordam beraylik</h2><br>
-            <a href="#">Sodiqlik dasturi Danak</a><br>
-            <a href="#">Android dastur Danak</a><br>
-            <a href="#">iOS dasturi Danak</a><br>
-            <a href="#">Brauzerlar uchun kengaytirish</a><br>
-            <a href="#">Yordam</a><br>
-            <a href="#">Savol bering</a><br>
-            <a href="#">Blog</a><br>
-            <a href="#">Sayt xaritasi</a><br>
+            <h2> {{ $t("section_4_item_title_2") }}</h2><br>
+            <a href="#"> {{ $t("section_4_item2_link1") }} </a><br>
+            <a href="#"> {{ $t("section_4_item2_link2") }} </a><br>
+            <a href="#"> {{ $t("section_4_item2_link3") }} </a><br>
+            <a href="#"> {{ $t("section_4_item2_link4") }} </a><br>
+            <a href="#"> {{ $t("section_4_item2_link5") }} </a><br>
+            <a href="#"> {{ $t("section_4_item2_link6") }} </a><br>
+            <a href="#"> {{ $t("section_4_item2_link7") }} </a><br>
+            <a href="#"> {{ $t("section_4_item2_link8") }} </a><br>
         </div>
         <div class="items">
-            <h2>Bi  z bilan ishlash</h2><br>
-            <a href="#">"Do'stingizni olib keling" dasturi</a><br>
-            <a href="#">Bizni reklama qilish</a><br>
-            <a href="#">Do'konlar uchun maslahatlar</a><br>
-            <a href="#">"Megabonus" da reklama qilingan»</a><br>
+            <h2> {{ $t("section_4_item_title_3") }} </h2><br>
+            <a href="#"> {{ $t("section_4_item3_link1") }} </a><br>
+            <a href="#"> {{ $t("section_4_item3_link2") }} </a><br>
+            <a href="#"> {{ $t("section_4_item3_link3") }} </a><br>
+            <a href="#"> {{ $t("section_4_item3_link4") }} </a><br>
         </div>
         <div class="items">
-            <h2>Biz haqimizda</h2><br>
-            <p>Biz ishonamizki, jamg'arma pulni ehtiyotkorlik bilan sarflashda olingan foydadir, shuning uchun biz yangi vositani taklif qilamiz. Yuzlab do'konlarni, texnologiyani va dizaynni birlashtirib, xaridlaringizni chindan ham iqtisodiy qilish uchun ajoyib keshbek xizmatini yaratdik. Bizning xizmat yordamida butun dunyo bo'ylab sevimli do'konlar va xizmatlar yuzlab sotib olish miqdori 40% qaytish mumkin.</p>
+            <h2> {{ $t("section_4_item_title_4") }}</h2><br>
+            <p> {{ $t("section_4_item4_link") }} </p>
         </div>
     </div>
     </section>
