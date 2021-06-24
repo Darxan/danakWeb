@@ -25,10 +25,10 @@
                  </div>
             </div>
         </section> -->
-        <section class="section_table pt-5 pb-5">
-            <div class="container">
+        <section class="section_table pt-5 pb-5 flex-column">
+            <div class="container ">
                 <h1 class="w-100 text-center align-items-center">Transaction history </h1>
-                <div class="section_table_header">
+                <!-- <div class="section_table_header">
                     <div class="inputs">
                     <div class="items">
                         <p>Davr</p>
@@ -49,8 +49,8 @@
                 </div>
                 <div class="links">
                     <a href="">Otsutstvuet keshbek?</a>
-                </div>
-                </div>
+                </div> 
+                </div>-->
                 <div class="section_table_body">
                     <table id="customers">
                         <tr>
@@ -71,6 +71,7 @@
                     </table>
                 </div>
             </div>
+            <Pagination />
         </section>
 
 
@@ -168,6 +169,7 @@
 </template>
 
 <script>
+import Pagination from '@/components/PaginationComponent.vue'
 import { axiosGet } from '@/store/axiosBase.js'
     export default {
         data:() =>{
@@ -197,7 +199,10 @@ import { axiosGet } from '@/store/axiosBase.js'
                }
                return result
             }
-        }
+        },
+        components: {
+            Pagination,
+        },
     }
 </script>
 
