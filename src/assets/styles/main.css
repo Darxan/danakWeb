@@ -10,10 +10,11 @@ body {
     width: 100%;
     background: #fff;
     overflow-x: hidden;
+    height: 100%;
 }
 .navbar {
     width: 100%;
-    height: 8.5vh;
+    height: 9vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,26 +26,15 @@ body {
     left: 0;
     transition: 0.2s;
 }
-.navbar__container {
-    display: flex;
-    justify-content: space-between;
-}
 .navbar.sticky {
-    box-shadow: 0 5p 20px rgba(0, 0, 0, 0.05);
     box-shadow: 0 0 10px grey;
-    padding: 2.5rem 0;
     position: fixed;
 }
-.navbar.sticky .imgBx img:nth-child(2){
-    display: none;
+.navbar.sticky .imgBx .link_for_image img{
+    width: 100%;
     transition: .2s;
 }
-.navbar.sticky .imgBx img:nth-child(1){
-    width: 100px;
-    margin-left: 5rem;
-    transition: .2s;
-}
-.container {
+.navbar .container {
     width: 90%;
     height: 100%;   
     display: flex;
@@ -52,7 +42,7 @@ body {
     align-items: center;
 }
 .imgBx {
-    width: 7%;
+    width: 70%;
     justify-content: space-between;
     align-items: center;
     display: flex;
@@ -63,14 +53,18 @@ a{
 a:hover{
     text-decoration: none;
 }
-.imgBx img {
-    width: 45px;
+.imgBx .link_for_image {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgBx .link_for_image img {
+    width: 80%;
     transition: .2s;
 }
-.imgBx img:nth-child(2){
-    width: 70px;
-    transition: .2s;
-}
+
 .btns {
     height: 100%;
     display: flex;
@@ -167,7 +161,7 @@ a:hover{
 }
 .section_one .container .cash {
     position: absolute;
-    top: 20%;    
+    top: 120px;   
     font-size: 11px;
     letter-spacing: 3px;
     text-align: center;
@@ -370,7 +364,7 @@ a:hover{
 }
 .section_three .container .cash {
     position: absolute;
-    top: 20%;
+    top: 60px;
     font-size: 11px;
     font-weight: normal;
     line-height: 2.18;
@@ -430,7 +424,7 @@ a:hover{
 }
 .section_four {
     width: 100%;
-    height: 50vh;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -497,6 +491,7 @@ a:hover{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 1rem 0;
 }
 .section_five .container .cash {
     display: block;
@@ -579,8 +574,25 @@ a:hover{
     body {
         overflow-x: hidden;
     }
+    .link_for_danak {
+        display: none;
+    }
+    .link_for_image img {
+        width: 100%;
+    }
 }
 /* navbar uchun media yozilgan qator */
+
+@media (max-width: 438px){
+    .section_three .container .cash {
+        top: 0px;
+    }
+}
+@media (max-width: 700px) and (min-width: 438px){
+    .section_three .container .cash {
+        top: 25px;
+    }
+}
 @media (max-width: 1490px){
     .navbar .container .btns {
         height: 100%;
@@ -615,21 +627,64 @@ a:hover{
         margin: 1rem;  
         width: 400px; 
     }
-    .section_five {
-        margin-top: 20rem;
-    }
     .arrow {
         display: none;
     }
 }
+
 @media (max-width: 380px){
     .navbar .container .btns img {
         display: none;
     }
 }
-@media (max-width: 880px) and (min-width: 500px){
+@media (max-width: 880px) and (min-width: 300px){
+    .section_one .container .content {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+        margin-top: 5rem;
+    }
+    .section_one .container .content a .markets {
+        width: 250px;
+        height: 200px;
+    }
+    .section_table {
+        width: 100%;
+        height: auto;
+    }
     .section_five {
-        margin-top: 60rem;
+        margin-top: 2rem;
+    }
+    .section_one .container h1, .section_two  h1, .section_three .container h1 {
+        font-size: 20px;
+    }
+    .section_two img {
+        width: 80%;
+        margin-top: 5rem;
+    }
+    .section_one .container .content {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+        flex-direction: column;
+    }
+    .section_one .container .content a .markets {
+        margin-bottom: 0.5rem;
+    }
+    .section_cards_2[data-v-5ff9f27a] {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15rem;
+    }
+    .section_five .container .download_img {
+        width: 40%;
     }
 }
 @media (max-width: 1045px) and (min-width: 750px){
@@ -641,6 +696,9 @@ a:hover{
     }
 }
 @media (max-width: 700px){
+    .navbar .container .btns .login {
+        display: none;
+    }
     .navbar .container .btns .register {
         display: none;
     }
@@ -649,6 +707,7 @@ a:hover{
     }
     .section_five .container .images img {
         width: 30%;
+        margin: .2rem;
     }
     .section_five .container .social_btns {
         display: flex;
@@ -666,14 +725,9 @@ a:hover{
     .section_five .container .social_btns a {
         margin: 0.6rem;
     }
+
 }
-@media (min-width: 320px){
-    .navbar.sticky .container .imgBx img:nth-child(1){
-        width: 30%;
-        margin-left: 2rem;
-        transition: .2s;
-    }
-}
+
 @media (max-width: 750px) and (min-width: 700px){
     .navbar .container .btns {
         width: 75%;
@@ -688,45 +742,15 @@ a:hover{
         justify-content: space-around;
     }
 }
-@media (max-width: 750px) {
-    .section_one .container .content {
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        height: 100%;
-        margin-top: 5rem;
-    }
-    .section_one .container .content a .markets {
-        width: 250px;
-        height: 200px;
-    }
-}
-@media (max-width: 520px) {
-    .section_one .container h1, .section_two  h1, .section_three .container h1 {
-        font-size: 25px;
-    }
-    .section_two img {
-        width: 80%;
-        margin-top: 5rem;
-    }
-    .section_one .container .content {
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        height: 100%;
-        flex-direction: column;
-    }
-    .section_one .container .content a .markets {
-        margin-bottom: 0.5rem;
-    }
-    .section_five {
-        margin-top: 70rem;
-    }
+@media (max-width: 880px) {
+
 }
 
-/* DAO NOTIFICATION CUSTOM STYLE */
+.section_1 .container .section_cards .items:nth-child(2) h1{
+    font-weight: 600;
+    color: #a6aeb7;
+}
+/* DAO and Abduraxmon  NOTIFICATION CUSTOM STYLE */
 .vue-notification {
     padding: 15px;
     margin: 1rem 5px 5px;

@@ -27,33 +27,25 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #f1f1f1;
-}
-
 ul {
-  position: relative;
   background: #fff;
   display: flex;
-  padding: 10px 20px;
+  padding: 6px 18px;
   border-radius: 50px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  margin-top: 1rem;
 }
 
 ul li {
   list-style: none;
-  line-height: 50px;
   margin: 0 5px;
 }
 
 ul li.pageNumber {
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
 }
 

@@ -16,6 +16,11 @@ const routes = [
     component: () => import('@/views/Login.vue')
   },
   {
+    path: '/mywallet',
+    name: 'mywallet',
+    component: () => import('@/pages/MyWallet.vue')
+  },
+  {
     path: '/register',
     name: 'register',
     component: () => import('@/views/Register.vue')
@@ -31,9 +36,14 @@ const routes = [
     component: () => import('@/views/ForgetPassword.vue')
   },
   {
+    path: '/MyMoney',
+    name: 'my_money',
+    component: () => import('@/pages/MyMoney.vue')
+  },
+  {
     path: '/transaction/history',
     name: 'transaction_history',
-    component: () => import('@/pages/TransactionHistory.vue')
+    component: () => import('@/pages/tolovtarihi.vue')
   },
   {
     path: '/about',
