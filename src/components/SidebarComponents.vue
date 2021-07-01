@@ -70,7 +70,9 @@ export default {
           return require('../assets/'+pic)
         },
         close(){
-          this.$emit('close');
+          this.$emit('close');      
+          const menu = document.querySelector('.hamburger');
+          menu.classList.toggle('active');
         },
         logout() {
         this.$store.dispatch("logoutUser").then(() => {

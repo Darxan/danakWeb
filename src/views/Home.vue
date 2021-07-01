@@ -1,6 +1,6 @@
 <template>
   <div style="background:#eee;">
-        <section class="section_one">
+        <section class="section_one mt-9vh">
         <div class="container">
             <h1>{{ $t("pitsa_sayohat") }}</h1>
             <p class="cash">{{ $t("cashback_dokonlar")}}</p>

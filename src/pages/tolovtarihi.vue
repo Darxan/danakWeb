@@ -196,6 +196,7 @@ import { axiosGet } from '@/store/axiosBase.js'
     height: auto;
     padding-top: 2rem;
     padding-bottom: 3rem;
+    margin-top: 9vh;    
 }
 
 .section_table .container .section_table_header {

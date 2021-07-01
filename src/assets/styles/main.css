@@ -45,20 +45,20 @@ input[type="color"]:focus,
     align-items: center;
     background: #fff;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 6%);
-    position: sticky;
+    position: fixed;
     z-index: 1000;
     top: 0;
     left: 0;
     transition: 0.2s;
 }
-.navbar.sticky {
+/* .navbar.sticky {
     box-shadow: 0 0 10px grey;
     position: fixed;
 }
 .navbar.sticky .imgBx .link_for_image img{
     width: 100%;
     transition: .2s;
-}
+} */
 .navbar .container {
     width: 90%;
     height: 100%;   
@@ -829,6 +829,9 @@ h1{
 .flex-row{
     flex-direction: row;
 }
+.flex-wrap {
+    flex-wrap: wrap;
+}
 /* WIDTH */
 .w-100{
     width: 100%;
@@ -899,6 +902,9 @@ h1{
 
 .mt-1 {
     margin-top: 1rem;
+}
+.mt-9vh {
+    margin-top: 9vh;
 }
 /* BOTTOM */
 .mb-5 {

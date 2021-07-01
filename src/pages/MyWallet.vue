@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="section_2">
+        <section class="section_2 mt-9vh">
             <div class="container">
                 <div class="text">
                 <h1>Pulni tortib olish usullari <a href="#"> Pul mablag'larini olishning eng yaxshi usuli qayerda?</a></h1>
@@ -62,7 +62,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 10vh;
     height: auto;
 }
 .section_2 .container {
