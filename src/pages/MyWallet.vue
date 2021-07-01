@@ -25,45 +25,13 @@
                 </div>
             </div>
         </section>
-            <section class="section_four">
-        <div class="container">
-        <div class="items">
-            <h2>Ko'proq saqlash</h2><br>
-            <a href="#">Aliexpress-da ikki marta naqd pul bekor qilindi!</a><br>
-            <a href="#">Aliexpress uchun qo'shimcha chegirmalar: foydali sotib oling</a><br>
-            <a href="#">Aliexpress-da sotib olayotganda naqd pul: asosiy narsa haqida qisqacha</a><br>
-            <a href="#">Aliexpress uchun keshbekni yuklab olish va uni qanday o'rnatish yaxshiroq</a><br>
-            <a href="#">AliExpressning cash back plaginlari nima va uning afzalliklari qanday?</a><br>
-        </div>
-        <div class="items">
-            <h2>Bizga yordam beraylik</h2><br>
-            <a href="#">Sodiqlik dasturi Danak</a><br>
-            <a href="#">Android dastur Danak</a><br>
-            <a href="#">iOS dasturi Danak</a><br>
-            <a href="#">Brauzerlar uchun kengaytirish</a><br>
-            <a href="#">Yordam</a><br>
-            <a href="#">Savol bering</a><br>
-            <a href="#">Blog</a><br>
-            <a href="#">Sayt xaritasi</a><br>
-        </div>
-        <div class="items">
-            <h2>Biz bilan ishlash</h2><br>
-            <a href="#">"Do'stingizni olib keling" dasturi</a><br>
-            <a href="#">Bizni reklama qilish</a><br>
-            <a href="#">Do'konlar uchun maslahatlar</a><br>
-            <a href="#">"Megabonus" da reklama qilingan»</a><br>
-        </div>
-        <div class="items">
-            <h2>Biz haqimizda</h2><br>
-            <p>Biz ishonamizki, jamg'arma pulni ehtiyotkorlik bilan sarflashda olingan foydadir, shuning uchun biz yangi vositani taklif qilamiz. Yuzlab do'konlarni, texnologiyani va dizaynni birlashtirib, xaridlaringizni chindan ham iqtisodiy qilish uchun ajoyib keshbek xizmatini yaratdik. Bizning xizmat yordamida butun dunyo bo'ylab sevimli do'konlar va xizmatlar yuzlab sotib olish miqdori 40% qaytish mumkin.</p>
-        </div>
-    </div>
-    </section>
+     <Information/>
     </div>
 </template>
 
 <script>
-    export default {
+import Information from '@/components/InformationComponent'
+export default {
   data () {
     return {
         cards: [
@@ -80,9 +48,12 @@
     getImgUrl(pic) {
         return require('../assets/'+pic)
     },
-  }
+  },
+  components: {
+      Information,
+  },
         
-    }
+}
 </script>
 
 <style scoped>

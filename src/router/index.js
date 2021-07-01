@@ -36,9 +36,9 @@ const routes = [
     component: () => import('@/views/ForgetPassword.vue')
   },
   {
-    path: '/MyMoney',
-    name: 'my_money',
-    component: () => import('@/pages/MyMoney.vue')
+    path: '/user-wallets',
+    name: 'user_wallets',
+    component: () => import('@/pages/UserWallets.vue')
   },
   {
     path: '/transaction/history',

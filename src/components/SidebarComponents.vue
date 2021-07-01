@@ -21,9 +21,6 @@
         </div>
       </router-link>
     </div>
-
-
-
     <template v-if="!isUserAuthenticated">
       <div class="mobile">
         <router-link tag="a" to="/login" class="col" class-active="active">
@@ -58,7 +55,7 @@ export default {
             sidebarMenus:[
                 {id:1, title: 'Bosh sahifa', imgUrl: 'icons/home.svg', path: '/'},
                 {id:2, title: 'About', imgUrl: 'icons/home.svg', path: '/about'},
-                {id:3, title: 'Mening naqd pulim', imgUrl: 'icons/home.svg', path:'/MyMoney'},
+                {id:3, title: 'My wallets', imgUrl: 'icons/home.svg', path:'/user-wallets'},
                 {id:4, title: 'To\'lov tarixi', imgUrl: 'icons/home.svg', path:'/transaction/history'},
                 {id:5, title: 'Mening hamyonim', imgUrl: 'icons/home.svg', path:'/mywallet'},
                 {id:6, title: 'Sozlamalar', imgUrl: 'icons/home.svg', path:'/'},
@@ -80,8 +77,8 @@ export default {
     },
     computed: {
       isUserAuthenticated() {
-      return this.$store.getters.isUserAuthenticated;
-    },
+        return this.$store.getters.isUserAuthenticated;
+      },
     }
 }
 </script>
@@ -102,7 +99,7 @@ export default {
   }
 }
 .sidenav {
-    height: 100%;
+    height: auto;
     width: 310px;
     position: fixed;
     z-index: 3;
@@ -112,6 +109,7 @@ export default {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    padding-bottom: 60px;
     box-shadow: 2px 5px 3px 0 rgb(0 0 0 / 6%);
     display: flex; 
     flex-direction: column;
