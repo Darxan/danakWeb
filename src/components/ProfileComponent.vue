@@ -1,6 +1,6 @@
 <template>
 <!-- profil card boshlandi -->
-<div class="profile_card" id="card" v-if="userData">
+<div class="profile_card" id="card" v-if="userData = true">
     <div class="header_profile">
         <i class="far fa-user-circle user_icon"></i>
         <p>{{ userData.username }}</p>

@@ -46,6 +46,11 @@ const routes = [
     component: () => import('@/pages/tolovtarihi.vue')
   },
   {
+    path: '/referal/list',
+    name: 'referal_list',
+    component: () => import('@/pages/ReferalList.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting

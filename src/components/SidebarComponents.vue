@@ -49,6 +49,7 @@
 </template>
 
 <script>
+
 export default {
     data:() =>{
         return {
@@ -58,7 +59,7 @@ export default {
                 {id:3, title: 'My wallets', imgUrl: 'icons/home.svg', path:'/user-wallets'},
                 {id:4, title: 'To\'lov tarixi', imgUrl: 'icons/home.svg', path:'/transaction/history'},
                 {id:5, title: 'Mening hamyonim', imgUrl: 'icons/home.svg', path:'/mywallet'},
-                {id:6, title: 'Sozlamalar', imgUrl: 'icons/home.svg', path:'/'},
+                {id:6, title: 'Sozlamalar', imgUrl: 'icons/home.svg', path:'/referal/list'},
             ]
         }
     },

@@ -13,7 +13,7 @@
                         </tr>
                         <tr v-for="wallet in walletList" :key="wallet.id">
                             <td>{{ maskCardNumber(wallet.card_number) }}</td>
-                            <td border>{{ wallet.card_type.name }}</td>
+                            <td>{{ wallet.card_type.name }}</td>
                             <td> <img :src="getImgUrl(wallet.card_type.image)" alt="" width="40" > </td>
                             <td class="action_button_container">
                                 <button @click="changeCardNumber(wallet.id)">
@@ -119,7 +119,7 @@ export default {
             return result
         },
         getImgUrl(pic) {
-            // return 'http://185.206.212.179'+pic
+            return 'http://185.206.212.179'+pic
             return 'http://127.0.0.1:3000'+pic
         },
         closeModal(state){

@@ -21,7 +21,7 @@
             <div class="imgBx">
               <router-link to="/" class="link_for_image"><img src="@/assets/images/danak.png" alt=""></router-link>
               <router-link to="/" style="text-decoration:none;" class="link_for_danak">
-                  <h1>{{ $t("danak") }}</h1>
+                  <h1>Danak</h1>
                 </router-link>
             </div> 
           </div>
