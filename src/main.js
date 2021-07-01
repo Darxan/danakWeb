@@ -3,7 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store.js'
 import Notifications from 'vue-notification'
- 
+import VueMask from 'v-mask'
+
 
 
 import '@fortawesome/fontawesome-free/css/all.css'
@@ -14,9 +15,11 @@ import {i18n} from '@/i18n/index'
 import FlagIcon from 'vue-flag-icon'
 
 import GSignInButton from 'vue-google-signin-button'
+
 Vue.use(GSignInButton)
 Vue.use(Notifications)
 Vue.use(FlagIcon)
+Vue.use(VueMask);
 Vue.config.productionTip = false
 
 new Vue({

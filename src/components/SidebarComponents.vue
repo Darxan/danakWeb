@@ -1,6 +1,7 @@
 <template>
-<div id="mySidenav" class="sidenav">
-    <router-link tag="a" 
+  <div id="mySidenav" class="sidenav">
+    <div class="aside">
+      <router-link tag="a" 
                  class="col" 
                  class-active="active"
                  exact
@@ -38,13 +39,14 @@
 
     <template v-else>
       <div class="logout mobile" @click="close">
-        <button
-        @click="logout"
-        class="">
-        {{ $t("close") }}
-      </button>
+          <button
+          @click="logout"
+          class="">
+          {{ $t("close") }}
+        </button>
+      </div>
+    </template>
     </div>
-</template>
 </div>
 </template>
 
@@ -99,7 +101,7 @@ export default {
   }
 }
 .sidenav {
-    height: auto;
+    height: 100vh;
     width: 310px;
     position: fixed;
     z-index: 3;
