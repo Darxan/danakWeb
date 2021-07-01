@@ -69,6 +69,8 @@ export default {
           return require('../assets/'+pic)
         },
         close(){
+          const menu = document.querySelector('.hamburger');
+          menu.classList.toggle('active');
           this.$emit('close');
         },
         logout() {

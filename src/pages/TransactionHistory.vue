@@ -1,56 +1,9 @@
 <template>
     <div v-if="isMounted">
-        <!-- <section class="section_1">
-            <div class="container">
-                <h1>Mening hamyonim</h1>
-                <p>Bu erda siz to'plangan mablag'larni qaytarib olishingiz va to'lovlar tarixini ko'rishingiz mumkin. Agar sizda biron bir savol bo'lsa, biz bilan bog'laning.</p>
-                 <div class="section_cards">
-                     <div class="items">
-                        <p>
-                            Danak hamyoningizda
-                        </p>
-                        <h1>$ 0.75</h1>
-                        <p>Pulni 1,5 dollardan olish mumkin</p>
-                    </div>
-                    
-                    <div class="items">
-                       <p>
-                           Tasdiqlashni kutmoqdaman
-                       </p>
-                       <h1>
-                           $ 0.00
-                       </h1>
-                       <p><a href="#">Naqd pul qanday ishlaydi?</a></p>
-                   </div>
-                 </div>
-            </div>
-        </section> -->
+        
         <section class="section_table pt-5 pb-5 flex-column">
             <div class="container ">
                 <h1 class="w-100 text-center align-items-center">Transaction history </h1>
-                <!-- <div class="section_table_header">
-                    <div class="inputs">
-                    <div class="items">
-                        <p>Davr</p>
-                        <input type="date" id="birthday" name="birthday">
-                    </div>
-                    <div class="items">
-                        <p>Do'kon</p>
-                        <select>
-                          <option>Hamma do'konlar</option>
-                        </select>
-                    </div>
-                    <div class="items">
-                        <p>Davr</p>
-                        <select>
-                          <option>Barcha holatlar</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="links">
-                    <a href="">Otsutstvuet keshbek?</a>
-                </div> 
-                </div>-->
                 <div class="section_table_body">
                     <table id="customers">
                         <tr>
@@ -70,118 +23,161 @@
                         </tr>
                     </table>
                 </div>
-            <Pagination />
+                <ul class="pagination mt-3" v-if="paginationCount > 1">
+                    <li v-if="transactionData.previous"> 
+                        <button class="prev border-0 bg-light"
+                                @click="getTransactionData('previous')">
+                                <img src="@/assets/icons/arrow-left-circle.svg" alt="">
+                        </button>
+                    </li>
+                    <li class="pageNumber"
+                        v-for="item in paginationCount" :key="item"
+                        :class="[currentPage == item ? 'active' : '']">
+                        <span class="border-0" 
+                                @click="getTransactionData(item)">
+                                {{ item }}
+                        </span>
+                    </li>
+                    <li v-if="transactionData.next">
+                        <button  @click="getTransactionData('next')" 
+                        class="next border-0 bg-light">
+                        <img src="@/assets/icons/arrow-right-circle.svg" alt="">
+                        </button>
+                    </li>
+                </ul>
             </div>
         </section>
-
-
-        <section class="section_cards_2">
-            <div class="container">
-                <h1>Qo'shimcha funktsiyalar</h1>
-                <div class="card_container">
-                    <div class="card" v-for="card in cards" :key="card.id">
-                        <div class="img_block">
-                            <img :src="getImgUrl(card.img)" alt="">
-                        </div>
-                        <div class="description">
-                        <p class="title">
-                            {{ card.name }}
-                        </p>
-                        <p class="descr_text">
-                            {{ card.paragraph }}
-                        </p>
-                    </div>
-                        <p><a :href="card.link">{{ card.link_name }}</a></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- to'rtinchi section boshlandi -->
-    <section class="section_four">
-        <div class="container">
-        <div class="items">
-            <h2>Ko'proq saqlash</h2><br>
-            <a href="#">Aliexpress-da ikki marta naqd pul bekor qilindi!</a><br>
-            <a href="#">Aliexpress uchun qo'shimcha chegirmalar: foydali sotib oling</a><br>
-            <a href="#">Aliexpress-da sotib olayotganda naqd pul: asosiy narsa haqida qisqacha</a><br>
-            <a href="#">Aliexpress uchun keshbekni yuklab olish va uni qanday o'rnatish yaxshiroq</a><br>
-            <a href="#">AliExpressning cash back plaginlari nima va uning afzalliklari qanday?</a><br>
-        </div>
-        <div class="items">
-            <h2>Bizga yordam beraylik</h2><br>
-            <a href="#">Sodiqlik dasturi Danak</a><br>
-            <a href="#">Android dastur Danak</a><br>
-            <a href="#">iOS dasturi Danak</a><br>
-            <a href="#">Brauzerlar uchun kengaytirish</a><br>
-            <a href="#">Yordam</a><br>
-            <a href="#">Savol bering</a><br>
-            <a href="#">Blog</a><br>
-            <a href="#">Sayt xaritasi</a><br>
-        </div>
-        <div class="items">
-            <h2>Biz bilan ishlash</h2><br>
-            <a href="#">"Do'stingizni olib keling" dasturi</a><br>
-            <a href="#">Bizni reklama qilish</a><br>
-            <a href="#">Do'konlar uchun maslahatlar</a><br>
-            <a href="#">"Megabonus" da reklama qilingan»</a><br>
-        </div>
-        <div class="items">
-            <h2>Biz haqimizda</h2><br>
-            <p>Biz ishonamizki, jamg'arma pulni ehtiyotkorlik bilan sarflashda olingan foydadir, shuning uchun biz yangi vositani taklif qilamiz. Yuzlab do'konlarni, texnologiyani va dizaynni birlashtirib, xaridlaringizni chindan ham iqtisodiy qilish uchun ajoyib keshbek xizmatini yaratdik. Bizning xizmat yordamida butun dunyo bo'ylab sevimli do'konlar va xizmatlar yuzlab sotib olish miqdori 40% qaytish mumkin.</p>
-        </div>
-    </div>
-    </section>
+        <Additional />
+        <Information />
     </div>
 </template>
 
 <script>
-import Pagination from '@/components/PaginationComponent.vue'
+import Additional from '@/components/AdditionalActions'
+import Information from '@/components/InformationComponent'
 import { axiosGet } from '@/store/axiosBase.js'
-    export default {
-        data:() =>{
-            return {
-                transactionData: null,
-                isMounted: false,
-                cards: [
-                    {id: 1, img: 'images/human.png', name: "Do'stlaringizni taklif qiling va ular uchun naqd pul olish", paragraph: "Havola yordamida ro'yxatdan o'tgandan so'ng, do'stingiz 'Megabonus' sodiqlik dasturida 'Savdogar' darajasini oladi. Do'stingiz har safar ...", link_name: "'Do'stlardan keladigan daromad' haqida batafsil", link: 'https://youtube.com'},
-                    {id: 2, img: 'images/human.png', name: "Do'stlaringizni taklif qiling va ular uchun naqd pul olish", paragraph: "Havola yordamida ro'yxatdan o'tgandan so'ng, do'stingiz 'Megabonus' sodiqlik dasturida 'Savdogar' darajasini oladi. Do'stingiz har safar ...", link_name: "'Do'stlardan keladigan daromad' haqida batafsil", link: 'https://youtube.com'},
-                    {id: 3, img: 'images/human.png', name: "Do'stlaringizni taklif qiling va ular uchun naqd pul olish", paragraph: "Havola yordamida ro'yxatdan o'tgandan so'ng, do'stingiz 'Megabonus' sodiqlik dasturida 'Savdogar' darajasini oladi. Do'stingiz har safar ...", link_name: "'Do'stlardan keladigan daromad' haqida batafsil", link: 'https://youtube.com'},
-                ],
-            }
-        },
+export default {
+    data:() =>{
+        return {
+            transactionData: null,
+            isMounted: false,
+            currentPage: 1
+        }
+    },
 
-       async mounted () {
-           let resoponse = await axiosGet('/api/v1/transaction/history');
-           if(resoponse.status == 200){
-               this.isMounted = true
-               this.transactionData = resoponse.data
-           }
+    async mounted () {
+        let resoponse = await axiosGet(`/api/v1/transaction/history?page=${this.currentPage}`);
+        if(resoponse.status == 200){
+            this.isMounted = true
+            this.transactionData = resoponse.data
+        }
+    },
+    computed:{
+        transactionList(){
+            return this.transactionData.results
         },
-        computed:{
-            transactionList(){
-                return this.transactionData.results
-            },
+        paginationCount() {
+            if(this.transactionData.count > 10){
+                console.log(Math.ceil(this.transactionData.count / 10))
+                return Math.ceil(this.transactionData.count / 10)
+            }
+                
+        }
+    },
+    methods:{
+        maskCardNumber(numbers){
+            let result =""
+            for (let index = 0; index < numbers.length; index++) {
+                if(index > 4 && index < 14 && numbers[index] != " ") result += '*'
+                else result += numbers[index]
+            }
+            return result
         },
-        methods:{
-            maskCardNumber(numbers){
-               let result =""
-               for (let index = 0; index < numbers.length; index++) {
-                   if(index > 4 && index < 14 && numbers[index] != " ") result += '*'
-                   else result += numbers[index]
-               }
-               return result
-            },
-            getImgUrl(pic) {
-                return require('../assets/'+pic)
-            },
+        getImgUrl(pic) {
+            return require('../assets/'+pic)
         },
-        components: {
-            Pagination,
-        },
-    }
+        getTransactionData(page){
+            console.log("🚀 ~ file: Transactionhistory.vue ~ line 100 ~ getTransactionData ~ page", page)
+            let url = "/api/v1/transaction/history?page=" + this.currentPage
+            if(page == 'next'){
+                this.currentPage++
+                url = this.transactionData.next
+            }else if(page == 'previous') {
+                this.currentPage--
+                url = this.transactionData.previous
+            } else {
+                this.currentPage = page
+                url = "/api/v1/transaction/history?page=" + page
+            }
+            axiosGet(url).then(response => {
+                this.transactionData = response.data
+            })
+        }
+    },
+    components: {
+        Information,
+        Additional
+    },
+}
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+ul {
+  background: #fff;
+  display: flex;
+  padding: 6px 18px;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  margin-top: 1rem;
+}
+
+ul li {
+  list-style: none;
+  margin: 0 5px;
+}
+
+ul li.pageNumber {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+ul li span {
+  display: block;
+  text-decoration: none;
+  color: #383838;
+  font-weight: 600;
+  border-radius: 50%;
+}
+
+ul li.pageNumber:hover span,
+ul li.pageNumber.active span {
+  background-color: #383838;
+  color: #fff !important;
+}
+
+ul li:first-child {
+  margin-right: 5px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+ul li:last-child {
+  margin-left: 5px;
+  font-weight: 700;
+  font-size: 20px;
+}
 * {
     padding: 0;
     margin: 0;

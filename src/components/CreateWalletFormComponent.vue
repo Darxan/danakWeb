@@ -28,10 +28,6 @@
                       v-mask='currentMask'
                       v-model="walletNumber">
                     </div>
-                    
-                    <div class="mb-3">
-                    
-                    </div>
                 </fieldset>
             </form>
             <div class="d-flex justify-content-between mt-4">
