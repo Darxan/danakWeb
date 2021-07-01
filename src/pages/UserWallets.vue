@@ -3,7 +3,7 @@
         <section class="section_table pt-5 pb-5 flex-column">
             <div class="container ">
                 <h1 class="w-100 text-center align-items-center">Your withdraw wallets list</h1>
-                <div class="section_table_body">
+                <div class="section_table_body d-flex flex-column">
                     <table id="customers">
                         <tr>
                             <th>Card number</th>
@@ -25,6 +25,12 @@
                             </td>
                         </tr>
                     </table>
+                    <div class="container d-flex pt-4 justify-content-end align-items-end w-100 px-4">
+                        <button class="btn btn-success px-4 btn-sm py-1"
+                                @click="createModal = true">
+                            Create
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -35,42 +41,15 @@
                 :cardObject='currentCard'/>
         <Agree :state='deleteModal'
                :cardId="currentCardId" 
-               @close='closeModal' 
+               @close='deleteModal=false' 
                @confirm='removeCard'/>
-    <section class="section_four">
-        <div class="container">
-            <div class="items">
-                <h2>Ko'proq saqlash</h2><br>
-                <a href="#">Aliexpress-da ikki marta naqd pul bekor qilindi!</a><br>
-                <a href="#">Aliexpress uchun qo'shimcha chegirmalar: foydali sotib oling</a><br>
-                <a href="#">Aliexpress-da sotib olayotganda naqd pul: asosiy narsa haqida qisqacha</a><br>
-                <a href="#">Aliexpress uchun keshbekni yuklab olish va uni qanday o'rnatish yaxshiroq</a><br>
-                <a href="#">AliExpressning cash back plaginlari nima va uning afzalliklari qanday?</a><br>
-            </div>
-            <div class="items">
-                <h2>Bizga yordam beraylik</h2><br>
-                <a href="#">Sodiqlik dasturi Danak</a><br>
-                <a href="#">Android dastur Danak</a><br>
-                <a href="#">iOS dasturi Danak</a><br>
-                <a href="#">Brauzerlar uchun kengaytirish</a><br>
-                <a href="#">Yordam</a><br>
-                <a href="#">Savol bering</a><br>
-                <a href="#">Blog</a><br>
-                <a href="#">Sayt xaritasi</a><br>
-            </div>
-            <div class="items">
-                <h2>Biz bilan ishlash</h2><br>
-                <a href="#">"Do'stingizni olib keling" dasturi</a><br>
-                <a href="#">Bizni reklama qilish</a><br>
-                <a href="#">Do'konlar uchun maslahatlar</a><br>
-                <a href="#">"Megabonus" da reklama qilingan»</a><br>
-            </div>
-            <div class="items">
-                <h2>Biz haqimizda</h2><br>
-                <p>Biz ishonamizki, jamg'arma pulni ehtiyotkorlik bilan sarflashda olingan foydadir, shuning uchun biz yangi vositani taklif qilamiz. Yuzlab do'konlarni, texnologiyani va dizaynni birlashtirib, xaridlaringizni chindan ham iqtisodiy qilish uchun ajoyib keshbek xizmatini yaratdik. Bizning xizmat yordamida butun dunyo bo'ylab sevimli do'konlar va xizmatlar yuzlab sotib olish miqdori 40% qaytish mumkin.</p>
-            </div>
-        </div>
-    </section>
+        <CreateModal 
+            :state="createModal"
+            @close='createModal = false' 
+            @createWallet="createNewWallet" 
+        />
+        <Information />
+    
     </div>
 </template>
 
@@ -79,6 +58,8 @@ import { axiosGet, axiosPost } from '@/store/axiosBase.js'
 import Additional from '@/components/AdditionalActions'
 import Modal from '@/components/ModalComponent'
 import Agree from '@/components/AgreeComponent'
+import Information from '@/components/InformationComponent'
+import CreateModal from '@/components/CreateWalletFormComponent'
 export default {
     data:() =>{
         return {
@@ -90,7 +71,8 @@ export default {
                 cardId: null
             },
             deleteModal: false, 
-            currentCardId : null
+            currentCardId : null,
+            createModal: false
         }
     },
     async mounted () {
@@ -146,12 +128,21 @@ export default {
                 this.getUserAccountCardList()
                 this.showModal = false
             })
+        },
+        createNewWallet(newObj){
+            axiosPost.post(`/api/v1/withdraw/account/create/`, {...newObj})
+            .then(response =>{
+                this.getUserAccountCardList()
+                this.createModal = false
+            })
         }
     },
     components: {
         Additional,
         Modal,
-        Agree
+        Agree,
+        Information,
+        CreateModal
     },
 }
 </script>
