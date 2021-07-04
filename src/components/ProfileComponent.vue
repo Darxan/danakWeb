@@ -34,7 +34,11 @@
         <p class="border_bottom"></p>
         <p>{{ $t("yechib_olish_uchun_mavjud") }}:</p>
         <h2 class="black_number">$ {{ userData.all }}</h2>
-        <button :style="{cursor: !withdrawButton ? 'pointer' : 'not-allowed'}">{{ $t("pulni_olish") }}</button>
+        <button
+            class="btn btn-success btn-sm px-4"
+            @click="withdrawHandler">
+          {{$t("pulni_olish")}}
+        </button>
     </div>
 </div>
 <!-- profil card muvaffaqiyatli yakunlandi -->
@@ -57,13 +61,18 @@ export default {
     methods:{
         closeProfileModal(){
             this.$emit('close')
-        }
-    },
-    withdrawButton(){
+        },
+        withdrawButton(){
         if(this.userData.all > '0.10'){
             return true
         } else {return false}
-    }
+        },
+        withdrawHandler(){
+            this.$emit('close')
+            this.$router.push({path: '/transaction/create'})
+        }
+    },
+    
 }
 </script>
 
@@ -74,7 +83,7 @@ export default {
     width: 320px;
     height: 60vh;
     top: 110%;
-    right: 5%;
+    right: 8%;
     background: #fff;
     box-shadow: 0 2px 24px 0 rgb(17 27 45 / 11%);
     border-radius: 8px;
@@ -190,7 +199,7 @@ export default {
 .cashback .black_number {
     color: black
 }
-.cashback button {
+/* .cashback button {
     display: block;
     height: 46px;
     width: 100%;
@@ -206,7 +215,7 @@ export default {
 }
 .cashback bottom:hover{
     background-color: greenyellow;
-}
+} */
 /* profile card tugadiiiii */
 
 </style>

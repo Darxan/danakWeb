@@ -72,12 +72,6 @@ input[type="color"]:focus,
     align-items: center;
     display: flex;
 }
-a{
-    text-decoration: none;
-}
-a:hover{
-    text-decoration: none;
-}
 .imgBx .link_for_image {
     width: 60px;
     height: 60px;
@@ -116,10 +110,13 @@ a:hover{
     font-weight: bold;
     letter-spacing: 1px;
     border: none;
+    color: black;
+    text-decoration: none;
 }
 .login:hover {
     text-decoration: none;
     cursor: pointer;
+    color: black;
 }
 .register {
     width: auto;
@@ -412,6 +409,7 @@ a:hover{
 .section_three .container .social_btns a {
     text-decoration: none;
     color: white;
+    margin: 1rem;
 }
 .section_three .container .social_btns a button {
     display: flex;
@@ -534,7 +532,7 @@ a:hover{
 }
 .section_five .container .social_btns a{
     text-decoration: none;
-    color: white;
+    color: white !important;
     font-size: 20px;
     width: 40px;
     height: 40px;
@@ -844,6 +842,24 @@ h1{
 }
 /* PADDING  ALL CLASSES*/
 /* TOP */
+.p-1 {
+    padding: 1rem;
+}
+.p-2 {
+    padding: 2rem;
+}
+.p-3 {
+    padding: 3rem;
+}
+.p-4 {
+    padding: 4rem;
+}
+.p-5 {
+    padding: 5rem;
+}
+
+
+
 .pt-5 {
     padding-top: 5rem;
 }
@@ -907,6 +923,8 @@ h1{
     margin-top: 9vh;
 }
 /* BOTTOM */
+
+
 .mb-5 {
     margin-bottom: 5rem;
 }
@@ -925,4 +943,52 @@ h1{
 
 .mb-1 {
     margin-bottom: 1rem;
+}
+
+
+.font-bold {
+    font-weight: bold;
+}
+.font-15 {
+    font-size: 15px;
+}
+.font-20 {
+    font-size: 20px;
+}
+.font-25 {
+    font-size: 25px;
+}
+.font-30 {
+    font-size: 30px;
+}
+.font-35 {
+    font-size: 35px;
+}
+.font-40 {
+    font-size: 40px;
+}
+.font-45 {
+    font-size: 45px;
+}
+.font-50 {
+    font-size: 50px;
+}
+
+.c-black {
+    color: black;
+}
+.c-tomato {
+    color: tomato;
+}
+.c-red {
+    color: red;
+}
+.c-danak {
+    color: #009551;
+}
+.c-link {
+    color: #3498db;
+}
+.u-none {
+    text-decoration: none;
 }

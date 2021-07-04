@@ -16,8 +16,8 @@
                         <div class="cards">
                             <div class="container text-center">
                                 <div class="texts">
-                                    <h2>Приведи друга и заработай</h2>
-                                    <p>Каждый друг, который зарегистрируется по вашей ссылке,
+                                    <h2 class="p-2">Приведи друга и заработай</h2>
+                                    <p class="p-2">Каждый друг, который зарегистрируется по вашей ссылке,
                                     принесет вам доход до 50% от суммы своего кэшбэка</p>
                                     <p>Ссылка для ваших друзей:</p>
                                 </div>
@@ -32,16 +32,32 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cards"></div>
-                        <div class="cards"></div>
+                        <div class="cards">
+                            <p>Доход от друзей появится в этом разделе.
+                            </p>
+                        </div>
+                        <div class="cards text-center p-4">
+                            <div class="texts p-1">
+                                <h1>Создай кэшбэк-ссылку</h1>
+                                <p>Создайте кэшбэк-ссылку на товар и поделитесь ею с другом. Если друг совершит покупку — Вы получите за нее кэшбэк.</p>
+                            </div>
+                            <div class="inputs p-3">
+                                <input type="text" placeholder="Укажите ссылку на товар">
+                                <button class="copy_button">Создать</button>
+                            </div>
+                        </div> 
                     </div>
                     <div class="card_2">
-                    
+                        <div class="cards text-center">
+                            <p class="font-bold p-4">Условия выплаты
+                                дохода от друзей</p>
+                            <h1 class="font-bold font-50">50%</h1>
+                            <p class="font-bold p-3">Вы получаете 50% от кэшбэка друзей, которых вы привели. А ваши друзья получат повышенный кэшбэк.</p>
+
+                            <router-link to="/about" class="font-bold c-link u-none">Подробнее</router-link>
+                        </div>
                     </div>
                 </div>
-                <!-- <div class="copied" id="copied">
-                    <h1>Url Copied</h1>
-                </div> -->
             </div>
         </section>
         <Information/>
@@ -109,9 +125,9 @@ section .container .text h1, p{
     padding-bottom: .6rem;
 }
 section .container .links {
-    width: 70%;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-content: center;
     flex-direction: row;
     flex-wrap: wrap;
@@ -119,19 +135,70 @@ section .container .links {
     height: auto;
 }
 section .container .links a {
-    margin: 3rem; 
+    text-decoration: none;
+    margin-bottom: 1rem;
 }
 section .container .card_container{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
     height: auto;
 }
 section .container .card_container .card_1 {
-    width: 68%;    
-    padding: 43px 10px 40px;
+    width: 68%;
+    border-radius: 6px;
+    height: auto;
+}
+/* section .container .card_container .card_1, section .container .card_container .card_2 {
+    margin: .7rem;
+} */
+section .container .card_container .card_1 .cards:nth-child(1), section .container .card_container .card_1 .cards:nth-child(3) {
+    height: auto;
     border: 1px solid #eaeaea;
     border-radius: 6px;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+section .container .card_container .card_1 .cards:nth-child(3){
+    margin-top: 1.5rem;
+}
+section .container .card_container .card_1 .cards:nth-child(3) .inputs {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 70%;
+    height: auto;
+}
+section .container .card_container .card_1 .cards:nth-child(3) .inputs input {
+    outline: none;
+    padding: .4rem .6rem;
+    box-shadow: none;
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
+    width: 60%;
+    margin: 1rem;
+}
+section .container .card_container .card_1 .cards:nth-child(3) .inputs button {
+        margin: 1rem;
+}
+section .container .card_container .card_1 .cards:nth-child(2){
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #eaeaea;
+    margin-top: 1.5rem;
+    border-radius: 6px;
+    width: 100%;
+}
+
+section .container .card_container .card_1 .cards:nth-child(2) p {
+    padding: 3rem;
 }
 .content {
     display: flex;
@@ -145,6 +212,7 @@ section .container .card_container .card_1 {
     flex-direction: row;
     flex-wrap: wrap;
     opacity: 1;
+    padding: 1rem;
 }
 .margin {
     margin: 1rem;
@@ -167,7 +235,6 @@ section .container .card_container .card_1 {
     position: absolute;
     top: 11px;
     left: 12px;
-    z-index: 100;
     width: 23px;
     height: 23px;
     background: url('../assets/images/copy.svg') no-repeat;
@@ -181,6 +248,7 @@ section .container .card_container .card_1 {
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
+    position: relative;
 }
 .copy_text input {
     border: none;
@@ -191,7 +259,8 @@ section .container .card_container .card_1 {
 }
 .tooltip {
   position: relative;
-  display: inline-block;
+  display: block;
+  z-index: 1;
 }
 
 .tooltip .tooltiptext {
@@ -203,12 +272,10 @@ section .container .card_container .card_1 {
   border-radius: 6px;
   padding: 5px;
   position: absolute;
-  z-index: 1;
   bottom: 150%;
   left: 50%;
   margin-left: -75px;
   opacity: 0;
-  transition: opacity 0.3s;
 }
 
 .tooltip .tooltiptext::after {
@@ -225,5 +292,33 @@ section .container .card_container .card_1 {
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+.card_container .card_2 {
+    width: 28%;
+    height: auto;
+}
+.card_container .card_2 .cards {
+    width: 100%;
+    border: 1px solid #eaeaea;
+    height: auto;
+    border-radius: 6px;
+    padding: 1rem;
+}
+@media (max-width: 1120px) {
+    section .container .card_container .card_1, section .container .card_container .card_2 {
+        width: 100%;
+    }
+    section .container .card_container .card_2 {
+        margin-top: 1.5rem;
+    }
+    section .container .card_container .card_1 .cards:nth-child(3) .inputs {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+
 }
 </style>

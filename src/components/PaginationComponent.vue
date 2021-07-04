@@ -1,5 +1,5 @@
 <template>
-    <ul class="pagination">
+    <ul class="pagination mt-3">
         <li><a href="#" class="prev"><Prev</a></li>
         <li class="pageNumber active"><a href="#">1</a></li>
         <li class="pageNumber"><a href="#">2</a></li>
@@ -43,9 +43,9 @@ ul li {
 }
 
 ul li.pageNumber {
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
   text-align: center;
 }
 
@@ -60,7 +60,7 @@ ul li a {
 ul li.pageNumber:hover a,
 ul li.pageNumber.active a {
   background: #383838;
-  color: #fff;
+  color: #fff !important;
 }
 
 ul li:first-child {

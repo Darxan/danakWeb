@@ -62,6 +62,7 @@ export default {
                 {id:4, title: 'To\'lov tarixi', imgUrl: 'icons/home.svg', path:'/transaction/history'},
                 {id:5, title: 'Mening hamyonim', imgUrl: 'icons/home.svg', path:'/mywallet'},
                 {id:6, title: 'Sozlamalar', imgUrl: 'icons/home.svg', path:'/referal/list'},
+                {id:6, title: 'Sozlamalar', imgUrl: 'icons/home.svg', path:'/profil/change'},
             ]
         }
     },
@@ -70,9 +71,9 @@ export default {
           return require('../assets/'+pic)
         },
         close(){
-          this.$emit('close');      
           const menu = document.querySelector('.hamburger');
           menu.classList.toggle('active');
+          this.$emit('close');
         },
         logout() {
         this.$store.dispatch("logoutUser").then(() => {

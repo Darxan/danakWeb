@@ -43,7 +43,17 @@ const routes = [
   {
     path: '/transaction/history',
     name: 'transaction_history',
-    component: () => import('@/pages/tolovtarihi.vue')
+    component: () => import('@/pages/TransactionHistory.vue')
+  },
+  {
+    path: '/transaction/create',
+    name: 'transaction_create',
+    component: () => import('@/pages/TransactionCreate.vue')
+  },
+  {
+    path: '/profil/change',
+    name: 'profil_change',
+    component: () => import('@/pages/ProfileChange.vue')
   },
   {
     path: '/referal/list',
