@@ -1,26 +1,24 @@
 <template>
-  <div style="background:#eee;">
+  <div style="background:#eee;" v-if="isMounted">
         <section class="section_one">
         <div class="container">
-            <h1>{{ $t("pitsa_sayohat") }}</h1>
-            <p class="cash">{{ $t("cashback_dokonlar")}}</p>
-            <div class="content">
-                <a href="">
-                    <div class="markets">
-                        <img src="@/assets/images/ali.png" alt="">
-                        <p>0.14 % - {{ $t("dan_qaytib_keladi") }} </p>
-                        <h3>6.46 % {{ $t("gacha")}}</h3>
-                        <h4>{{ $t("card_title") }}</h4>
+            <div class="row w-100 d-flex align-items-center justify-content-center">
+                <div class="col-md-12 text-center my-4 mb-4 d-flex align-items-center justify-content-center">
+                    <h1>{{ $t("pitsa_sayohat") }}</h1>
+                    <p class="cash text-center mt-4">{{ $t("cashback_dokonlar")}}</p>
+                </div>
+                <div class="col-md-3 mt-5" v-for="item in partnerList" :key="item.id">
+                    <div class="card border bg-white py-4 px-2 shadow">
+                        <a :href="item.url" target="_blank">
+                            <div class="text-center markets">
+                                <img :src="getImgUrl(item.image)" alt="" style="max-width:120px; max-height: 120px">
+                                <p>0.14 % - {{ $t("dan_qaytib_keladi") }} </p>
+                                <h3>6.46 % {{ $t("gacha")}}</h3>
+                                <h4 class="text-danger">{{ item.name }}</h4>
+                            </div>
+                        </a>
                     </div>
-                </a>
-                <a href="">
-                    <div class="markets">
-                        <img src="@/assets/images/unishop.png" alt="">
-                        <p>0.14 % - {{ $t("dan_qaytib_keladi") }} </p>
-                        <h3>6.46 % {{ $t("gacha")}}</h3>
-                        <h4> {{ $t("card_title_2") }} </h4>
-                    </div>          
-                </a>
+                </div>
             </div>
         </div>
         <a href="#section_two" class="arrow"><img src="@/assets/icons/arrow-down.svg" alt=""></i></a>
@@ -28,19 +26,42 @@
     <!-- birinchi section tugadi -->
 
     <!-- ikkinchi section boshlandi -->
-    <section class="section_two" id="section_two">
-        <h1> {{ $t("section_2_title") }} </h1>
-        <p> {{ $t("section_2_title_2") }} </p>
+    <div class="container mt-3" id="section_two">
+        <div class="text-center">
+                <h1> {{ $t("section_2_title") }} </h1>
+                <p> {{ $t("section_2_title_2") }} </p>
+            </div>
+        <div class="row bg-white my-5" style="border-left: 2px solid green">
+            
+            <div class="col-md-2 py-4 d-flex align-items-center justify-content-center" v-for="item in withdrawMethodsList" :key="item.id">
+                <div class="card border-0">
+                    <div class="d-flex align-items-center justify-content-center border-0"
+                         >
+                        <img :src="getImgUrl(item.image)" 
+                            alt=""
+                            style="max-width: 120px; max-heigth: 120px"
+                            class="card-img-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <section class="section_two" id="section_two">
+        
         <img src="@/assets/images/paypal.png" alt="">
-    </section>
+        <img src="https://danak.uz/media/payment_image/Uzcard-01.png" alt="">
+        <img src="https://danak.uz/media/payment_image/humo.png" alt="">
+        <img src="" alt="">
+    </section> -->
     <!-- ikkinchi section tugadi -->
 
     <!-- uchinchi section boshlandi -->
     <section class="section_three">
         <div class="container">
             <h1> {{ $t("section_3_title") }}  <i class="fas fa-heart"></i>   {{ $t("section_3_title_2qismi") }} </h1>
-            <p class="cash"> {{ $t("section_3_title_2") }} </p>
-            <img src="@/assets/images/jamoa.webp" alt="">
+            <p class="cash mt-3"> {{ $t("section_3_title_2") }} </p>
+            <!-- <img src="@/assets/images/jamoa.webp" alt=""> -->
+            <img src="@/assets/images/announcement.svg" alt="" style="max-width: 300px;">
             <div class="social_btns">
                 <a href=""><button><i class="fab fa-facebook-f"></i><p>Facebook</p>&nbsp;<p>1711</p></button></a>
                 <a href=""><button><i class="fab fa-vk"></i><p>VKontakte</p>&nbsp;<p>803</p></button></a>
@@ -90,9 +111,30 @@
 </template>
 
 <script>
-
+import { axiosGet } from '@/store/axiosBase'
 export default {
   name: 'Home',
-  
+  data:() => {
+      return {
+          partnerList: [],
+          isMounted: false,
+          withdrawMethodsList: []  
+      }
+  },
+  mounted() {
+      axiosGet('/api/v1/web/partner/list/').then(response => {
+          this.isMounted = true
+          this.partnerList = response.data
+      })
+      axiosGet('api/v1/payment/method/list').then(response => {
+        this.withdrawMethodsList = response.data.data
+      })
+  },
+  methods: {
+      getImgUrl(pic) {
+        // return require('../assets/'+pic)
+        return "http://127.0.0.1:3000"+pic
+      },
+  },
 }
 </script>

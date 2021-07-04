@@ -12,6 +12,9 @@ body {
     overflow-x: hidden;
     height: 100%;
 }
+[v-cloak]{
+    display: none;
+}
 
 textarea:focus,
 input[type="text"]:focus,
@@ -62,7 +65,8 @@ p {
 }
 .navbar.sticky {
     box-shadow: 0 0 10px grey;
-    position: fixed;
+    /* position: fixed; */
+    position: sticky;
 }
 .navbar.sticky .imgBx .link_for_image img{
     width: 100%;
@@ -216,70 +220,8 @@ a:hover{
 .section_one .container a {
     color: black;
 }
-.markets {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 350px;
-    height: 300px;
-    border: 1px solid #f2f2f2;
-    background: #fffffd;
-    border-radius: 8px;
-    transition:  .5s ;
-    position: relative;
-}
-.markets::before {
-    content: "D";
-    position: absolute;
-    width: 35px;
-    height: 35px;
-    background: #009551;
-    border-radius: 50%;
-    top: 4%;
-    left: 4%;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    font-family: verdana;
-    font-weight: bold;
-    box-shadow: 0 0 10px #009551;
-}
-.markets:hover {
-    box-shadow: 0 3px 24px 0 rgb(3 31 92 / 7%);
-    border: 1px solid transparent;
-    transition: .5s;
-}
-.markets img {
-    width: 60%;
-    position: absolute;
-    bottom: 60%;
-}
-.markets p{
-    font-size: 14px;
-    font-weight: 300;
-    line-height: normal;
-    letter-spacing: normal;
-    position: absolute;
-    bottom: 40%;
-}
-.markets h3 {
-    letter-spacing: normal;
-    line-height: 1.4;
-    font-size: 30px;
-    font-weight: normal;
-    position: absolute;
-    bottom: 20%;
-}
-.markets h4 {
-    color: #a6aeb7;font-size: 12px;
-    text-align: center;
-    color: #a6aeb7;
-    font-family: verdana;
-    position: absolute;
-    bottom: 7%;
-}
+
+
 .arrow {
     position: absolute;
     bottom: 5%;

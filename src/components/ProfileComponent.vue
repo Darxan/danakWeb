@@ -19,13 +19,9 @@
             </a>
         </div>
     </div>
-    <div class="profile_body">
-            <img src="finger.svg" alt="">
-            <p>{{ $t("qanday_ishlashi") }}</p>
-            <a href="#"><i class="fas fa-chevron-right"></i></a>
-        <img src="finger.svg" alt="">
-        <p>U qanday ishlaydi?</p>
-        <a href="#"><i class="fas fa-chevron-right"></i></a>
+    <div class="profile_body d-flex justify-content-center align-items-center">
+        <img src="@/assets/images/finger.svg" alt="">
+        <p class="ml-3">{{ $t("qanday_ishlashi") }}</p>
     </div>
     <div class="cashback">
         <h1>{{ $t("naqd_pul") }}</h1>

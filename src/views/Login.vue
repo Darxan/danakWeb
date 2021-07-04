@@ -8,19 +8,19 @@
                 </router-link>
                 <img src="@/assets/logo/danak.svg" alt="" class="card_image">
                     <div class="card_btns">
-                        <a href="#"><i class="fab fa-facebook-f"></i><span>&nbsp; Facebook - Orqali kirish</span></a>
+                        
                         <facebook-login class="facebook_auth"
                             appId="307600717226201"
                             @login="facebookAuthentication"
                             @logout="onLogout"
-                            loginLabel="Facebook yordamida kiring"
+                            loginLabel="Facebook"
                             @get-initial-status="facebookAuthentication">
                         </facebook-login>
                         <g-signin-button
                             :params="googleSignInParams"
                             @success="onSignInSuccess"
                             @error="onSignInError">
-                           <i class="fab fa-google"></i>&nbsp; Google yordamida kiring
+                           <i class="fab fa-google"></i>&nbsp; Google
                         </g-signin-button>
                         <a href="#"><i class="fab fa-google"></i><span>&nbsp; Google - Orqali kirish</span></a>
                     </div>
@@ -320,7 +320,7 @@ export default ({
 .g-signin-button {
     text-decoration: none;
     color: #fff;
-    width: 85%;
+    width: 75%;
     height: 32px;
     display: flex;
     align-items: center;

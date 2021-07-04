@@ -51,6 +51,21 @@ const routes = [
     component: () => import('@/pages/TransactionCreate.vue')
   },
   {
+    path: '/order/history',
+    name: 'order_history',
+    component: () => import('@/pages/OrderHistory.vue')
+  },
+  {
+    path: '/refferal/order/history',
+    name: 'refferal_order_history',
+    component: () => import('@/pages/RefferalOrderHistory.vue')
+  },
+  {
+    path: '/generate/link',
+    name: 'generate_link',
+    component: () => import('@/pages/GenerateLink.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
