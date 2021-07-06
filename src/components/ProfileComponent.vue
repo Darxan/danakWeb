@@ -5,7 +5,7 @@
         <i class="far fa-user-circle user_icon"></i>
         <p>{{ userData.username }}</p>
         <a href="#"><img src="@/assets/icons/settings.svg" alt=""></a>
-        <a @click="closeProfileModal"><img src="@/assets/icons/log-out.svg" alt=""></a>
+        <a @click="logout"><img src="@/assets/icons/log-out.svg" alt=""></a>
     </div>
     <div class="profile_texts">
         <h1>{{ $t("cashback_ustasi") }}</h1>
@@ -19,13 +19,9 @@
             </a>
         </div>
     </div>
-    <div class="profile_body">
-            <img src="finger.svg" alt="">
-            <p>{{ $t("qanday_ishlashi") }}</p>
-            <a href="#"><i class="fas fa-chevron-right"></i></a>
-        <img src="finger.svg" alt="">
-        <p>U qanday ishlaydi?</p>
-        <a href="#"><i class="fas fa-chevron-right"></i></a>
+    <div class="profile_body d-flex justify-content-center align-items-center">
+        <img src="@/assets/images/finger.svg" alt="">
+        <p class="ml-3">{{ $t("qanday_ishlashi") }}</p>
     </div>
     <div class="cashback">
         <h1>{{ $t("naqd_pul") }}</h1>
@@ -70,6 +66,11 @@ export default {
         withdrawHandler(){
             this.$emit('close')
             this.$router.push({path: '/transaction/create'})
+        },     
+        logout() {
+            this.$store.dispatch("logoutUser").then(() => {
+            this.$router.push("/login");
+        });
         }
     },
     

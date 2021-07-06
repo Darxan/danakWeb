@@ -5,9 +5,9 @@
         <div class="modal-body">
             <form>
                 <fieldset>
-                    <legend>Create withdraw account</legend>
+                    <legend> {{ $t("create_withdraw") }} </legend>
                     <div class="mb-3">
-                        <label for="disabledSelect" class="form-label">Wallet type</label>
+                        <label for="disabledSelect" class="form-label"> {{ $t("wallet_type") }} </label>
                         <select id="disabledSelect" class="form-select" v-model='selectedWallet'
                             @change="changePaymentMethod(selectedWallet)">
                                 <option 
@@ -19,7 +19,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                    <label for="disabledTextInput" class="form-label">Wallet address</label>
+                    <label for="disabledTextInput" class="form-label"> {{ $t("wallet_address") }} </label>
                     <input
                       type="text"
                       id="disabledTextInput"
@@ -33,10 +33,10 @@
             <div class="d-flex justify-content-between mt-4">
                 <button class="btn btn-secondary btn-sm px-4 py-1 border" 
                         @click="closeModal">
-                        Close
+                        {{ $t("close") }}
                 </button>
                 <button class="btn btn-success btn-sm px-4 py-1" @click="create">
-                    Update
+                    {{ $t("update") }}
                 </button>
             </div>
         </div>

@@ -25,7 +25,7 @@
                 </router-link>
             </div> 
           </div>
-          <div class="btns"> 
+          <div class="btns d-flex align-items-center"> 
               <router-link 
                           to="/about" 
                           class="login"
@@ -35,12 +35,12 @@
               </router-link>
               <template v-if="!isUserAuthenticated">
                 <router-link to="/login" class="login">{{ $t("kirish")}}</router-link>
-                <router-link to="/register" class="register" >{{ $t("royxatdan_otish")}}</router-link>
+                <router-link to="/register" class="btn btn-outline-success" >{{ $t("royxatdan_otish")}}</router-link>
               </template>
               <template v-else>
                 <button
                   @click="logout"
-                  class="register">
+                  class="btn btn-outline-danger">
                   {{ $t("close") }}
                 </button>
               </template>
@@ -149,14 +149,14 @@ export default {
 .hamburger-line {
   display: block;
   width: 100%;
-  height: 4px;
+  height: 3px;
   border-radius: 4px;
   background-color: black;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.1s ease-out;
 }
 
 .hamburger-line:not(:first-child) {
-  margin-top: 7px;
+  margin-top: 8px;
 }
 
 /* To properly translate the element, you should input inside the translateY the sum of the height of your line + margin between 2 lines. In this case, 4px height + 7px margin = 11px */

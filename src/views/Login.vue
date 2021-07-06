@@ -8,19 +8,19 @@
                 </router-link>
                 <img src="@/assets/logo/danak.svg" alt="" class="card_image">
                     <div class="card_btns">
-                        <a href="#"><i class="fab fa-facebook-f"></i><span>&nbsp; Facebook - Orqali kirish</span></a>
+                        
                         <facebook-login class="facebook_auth"
                             appId="307600717226201"
                             @login="facebookAuthentication"
                             @logout="onLogout"
-                            loginLabel="Facebook yordamida kiring"
+                            loginLabel="Facebook"
                             @get-initial-status="facebookAuthentication">
                         </facebook-login>
                         <g-signin-button
                             :params="googleSignInParams"
                             @success="onSignInSuccess"
                             @error="onSignInError">
-                           <i class="fab fa-google"></i>&nbsp; Google yordamida kiring
+                           <i class="fab fa-google"></i>&nbsp; Google
                         </g-signin-button>
                         <a href="#"><i class="fab fa-google"></i><span>&nbsp; Google - Orqali kirish</span></a>
                     </div>
@@ -131,21 +131,13 @@ export default ({
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center center no-repeat;
+    margin-top: 9.3vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     padding-top: 5rem;
     padding-bottom: 4rem;
-}
-.section::before {
-    content: '';
-    position: absolute;
-    
-    width: 100%;
-    height: 100%;
-    /* background: rgba(0,0,0,0.4); */
 }
 .section .card {
     width: 400px;
@@ -158,7 +150,9 @@ export default ({
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    position: relative
+    position: relative;
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 .section .card .back {
     position: absolute;
@@ -320,7 +314,7 @@ export default ({
 .g-signin-button {
     text-decoration: none;
     color: #fff;
-    width: 85%;
+    width: 75%;
     height: 32px;
     display: flex;
     align-items: center;

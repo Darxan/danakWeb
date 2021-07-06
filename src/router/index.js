@@ -26,6 +26,11 @@ const routes = [
     component: () => import('@/views/Register.vue')
   },
   {
+    path: '/profile/change',
+    name: 'profile_change',
+    component: () => import('@/pages/ProfileChange.vue')
+  },
+  {
     path: '/profile',
     name: 'profile',
     component: () => import('@/views/Profile.vue')
@@ -51,14 +56,19 @@ const routes = [
     component: () => import('@/pages/TransactionCreate.vue')
   },
   {
-    path: '/profil/change',
-    name: 'profil_change',
-    component: () => import('@/pages/ProfileChange.vue')
+    path: '/order/history',
+    name: 'order_history',
+    component: () => import('@/pages/OrderHistory.vue')
   },
   {
-    path: '/referal/list',
-    name: 'referal_list',
-    component: () => import('@/pages/ReferalList.vue')
+    path: '/refferal/order/history',
+    name: 'refferal_order_history',
+    component: () => import('@/pages/RefferalOrderHistory.vue')
+  },
+  {
+    path: '/generate/link',
+    name: 'generate_link',
+    component: () => import('@/pages/GenerateLink.vue')
   },
   {
     path: '/about',

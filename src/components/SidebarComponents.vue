@@ -10,7 +10,7 @@
                  :to="item.path"
                  >
                 <div @click="close">
-                    <img :src="getImgUrl(item.imgUrl)" alt="">
+                    <img :src="getImgUrl(item.imgUrl)" alt="" style="width:18px">
                 <span >{{ item.title }}</span>
                 </div>
     </router-link>
@@ -56,13 +56,27 @@ export default {
     data:() =>{
         return {
             sidebarMenus:[
-                {id:1, title: 'Bosh sahifa', imgUrl: 'icons/home.svg', path: '/'},
-                {id:2, title: 'About', imgUrl: 'icons/home.svg', path: '/about'},
+                {id:1, title: "Bosh sahsifa", imgUrl: 'icons/home.svg', path: '/'},
+                {id:2, title: 'Order history', imgUrl: 'icons/home.svg', path: '/order/history'},
                 {id:3, title: 'My wallets', imgUrl: 'icons/home.svg', path:'/user-wallets'},
                 {id:4, title: 'To\'lov tarixi', imgUrl: 'icons/home.svg', path:'/transaction/history'},
                 {id:5, title: 'Mening hamyonim', imgUrl: 'icons/home.svg', path:'/mywallet'},
-                {id:6, title: 'Sozlamalar', imgUrl: 'icons/home.svg', path:'/referal/list'},
-                {id:6, title: 'Sozlamalar', imgUrl: 'icons/home.svg', path:'/profil/change'},
+                {id:6, title: 'Sozlamalar', imgUrl: 'icons/home.svg', path:'/'},
+                {
+                  id:7, title: 'Дохот от друзей', 
+                  imgUrl: 'icons/home.svg', 
+                  path:'/refferal/order/history'
+                },
+                {
+                  id:8, title: 'Daromadli link olish', 
+                  imgUrl: 'icons/home.svg', 
+                  path:'/generate/link'
+                },
+                {
+                  id:9, title: 'Daromadni yechib olish', imgUrl: 'icons/home.svg', path: '/transaction/create'
+                },
+                {id:10, title: 'About', imgUrl: 'icons/home.svg', path:'/profile/change'},
+
             ]
         }
     },

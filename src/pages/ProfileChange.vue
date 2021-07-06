@@ -44,7 +44,7 @@
                      <div v-if="showButtonPassword">
                         <button class="btn btn-primary">{{ message }}</button><br>
                         <br>
-                        <button class="btn btn-light" @click="delit">{{ del }}</button>
+                        <button class="btn btn-light" @click="delit_passwords">{{ del }}</button>
                     </div>
                 </div>
             </div> 
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import { axiosPost } from '@/store/axiosBase'   
     export default {
   data () {
     return {
@@ -72,6 +73,11 @@
           this.firstname = '',
           this.surname = '',
           this.birthday = ''
+      },
+      delit_passwords() {
+        this.password = '',
+        this.passwordNew = '',
+        this.passwordNewAgain = ''
       }
   },
   computed: {
@@ -99,7 +105,7 @@
     align-content: center;
 }
 .card_1 {
-    width: 80%;
+    width: 60%; 
     display: flex;
     justify-content: space-around;
     align-content: center;
@@ -118,7 +124,7 @@
     margin: 1rem;
 }
 .cards_2 {
-    height: 65vh;
+    height: 70vh;
 }
 .profile_button {
     position: relative;

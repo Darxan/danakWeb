@@ -7,7 +7,7 @@
         <li class="pageNumber"><a href="#">4</a></li>
         <li class="pageNumber"><a href="#">5</a></li>
         <li class="pageNumber"><a href="#">6</a></li>
-        <li><a href="#" class="next">Next ></a></li>
+        <li><a href="#" class="next"> {{ $t("next") }}  ></a></li>
     </ul>
 </template>
 

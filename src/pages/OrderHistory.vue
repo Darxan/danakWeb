@@ -1,29 +1,45 @@
 <template>
     <div v-if="isMounted">
-        <section class="section_table pt-5 pb-5 flex-column">
+        
+        <section class="section_table pt-5 pb-5 flex-column mt-5">
             <div class="container ">
-                <h1 class="w-100 text-center align-items-center">Transaction history </h1>
+                <h1 class="w-100 text-center align-items-center"> {{ $t("order_history") }}  </h1>
                 <div class="section_table_body">
                     <table id="customers">
                         <tr>
-                            <th>Card number</th>
-                            <th>Data</th>
-                            <th>Withdraw method</th>
-                            <th>Summa</th>
-                            <th>Status</th>
+                            <th> {{ $t("order_id") }} </th>
+                            <th> {{ $t("tolov_qilingan_summa") }} </th>
+                            <th> {{ $t("cashback") }} </th>
+                            <th> {{ $t("percentage") }} </th>
+                            <th> {{ $t("date") }} </th>
+                            <th> {{ $t("status") }} </th>
                         </tr>
-                        <tr v-for="transaction in transactionList" :key="transaction.id">
-                            <td>{{ maskCardNumber(transaction.client_card) }}</td>
-                            <td>{{ transaction.payment_time }}</td>
-                            <td>{{ transaction.pay_method_type }}</td>
-                            <td>$ {{ transaction.amount }}</td>
-                            <td v-if="transaction.payment_status == 0">IN PROGRESS</td>
-                            <td v-if="transaction.payment_status == 1">Completed</td>
+                        <tr v-for="order in orders" :key="order.id">
+                            <td>{{ order.ali_express_order }}</td>
+                            <td>{{ order.payment_amount }}</td>
+                            <td>{{ order.comission_user }} $</td>
+                            <td>{{ order.percentage_user }} %</td>
+                            <td>{{ order.order_time }}</td>
+                            <td v-if="order.cash_status == 'Buyer Confirmed Receipt'">
+                                <span class="badge bg-success text-light py-2 px-2">
+                                    {{ $t("tasdiqlangan") }}
+                                </span> 
+                            </td>   
+                            <td v-else-if="order.cash_status == 'Payment Completed'">
+                                <span class="badge bg-warning text-dark py-2 px-2">
+                                    {{ $t("kutilmoqda")}}
+                                </span> 
+                            </td>
+                            <td v-else>
+                                <span class="badge bg-danger text-light py-2 px-2">
+                                    {{ $t("bekor_qilingan") }}
+                                </span>
+                            </td>
                         </tr>
                     </table>
                 </div>
                 <ul class="pagination mt-3" v-if="paginationCount > 1">
-                    <li v-if="transactionData.previous"> 
+                    <li v-if="orderList.previous"> 
                         <button class="prev border-0 bg-light"
                                 @click="getTransactionData('previous')">
                                 <img src="@/assets/icons/arrow-left-circle.svg" alt="">
@@ -37,7 +53,7 @@
                                 {{ item }}
                         </span>
                     </li>
-                    <li v-if="transactionData.next">
+                    <li v-if="orderList.next">
                         <button  @click="getTransactionData('next')" 
                         class="next border-0 bg-light">
                         <img src="@/assets/icons/arrow-right-circle.svg" alt="">
@@ -58,27 +74,26 @@ import { axiosGet } from '@/store/axiosBase.js'
 export default {
     data:() =>{
         return {
-            transactionData: null,
+            orderList: null,
             isMounted: false,
             currentPage: 1
         }
     },
 
     async mounted () {
-        let resoponse = await axiosGet(`/api/v1/transaction/history?page=${this.currentPage}`);
+        let resoponse = await axiosGet(`/api/v1/history`);
         if(resoponse.status == 200){
             this.isMounted = true
-            this.transactionData = resoponse.data
+            this.orderList = resoponse.data
         }
     },
     computed:{
-        transactionList(){
-            return this.transactionData.results
+        orders(){
+            return this.orderList.results
         },
         paginationCount() {
-            if(this.transactionData.count > 10){
-                console.log(Math.ceil(this.transactionData.count / 10))
-                return Math.ceil(this.transactionData.count / 10)
+            if(this.orderList.count > 10){
+                return Math.ceil(this.orderList.count / 10)
             }
                 
         }
@@ -92,30 +107,26 @@ export default {
             }
             return result
         },
-        getImgUrl(pic) {
-            return require('../assets/'+pic)
-        },
         getTransactionData(page){
-            console.log("🚀 ~ file: Transactionhistory.vue ~ line 100 ~ getTransactionData ~ page", page)
-            let url = "/api/v1/transaction/history?page=" + this.currentPage
+            let url = "/api/v1/history/?page=" + this.currentPage
             if(page == 'next'){
                 this.currentPage++
-                url = this.transactionData.next
+                url = this.orderList.next
             }else if(page == 'previous') {
                 this.currentPage--
-                url = this.transactionData.previous
+                url = this.orderList.previous
             } else {
                 this.currentPage = page
-                url = "/api/v1/transaction/history?page=" + page
+                url = "/api/v1/history/?page=" + page
             }
             axiosGet(url).then(response => {
-                this.transactionData = response.data
+                this.orderList = response.data
             })
         }
     },
     components: {
         Information,
-        Additional,
+        Additional
     },
 }
 </script>
@@ -191,7 +202,6 @@ ul li:last-child {
     height: auto;
     padding-top: 2rem;
     padding-bottom: 3rem;
-    margin-top: 9vh;    
 }
 
 .section_table .container .section_table_header {

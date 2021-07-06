@@ -1,7 +1,7 @@
 <template>
     <section class="section_cards_2">
         <div class="container">
-            <h1>Qo'shimcha funktsiyalar</h1>
+            <h1>  {{ $t("qoshimcha_func") }} </h1>
             <div class="card_container">
                 <div class="card" v-for="card in cards" :key="card.id">
                     <div class="img_block">

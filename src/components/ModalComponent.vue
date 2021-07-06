@@ -3,9 +3,9 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <div class="modal-body">
-            <h3>Change withdraw account</h3>
+            <h3> {{ $t("change_withdraw_account") }} </h3>
             <div class="form-group">
-                <label for="payment" class="py-2">Current number</label>
+                <label for="payment" class="py-2"> {{ $t("current_number") }} </label>
                 <input
                   type="text"
                   class="form-control"
@@ -15,10 +15,10 @@
             <div class="d-flex justify-content-between mt-4">
                 <button class="btn btn-success btn-sm" 
                         @click="closeModal">
-                        Close
+                        {{ $t("close") }}
                 </button>
                 <button class="btn btn-success btn-sm" @click="update">
-                    Update
+                    {{ $t("update") }}
                 </button>
             </div>
         </div>

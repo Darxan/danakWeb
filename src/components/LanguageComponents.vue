@@ -19,7 +19,7 @@
 
 export default ({
     data:() => ({
-        currentLocale: 'Русский',
+        currentLocale: 'Uzbek',
         locale: null
     }),
     mounted() {

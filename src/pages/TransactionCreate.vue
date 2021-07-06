@@ -1,16 +1,18 @@
 <template>
-    <div class="row d-flex align-items-center justify-content-center" style="margin-top:90px;">
-        <notifications position='center center' width="400" group="transaction"/>
+    <div class="row d-flex align-items-center justify-content-center" 
+        style="margin-top:90px; height: 600px"
+        v-cloak>
+        <notifications position='center top' width="400" group="transaction"/>
         <div class="col-md-4 border mt-5 py-4 px-4 shadow">
             <form>
                 <fieldset>
-                    <legend>Create transaction</legend>
+                    <legend class="text-center">Transaction create</legend>
                     <div v-for="item in userWalletList" 
                         :key="item.id"
                         class="d-flex">
                         <label 
                             :for="item.card_type.name"
-                            class="border w-100 mx-2 my-1 shadow-1 px-4 py-4 d-flex align-items-center"
+                            class="border w-100 my-2 shadow-1 px-3 py-3 d-flex align-items-center"
                             :class="[card == item.id ? 'shadow bg-light' : '' ]">
                             <input type="radio" 
                                 :id="item.card_type.name"  
@@ -53,9 +55,11 @@
                 </fieldset>
             </form>
             <div class="d-flex justify-content-between mt-4" v-if="card">
-                <button class="btn btn-secondary btn-sm px-4 py-1 border">
+                <router-link to="/" 
+                             class="btn btn-secondary btn-sm px-4 py-1"
+                             style="color:#fff !important;">
                     Close
-                </button>
+                </router-link>
                 <button v-if="checkBalance"
                         class="btn btn-success btn-sm px-4 py-1" 
                         @click="create">
