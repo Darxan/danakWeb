@@ -1,5 +1,6 @@
 <template>
-  <div class="modal" v-if="state">
+
+  <div class="modal" v-if="state" @click="closeModal">
     <div class="modal-wrapper">
       <div class="modal-container">
         <div class="modal-body">
@@ -46,6 +47,7 @@ export default {
 </script>
 
 <style scoped>
+
 .modal {
   position: fixed;
   top: 0;
