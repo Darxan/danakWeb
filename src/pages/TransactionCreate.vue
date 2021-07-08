@@ -120,7 +120,8 @@ export default {
     },
     
     getImgUrl(pic) {
-          return 'http://127.0.0.1:3000'+pic
+        //   return 'http://127.0.0.1:3000'+pic
+        return "https://danak.uz"+pic
     },
     selectTransactionAccount(id){
         this.current  = this.userWalletList.find(item => item.id == id)

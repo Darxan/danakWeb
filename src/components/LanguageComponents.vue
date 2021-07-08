@@ -1,5 +1,5 @@
 <template>
-<div class="nav-wrapper">
+<div class="nav-wrapper mt-2">
     <div class="sl-nav">
         <flag :iso="locale" class="flag_icon"></flag>&nbsp;
         <ul>

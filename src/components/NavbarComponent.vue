@@ -100,10 +100,10 @@ export default {
     }
   },
   methods:{
-     logout() {
-      this.$store.dispatch("logoutUser").then(() => {
-        this.$router.push("/login");
-      });
+    async logout() {
+      let response = await this.$store.dispatch("logoutUser")
+      console.log("🚀 ~ file: NavbarComponent.vue ~ line 105 ~ logout ~ response", response)
+      this.$router.push("/login");
     },
     profile() {
       this.profileModal = !this.profileModal
