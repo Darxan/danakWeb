@@ -29,6 +29,11 @@ const routes = [
     component: () => import('@/views/Register.vue')
   },
   {
+    path: '/profile/change',
+    name: 'profile_change',
+    component: () => import('@/pages/ProfileChange.vue')
+  },
+  {
     path: '/profile',
     name: 'profile',
     meta: {requiresAuth: true},
@@ -62,6 +67,11 @@ const routes = [
     name: 'order_history',
     meta: {requiresAuth: true},
     component: () => import('@/pages/OrderHistory.vue')
+  },
+  {
+    path: '/referal/list',
+    name: "referal_list",
+    component: () => import('@/pages/ReferalList.vue')
   },
   {
     path: '/refferal/order/history',

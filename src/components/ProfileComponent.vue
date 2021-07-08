@@ -4,8 +4,8 @@
     <div class="header_profile">
         <i class="far fa-user-circle user_icon"></i>
         <p>{{ userData.username }}</p>
-        <a href="#"><img src="@/assets/icons/settings.svg" alt=""></a>
-        <a @click="closeProfileModal"><img src="@/assets/icons/log-out.svg" alt=""></a>
+        <a href="#"><img src="@/assets/icons/settings.svg" alt="" style="max-width:24px"></a>
+        <a @click="logout"><img src="@/assets/icons/log-out.svg" alt=""></a>
     </div>
     <div class="profile_texts">
         <h1>{{ $t("cashback_ustasi") }}</h1>
@@ -33,7 +33,7 @@
         <button
             class="btn btn-success btn-sm px-4"
             @click="withdrawHandler">
-          {{$t("pulni_olish")}}
+          {{$t("pulni_olish")}} sadas
         </button>
     </div>
 </div>
@@ -45,27 +45,31 @@ import { axiosGet } from '@/store/axiosBase'
 export default {
     data:() =>{
         return {
-          userData: null
+          userData: {}
         }
     },
-    async mounted(){
-        let response = await  axiosGet('/api/v1/user/profile/information')
-        if(response.status === 200){
+    mounted(){
+        axiosGet('/api/v1/user/profile/information').then(response => {
             this.userData = response.data.data
-        }
+        })
     },
     methods:{
         closeProfileModal(){
             this.$emit('close')
         },
         withdrawButton(){
-        if(this.userData.all > '0.10'){
-            return true
-        } else {return false}
+            if(this.userData.all > '0.10'){
+                return true
+            } else {return false}
         },
         withdrawHandler(){
             this.$emit('close')
             this.$router.push({path: '/transaction/create'})
+        },     
+        logout() {
+            this.$store.dispatch("logoutUser").then(() => {
+            this.$router.push("/login");
+        });
         }
     },
     
@@ -77,7 +81,7 @@ export default {
 .profile_card {
     position: absolute;
     width: 320px;
-    height: 60vh;
+    height: 68vh;
     top: 110%;
     right: 8%;
     background: #fff;
@@ -160,7 +164,6 @@ export default {
 .cashback {
     width: 82%;
     overflow: hidden;
-    height: 33%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;

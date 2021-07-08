@@ -1,7 +1,8 @@
 <template>
   <div id="mySidenav" class="sidenav">
     <div class="aside">
-      <router-link tag="a" 
+      <router-link tag="a"
+                 v-if="sidebarMenus" 
                  class="col" 
                  class-active="active"
                  exact
@@ -11,7 +12,7 @@
                  >
                 <div @click="close">
                     <img :src="getImgUrl(item.imgUrl)" alt="" style="width:18px">
-                <span > {{ $t(item.title) }}</span>
+                <span >{{ $t(item.title) }}</span>
                 </div>
     </router-link>
     <div class="mobile">
@@ -51,30 +52,22 @@
 </template>
 
 <script>
+
 export default {
     data:() =>{
         return {
             sidebarMenus:[
-                {id:1, title: 'terra', imgUrl: 'icons/home.svg', path: '/'},
-                {id:2, title: 'Order history', imgUrl: 'icons/home.svg', path: '/order/history'},
-                {id:3, title: 'My wallets', imgUrl: 'icons/home.svg', path:'/user-wallets'},
-                {id:4, title: 'To\'lov tarixi', imgUrl: 'icons/home.svg', path:'/transaction/history'},
-                {id:5, title: 'Mening hamyonim', imgUrl: 'icons/home.svg', path:'/mywallet'},
-                {id:6, title: 'Sozlamalar', imgUrl: 'icons/home.svg', path:'/'},
-                {
-                  id:7, title: 'Дохот от друзей', 
-                  imgUrl: 'icons/home.svg', 
-                  path:'/refferal/order/history'
-                },
-                {
-                  id:8, title: 'Daromadli link olish', 
-                  imgUrl: 'icons/home.svg', 
-                  path:'/generate/link'
-                },
-                {
-                  id:9, title: 'Daromadni yechib olish', imgUrl: 'icons/home.svg', path: '/transaction/create'
-                },
-                {id:10, title: 'About', imgUrl: 'icons/home.svg', path:'/about'},
+                {id:1, title: 'bosh_sahifa', imgUrl: 'icons/home.svg', path: '/'},
+                {id:2, title: "order_history", imgUrl: 'icons/history.svg', path: '/order/history'},
+                {id:3, title: "my_wallets", imgUrl: 'icons/wallet.svg', path:'/user-wallets'},
+                {id:4, title: "transaction_history", imgUrl: 'icons/money_back.svg', path:'/transaction/history'},
+                {id:5, title: "my_wallets", imgUrl: 'icons/wallet.svg', path:'/mywallet'},
+                {id:6, title: "doxod_ot_druzey", imgUrl: 'icons/from_friends.svg', path:'/referal/list'},
+                {id:7, title: "doxod_ot_druzey", imgUrl: 'icons/from_friends.svg', path:'/refferal/order/history'},
+                {id:8, title: "darodmadli_link", imgUrl: 'icons/home.svg', path:'/generate/link'},
+                {id:9, title: "daromadni_yechib_olish", imgUrl: 'icons/home.svg', path: '/transaction/create'},
+                {id:10, title: "sozlamalar", imgUrl: 'icons/settings.svg', path:'/profile/change'},
+
             ]
         }
     },

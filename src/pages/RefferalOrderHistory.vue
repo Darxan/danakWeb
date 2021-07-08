@@ -1,18 +1,18 @@
 <template>
     <div v-if="isMounted">
         
-        <section class="section_table pt-5 pb-5 flex-column">
+        <section class="section_table pt-5 pb-5 flex-column mt-5">
             <div class="container ">
-                <h1 class="w-100 text-center align-items-center">Доход от друзей </h1>
+                <h1 class="w-100 text-center align-items-center"> {{ $t("doxod_ot_druzey") }} </h1>
                 <div class="section_table_body">
-                    <table id="customers">
+                    <table id="customers" v-if="orderList.results.length > 0">
                         <tr>
-                            <th>Ордер:</th>
-                            <th>Оплачено:</th>
-                            <th>Ваше доход:</th>
-                            <th>Доход y реффала:</th>
-                            <th>Дата:</th>
-                            <th>Статус</th>
+                            <th> {{ $t("order_id") }} </th>
+                            <th> {{ $t("tolov_qilingan_summa")}}</th>
+                            <th> {{ $t("cashback") }} </th>
+                            <th> {{ $t("percentage") }} </th>
+                            <th> {{ $t("date") }} </th>
+                            <th> {{ $t("status") }} </th>
                         </tr>
                         <tr v-for="order in orders" :key="order.id">
                             <td>{{ order.ali_express_order }}</td>
@@ -22,21 +22,22 @@
                             <td>{{ order.order_time }}</td>
                             <td v-if="order.cash_status == 'Buyer Confirmed Receipt'">
                                 <span class="badge bg-success text-light py-2 px-2">
-                                    Tasdiqlangan
+                                    {{ $t("tasdiqlangan") }}
                                 </span> 
                             </td>
                             <td v-else-if="order.cash_status == 'Payment Completed'">
                                 <span class="badge bg-warning text-dark py-2 px-2">
-                                    Kutilmoqda
+                                    {{ $t("kutilmoqda")}}
                                 </span> 
                             </td>
                             <td v-else>
                                 <span class="badge bg-danger text-light py-2 px-2">
-                                    Bekor qilingan
+                                    {{ $t("bekor_qilingan") }}
                                 </span>
                             </td>
                         </tr>
                     </table>
+                     <h1 v-else class="text-muted"> Xozircha yo'q </h1>
                 </div>
                 <ul class="pagination mt-3" v-if="paginationCount > 1">
                     <li v-if="orderList.previous"> 
@@ -78,7 +79,8 @@ export default {
         return {
             orderList: null,
             isMounted: false,
-            currentPage: 1
+            currentPage: 1,
+            totalPages: null
         }
     },
 
@@ -95,6 +97,7 @@ export default {
         },
         paginationCount() {
             if(this.orderList.count > 10){
+                this.totalPages = Math.ceil(this.orderList.count / 10)
                 return Math.ceil(this.orderList.count / 10)
             }
                 
@@ -112,10 +115,11 @@ export default {
         getTransactionData(page){
             let url = "/api/v1/referral/product/history?page=" + this.currentPage
             if(page == 'next'){
-                this.currentPage++
+                if(this.totalPages > this.currentPage) this.currentPage++
                 url = this.orderList.next
             }else if(page == 'previous') {
-                this.currentPage--
+                if(this.currentPage > 1) this.currentPage--
+                
                 url = this.orderList.previous
             } else {
                 this.currentPage = page

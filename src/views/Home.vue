@@ -1,11 +1,11 @@
 <template>
   <div style="background:#eee;" v-if="isMounted">
-        <section class="section_one">
+        <section class="section_one mt-9vh">
         <div class="container">
             <div class="row w-100 d-flex align-items-center justify-content-center">
-                <div class="col-md-12 text-center my-4 mb-4 d-flex align-items-center justify-content-center">
-                    <h1>{{ $t("pitsa_sayohat") }}</h1>
-                    <p class="cash text-center mt-4">{{ $t("cashback_dokonlar")}}</p>
+                <div class="col-md-12 text-center my-4 mb-4 d-flex align-items-center justify-content-center flex-column">
+                    <h1>{{ $t("pitsa_sayohat") }}</h1><br>
+                    <p class="cash text-center">{{ $t("cashback_dokonlar")}}</p>
                 </div>
                 <div class="col-md-3 mt-5" v-for="item in partnerList" :key="item.id">
                     <div class="card border bg-white py-4 px-2 shadow">
@@ -39,7 +39,7 @@
                          >
                         <img :src="getImgUrl(item.image)" 
                             alt=""
-                            style="max-width: 120px; max-heigth: 120px"
+                            style="max-width: 120px; max-height: 120px"
                             class="card-img-top">
                     </div>
                 </div>
@@ -53,10 +53,10 @@
             <p class="cash mt-3"> {{ $t("section_3_title_2") }} </p>
             <img src="@/assets/images/announcement.svg" alt="" style="max-width: 300px;">
             <div class="social_btns">
-                <a href=""><button><i class="fab fa-facebook-f"></i><p>Facebook</p>&nbsp;<p>1711</p></button></a>
-                <a href=""><button><i class="fab fa-vk"></i><p>VKontakte</p>&nbsp;<p>803</p></button></a>
-                <a href=""><button><i class="fab fa-twitter"></i><p>Twitter</p>&nbsp;<p>1072</p></button></a>
-                <a href=""><button><i class="fab fa-odnoklassniki"></i><p>Одноклас..</p>&nbsp;<p>702</p></button></a>
+                <a href=""><button><i class="fab fa-facebook-f"></i><p style="margin: 0">Facebook</p>&nbsp;<p style="margin: 0">1711</p></button></a>
+                <a href=""><button><i class="fab fa-vk"></i><p style="margin: 0">VKontakte</p>&nbsp;<p style="margin: 0">803</p></button></a>
+                <a href=""><button><i class="fab fa-twitter"></i><p style="margin: 0">Twitter</p>&nbsp;<p style="margin: 0">1072</p></button></a>
+                <a href=""><button><i class="fab fa-odnoklassniki"></i><p style="margin: 0">Одноклас..</p>&nbsp;<p style="margin: 0">702</p></button></a>
             </div>
         </div>
     </section>

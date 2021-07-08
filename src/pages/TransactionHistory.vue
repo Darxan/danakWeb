@@ -1,16 +1,16 @@
 <template>
     <div v-if="isMounted">
         <section class="section_table pt-5 pb-5 flex-column">
-            <div class="container ">
-                <h1 class="w-100 text-center align-items-center">Transaction history </h1>
-                <div class="section_table_body">
-                    <table id="customers">
+            <div class="container" >
+                <h1 class="w-100 text-center align-items-center"> {{ $t("transaction_history") }} </h1>
+                <div class="section_table_body" >
+                    <table id="customers" v-if="transactionData.length > 0">
                         <tr>
-                            <th>Card number</th>
-                            <th>Data</th>
-                            <th>Withdraw method</th>
-                            <th>Summa</th>
-                            <th>Status</th>
+                            <th> {{ $t("card_number") }} </th>
+                            <th>{{ $t("date") }}</th>
+                            <th> {{$t("withdraw_method")}} </th>
+                            <th> {{ $t("summa") }} </th>
+                            <th>{{ $t("Status")}}</th>
                         </tr>
                         <tr v-for="transaction in transactionList" :key="transaction.id">
                             <td>{{ maskCardNumber(transaction.client_card) }}</td>
@@ -21,6 +21,7 @@
                             <td v-if="transaction.payment_status == 1">Completed</td>
                         </tr>
                     </table>
+                     <h1 v-else class="text-muted"> Xozircha yo'q </h1>
                 </div>
                 <ul class="pagination mt-3" v-if="paginationCount > 1">
                     <li v-if="transactionData.previous"> 
@@ -56,6 +57,7 @@ import Additional from '@/components/AdditionalActions'
 import Information from '@/components/InformationComponent'
 import { axiosGet } from '@/store/axiosBase.js'
 export default {
+    name: 'transaction-history',
     data:() =>{
         return {
             transactionData: null,
@@ -191,6 +193,7 @@ ul li:last-child {
     height: auto;
     padding-top: 2rem;
     padding-bottom: 3rem;
+    margin-top: 9vh;    
 }
 
 .section_table .container .section_table_header {

@@ -1,10 +1,10 @@
 <template>
-    <section class="container border">
+    <section class="container border" style="margin-top: 11vh;">
         <notifications position='center top' width="400" group="generate"/>
         <div class="cards text-center p-4 container mt-4">
             <div class="texts p-1">
-                <h1>Создай кэшбэк-ссылку</h1>
-                <p>Создайте кэшбэк-ссылку на товар и поделитесь ею с другом. Если друг совершит покупку — Вы получите за нее кэшбэк.</p>
+                <h1> {{ $t("create_cashback_link") }} </h1>
+                <p> {{ $t("create_link") }} </p>
             </div>
             <div class="inputs p-3">
                 <input type="text" 
@@ -16,7 +16,7 @@
                     :disabled="generateButton"
                     @click="generateLink"
                 >
-                    Создать
+                    {{ $t("create") }}
                 </button>
             </div>
             <div class="content d-flex flex-column w-25 my-3" 

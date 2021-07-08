@@ -131,21 +131,13 @@ export default ({
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center center no-repeat;
+    margin-top: 9.3vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     padding-top: 5rem;
     padding-bottom: 4rem;
-}
-.section::before {
-    content: '';
-    position: absolute;
-    
-    width: 100%;
-    height: 100%;
-    /* background: rgba(0,0,0,0.4); */
 }
 .section .card {
     width: 400px;
@@ -158,7 +150,9 @@ export default ({
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    position: relative
+    position: relative;
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 .section .card .back {
     position: absolute;

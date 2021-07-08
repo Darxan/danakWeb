@@ -19,7 +19,7 @@
             <div class="texts">
                 <!-- Mualliflik huquqi © - Danak barcha huquqlar himoyalangan 2021 -->
                 <p> {{ $t("footer_title") }} </p>
-                <span><a href="#">{{ $t("foydalanuvchi_shartnomasi") }} </a><span> va </span><a href="#"> {{ $t("maxfiylik_siyosati")}}</a></span>
+                <span><a href="#">{{ $t("foydalanuvchi_shartnomasi") }} </a><span> {{ $t("and") }} </span><a href="#"> {{ $t("maxfiylik_siyosati")}}</a></span>
             </div>
             <div class="download_img">
                 <a href="#"><img src="@/assets/images/playmarket.svg" alt=""></a>

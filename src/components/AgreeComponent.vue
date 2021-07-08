@@ -3,16 +3,16 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <div class="modal-body">
-            <h5 class="w-100 text-center">Siz ushbu accountni uchirib yubormoqchimisiz ?</h5>
+            <h5 class="w-100 text-center"> {{ $t("delete_account") }} </h5>
             <div class="d-flex justify-content-center  pt-3">
               <div class="w-50 d-flex justify-content-between">
                 <button class="btn btn-success btn-sm pr-1 px-4" 
                         @click="closeModal">
-                        Close
+                        {{ $t("close") }}
                 </button>
                 <button class="btn btn-danger btn-sm pl-1 px-4"
                         @click="agree">
-                    Delete
+                    {{ $t("delete") }}
                 </button>
               </div>
                 

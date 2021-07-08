@@ -3,12 +3,12 @@ import VueI18n from 'vue-i18n'
 
 Vue.use(VueI18n)
 
-import ru from '@/locale/ru.json'
+import uz from '@/locale/uz.json'
 
 export const i18n = new VueI18n({
-  locale: 'ru',
-  fallbackLocale:'ru',
+  locale: 'uz',
+  fallbackLocale:'uz',
   messages: {
-    ru
+    uz
   }
 })

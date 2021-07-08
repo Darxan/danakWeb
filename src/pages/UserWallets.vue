@@ -6,14 +6,14 @@
                 <div class="section_table_body d-flex flex-column">
                     <table id="customers">
                         <tr>
-                            <th>Card number</th>
-                            <th>Withdraw method</th>
-                            <th>Images</th>
+                            <th> {{ $t("card_number") }} </th>
+                            <th> {{ $t("withdraw_method") }} </th>
+                            <th> {{ $t("images") }} </th>
                             <th>Actions</th>
                         </tr>
                         <tr v-for="wallet in walletList" :key="wallet.id">
                             <td>{{ maskCardNumber(wallet.card_number) }}</td>
-                            <td border>{{ wallet.card_type.name }}</td>
+                            <td>{{ wallet.card_type.name }}</td>
                             <td> <img :src="getImgUrl(wallet.card_type.image)" alt="" width="40" > </td>
                             <td class="action_button_container">
                                 <button @click="changeCardNumber(wallet.id)">
@@ -28,7 +28,7 @@
                     <div class="container d-flex pt-4 justify-content-end align-items-end w-100 px-4">
                         <button class="btn btn-success px-4 btn-sm py-1"
                                 @click="createModal = true">
-                            Create
+                            {{ $t("create") }}
                         </button>
                     </div>
                 </div>
@@ -163,6 +163,7 @@ export default {
     height: auto;
     padding-top: 2rem;
     padding-bottom: 3rem;
+    margin-top: 9vh;
 }
 
 .section_table .container .section_table_header {

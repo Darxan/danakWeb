@@ -21,7 +21,7 @@
             <div class="imgBx">
               <router-link to="/" class="link_for_image"><img src="@/assets/images/danak.png" alt=""></router-link>
               <router-link to="/" style="text-decoration:none;" class="link_for_danak">
-                  <h1>Danak</h1>
+                  <h1 class="c-black">Danak</h1>
                 </router-link>
             </div> 
           </div>
@@ -35,12 +35,12 @@
               </router-link>
               <template v-if="!isUserAuthenticated">
                 <router-link to="/login" class="login">{{ $t("kirish")}}</router-link>
-                <router-link to="/register" class="register" >{{ $t("royxatdan_otish")}}</router-link>
+                <router-link to="/register" class="btn btn-outline-success" >{{ $t("royxatdan_otish")}}</router-link>
               </template>
               <template v-else>
                 <button
                   @click="logout"
-                  class="btn btn-outline-danger btn-sm py-1 px-4">
+                  class="btn btn-outline-danger">
                   {{ $t("close") }}
                 </button>
               </template>

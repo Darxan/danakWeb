@@ -1,10 +1,10 @@
 <template>
     <div>
-        <section class="section_2">
+        <section class="section_2 mt-9vh">
             <div class="container">
                 <div class="text">
-                <h1>Pulni tortib olish usullari <a href="#"> Pul mablag'larini olishning eng yaxshi usuli qayerda?</a></h1>
-                <p>Pul olish uchun mablag 'yetarli emas</p>
+                <h1> {{ $t("pulni_tortib_olish_usullari") }} <a href="#"> {{ $t("pul_olish_usullari") }} </a></h1>
+                <p> {{ $t("pul_yetarli_emas") }} </p>
              </div>
                 <div class="section_2_cards">
                     <div class="cards" v-for="card in cards" :key="card.id">
@@ -32,6 +32,7 @@
 <script>
 import Information from '@/components/InformationComponent'
 export default {
+  name: 'my-wallet',
   data () {
     return {
         cards: [
@@ -62,7 +63,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 10vh;
     height: auto;
 }
 .section_2 .container {
