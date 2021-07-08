@@ -11,7 +11,7 @@
                  >
                 <div @click="close">
                     <img :src="getImgUrl(item.imgUrl)" alt="" style="width:18px">
-                <span >{{ item.title }}</span>
+                <span > {{ $t(item.title) }}</span>
                 </div>
     </router-link>
     <div class="mobile">
@@ -55,7 +55,7 @@ export default {
     data:() =>{
         return {
             sidebarMenus:[
-                {id:1, title: 'Bosh sahifa', imgUrl: 'icons/home.svg', path: '/'},
+                {id:1, title: 'terra', imgUrl: 'icons/home.svg', path: '/'},
                 {id:2, title: 'Order history', imgUrl: 'icons/home.svg', path: '/order/history'},
                 {id:3, title: 'My wallets', imgUrl: 'icons/home.svg', path:'/user-wallets'},
                 {id:4, title: 'To\'lov tarixi', imgUrl: 'icons/home.svg', path:'/transaction/history'},

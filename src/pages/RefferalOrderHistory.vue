@@ -46,7 +46,7 @@
                         </button>
                     </li>
                     <template v-for="item in paginationCount">
-                        <li v-if="item < 11" class="pageNumber"
+                        <li v-if="item < 11" class="pageNumber" :key="item"
                             :class="[currentPage == item ? 'active' : '']">
                         <span class="border-0"
                                 @click="getTransactionData(item)">
@@ -121,7 +121,7 @@ export default {
                 this.currentPage = page
                 url = "/api/v1/referral/product/history?page=" + page
             }
-            axiosGet(url).then(response => {
+            axiosGet.get(url).then(response => {
                 this.orderList = response.data
             })
         }

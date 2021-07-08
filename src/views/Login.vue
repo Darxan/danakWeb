@@ -100,7 +100,7 @@ export default ({
                 if(response.status == 200){
                     setTimeout(() =>{
                         this.$router.push({ path: '/' })
-                    }, 1500)
+                    }, 2000)
                 }
             })
         },
