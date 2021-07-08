@@ -1,7 +1,8 @@
 import axios from "axios";
 import store from "../store";
 // const APIUrl = "http://127.0.0.1:3000";
-const APIUrl = "http://185.206.212.179"
+// const APIUrl = "http://185.206.212.179"
+const APIUrl = "https://danak.uz";
 
 const token = localStorage.getItem("_uidt");
 if (token) {

@@ -1,14 +1,14 @@
 <template>
     <footer class="section_five">
         <div class="container">
-            <div class="images">
+            <!-- <div class="images">
                 <img src="@/assets/images/paypal.svg" alt="">
                 <img src="@/assets/images/mc.svg" alt="">
                 <img src="@/assets/images/visa.svg" alt="">
                 <img src="@/assets/images/ya_money.svg" alt="">
                 <img src="@/assets/images/qiwi.svg" alt="">
                 <img src="@/assets/images/webmoney.svg" alt="">
-            </div>
+            </div> -->
             <p class="cash">{{ $t("bizga_ergashing")}}</p>
             <div class="social_btns">
                 <a href="#"><i class="fab fa-vk"></i></a>

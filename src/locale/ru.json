@@ -110,5 +110,13 @@
   "summa": "Сумма",
   "transaction_history": "История транзакций",
   "images": "Изображений",
-  "and": "и"
+  "and": "и",
+  "bosh_sahifa": "Дом",
+  "my_wallets": "Мои кошельки",
+  "darodmadli_link": "Ссылка на доход",
+  "daromadni_yechib_olish": "Вывод дохода",
+  "sozlamalar": "Настройки",
+  "dostlaringizni_taklif_qiling": "Приглашайте друзей и получайте за них деньги",
+  "havola_yordamida_dostlar": "После регистрации по ссылке ваш друг получит уровень «Торговец» в программе лояльности «Мегабонус». Каждый раз, когда твой друг ...",
+  "dostlardan_keladigan_daromad": "Подробнее о «Доходе от друзей»"
 }

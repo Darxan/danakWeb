@@ -8,17 +8,20 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: Home,
+    // meta: {requiresAuth: true}
   },
   {
     path: '/login',
     name: 'login',
+    meta: {requiresLogged: true},
     component: () => import('@/views/Login.vue')
   },
   {
     path: '/mywallet',
     name: 'mywallet',
-    component: () => import('@/pages/MyWallet.vue')
+    component: () => import('@/pages/MyWallet.vue'),
+    meta: {requiresAuth: true}
   },
   {
     path: '/register',
@@ -33,6 +36,7 @@ const routes = [
   {
     path: '/profile',
     name: 'profile',
+    meta: {requiresAuth: true},
     component: () => import('@/views/Profile.vue')
   },
   {
@@ -43,21 +47,25 @@ const routes = [
   {
     path: '/user-wallets',
     name: 'user_wallets',
+    meta: {requiresAuth: true},
     component: () => import('@/pages/UserWallets.vue')
   },
   {
     path: '/transaction/history',
+    meta: {requiresAuth: true},
     name: 'transaction_history',
     component: () => import('@/pages/TransactionHistory.vue')
   },
   {
     path: '/transaction/create',
     name: 'transaction_create',
+    meta: {requiresAuth: true},
     component: () => import('@/pages/TransactionCreate.vue')
   },
   {
     path: '/order/history',
     name: 'order_history',
+    meta: {requiresAuth: true},
     component: () => import('@/pages/OrderHistory.vue')
   },
   {
@@ -68,10 +76,12 @@ const routes = [
   {
     path: '/refferal/order/history',
     name: 'refferal_order_history',
+    meta: {requiresAuth: true},
     component: () => import('@/pages/RefferalOrderHistory.vue')
   },
   {
     path: '/generate/link',
+    meta: {requiresAuth: true},
     name: 'generate_link',
     component: () => import('@/pages/GenerateLink.vue')
   },

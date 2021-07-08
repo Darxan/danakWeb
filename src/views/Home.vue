@@ -28,7 +28,7 @@
     <!-- ikkinchi section boshlandi -->
     <div class="container mt-3" id="section_two">
         <div class="text-center">
-                <h1> {{ $t("section_2_title") }} </h1>
+                <h5> {{ $t("section_2_title") }} </h5>
                 <p> {{ $t("section_2_title_2") }} </p>
             </div>
         <div class="row bg-white my-5" style="border-left: 2px solid green">
@@ -46,21 +46,11 @@
             </div>
         </div>
     </div>
-    <!-- <section class="section_two" id="section_two">
-        
-        <img src="@/assets/images/paypal.png" alt="">
-        <img src="https://danak.uz/media/payment_image/Uzcard-01.png" alt="">
-        <img src="https://danak.uz/media/payment_image/humo.png" alt="">
-        <img src="" alt="">
-    </section> -->
-    <!-- ikkinchi section tugadi -->
-
     <!-- uchinchi section boshlandi -->
     <section class="section_three">
         <div class="container">
-            <h1> {{ $t("section_3_title") }}  <i class="fas fa-heart"></i>   {{ $t("section_3_title_2qismi") }} </h1>
+            <h1> {{ $t("section_3_title") }}  <i class="fas fa-heart text-danger"></i>   {{ $t("section_3_title_2qismi") }} </h1>
             <p class="cash mt-3"> {{ $t("section_3_title_2") }} </p>
-            <!-- <img src="@/assets/images/jamoa.webp" alt=""> -->
             <img src="@/assets/images/announcement.svg" alt="" style="max-width: 300px;">
             <div class="social_btns">
                 <a href=""><button><i class="fab fa-facebook-f"></i><p style="margin: 0">Facebook</p>&nbsp;<p style="margin: 0">1711</p></button></a>
@@ -133,7 +123,7 @@ export default {
   methods: {
       getImgUrl(pic) {
         // return require('../assets/'+pic)
-        return "http://127.0.0.1:3000"+pic
+        return "https://danak.uz"+pic
       },
   },
 }

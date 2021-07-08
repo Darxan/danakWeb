@@ -3,7 +3,7 @@ import {axiosBase, ApiService }  from './axiosBase'
 export default ({
   state: {
     user: {
-      isAuthenticated: false,
+      isAuthenticated: localStorage.getItem('_uidt') ? true : false,
       token: localStorage.getItem('_uidt') || null,
     },
 
@@ -53,19 +53,12 @@ export default ({
           })
       })
     },
-    async logoutUser({commit,getters}) {
+    async logoutUser({commit, getters}) {
       if (getters.loggedIn) {
-        try {
-          const response = await axiosBase.post('/auth/token/logout')
-          localStorage.removeItem('_uidt')
-          commit('destroyToken', response.detail)
-          commit('getProfile', null)
-          return response
-        } catch (e) {
+          axiosBase.post('/auth/token/logout')
           localStorage.removeItem('_uidt')
           commit('destroyToken')
-          throw e.message
-        }
+          commit('getProfile', null)
       }
     },
     loginUser({commit,dispatch}, payload) {

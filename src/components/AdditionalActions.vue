@@ -9,13 +9,13 @@
                     </div>
                     <div class="description">
                     <p class="title">
-                        {{ card.name }}
+                        {{ $t(card.name) }}
                     </p>
                     <p class="descr_text">
-                        {{ card.paragraph }}
+                        {{ $t(card.paragraph) }}
                     </p>
                 </div>
-                    <p><a :href="card.link">{{ card.link_name }}</a></p>
+                    <p><a :href="card.link">{{ $t(card.link_name) }}</a></p>
                 </div>
             </div>
         </div>
@@ -27,9 +27,9 @@
         data:() => {
             return {
                 cards: [
-                    {id: 1, img: 'images/human.png', name: "Do'stlaringizni taklif qiling va ular uchun naqd pul olish", paragraph: "Havola yordamida ro'yxatdan o'tgandan so'ng, do'stingiz 'Megabonus' sodiqlik dasturida 'Savdogar' darajasini oladi. Do'stingiz har safar ...", link_name: "'Do'stlardan keladigan daromad' haqida batafsil", link: 'https://youtube.com'},
-                    {id: 2, img: 'images/human.png', name: "Do'stlaringizni taklif qiling va ular uchun naqd pul olish", paragraph: "Havola yordamida ro'yxatdan o'tgandan so'ng, do'stingiz 'Megabonus' sodiqlik dasturida 'Savdogar' darajasini oladi. Do'stingiz har safar ...", link_name: "'Do'stlardan keladigan daromad' haqida batafsil", link: 'https://youtube.com'},
-                    {id: 3, img: 'images/human.png', name: "Do'stlaringizni taklif qiling va ular uchun naqd pul olish", paragraph: "Havola yordamida ro'yxatdan o'tgandan so'ng, do'stingiz 'Megabonus' sodiqlik dasturida 'Savdogar' darajasini oladi. Do'stingiz har safar ...", link_name: "'Do'stlardan keladigan daromad' haqida batafsil", link: 'https://youtube.com'},
+                    {id: 1, img: 'images/human.png', name: "dostlaringizni_taklif_qiling", paragraph: "havola_yordamida_dostlar", link_name: "dostlardan_keladigan_daromad", link: 'https://youtube.com'},
+                    {id: 2, img: 'images/human.png', name: "dostlaringizni_taklif_qiling", paragraph: "havola_yordamida_dostlar", link_name: "dostlardan_keladigan_daromad", link: 'https://youtube.com'},
+                    {id: 3, img: 'images/human.png', name: "dostlaringizni_taklif_qiling", paragraph: "havola_yordamida_dostlar", link_name: "dostlardan_keladigan_daromad", link: 'https://youtube.com'},
                 ],
             }
         },

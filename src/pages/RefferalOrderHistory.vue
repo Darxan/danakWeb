@@ -45,14 +45,16 @@
                                 <img src="@/assets/icons/arrow-left-circle.svg" alt="">
                         </button>
                     </li>
-                    <li class="pageNumber"
-                        v-for="item in paginationCount" :key="item"
-                        :class="[currentPage == item ? 'active' : '']">
-                        <span class="border-0" 
+                    <template v-for="item in paginationCount">
+                        <li v-if="item < 11" class="pageNumber"
+                            :class="[currentPage == item ? 'active' : '']">
+                        <span class="border-0"
                                 @click="getTransactionData(item)">
-                                {{ item }}
+                            {{ item }}
                         </span>
                     </li>
+                    </template>
+                    
                     <li v-if="orderList.next">
                         <button  @click="getTransactionData('next')" 
                         class="next border-0 bg-light">
@@ -61,9 +63,7 @@
                     </li>
                 </ul>
             </div>
-            
         </section>
-        
         <Additional />
         <Information />
     </div>

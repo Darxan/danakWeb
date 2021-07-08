@@ -101,8 +101,9 @@ export default {
             return result
         },
         getImgUrl(pic) {
-            return 'http://185.206.212.179'+pic
-            return 'http://127.0.0.1:3000'+pic
+            // return 'http://185.206.212.179'+pic
+            // return 'http://127.0.0.1:3000'+pic
+            return "https://danak.uz"+pic
         },
         closeModal(state){
             this.showModal = false
