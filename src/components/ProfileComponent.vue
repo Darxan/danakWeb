@@ -1,10 +1,10 @@
 <template>
 <!-- profil card boshlandi -->
-<div class="profile_card" id="card" v-if="userData = true">
+<div class="profile_card" id="card" v-if="userData">
     <div class="header_profile">
         <i class="far fa-user-circle user_icon"></i>
         <p>{{ userData.username }}</p>
-        <a href="#"><img src="@/assets/icons/settings.svg" alt=""></a>
+        <a href="#"><img src="@/assets/icons/settings.svg" alt="" width="30"></a>
         <a @click="logout"><img src="@/assets/icons/log-out.svg" alt=""></a>
     </div>
     <div class="profile_texts">
