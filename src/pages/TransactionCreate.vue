@@ -1,12 +1,12 @@
 <template>
     <div class="row d-flex align-items-center justify-content-center" 
-        style="margin-top:90px; height: 600px"
+        style="margin-top:90px; height: auto"
         v-cloak>
         <notifications position='center top' width="400" group="transaction"/>
         <div class="col-md-4 border mt-5 py-4 px-4 shadow">
             <form>
                 <fieldset>
-                    <legend class="text-center">Transaction create</legend>
+                    <legend class="text-center"> {{ $t("transaction_create") }} </legend>
                     <div v-for="item in userWalletList" 
                         :key="item.id"
                         class="d-flex">
@@ -28,7 +28,7 @@
                     </div>
                     <div class="mb-3" v-if="card">
                         <label for="disabledTextInput" class="form-label">
-                            Selected wallet address
+                            {{ $t("selected_wallet_address") }}
                         </label>
                             <input
                             type="text"
@@ -40,7 +40,7 @@
                     </div>
                     <div class="mb-3 mt-2" v-if="card">
                         <label for="disabledTextInput" class="form-label">
-                            Amount sum (<strong>Available  {{userData.all}} $</strong>)
+                            {{ $t("amount_sum") }} (<strong> {{ $t("available") }}   {{userData.all}} $</strong>)
                         </label>
                             <input
                                 type="number"

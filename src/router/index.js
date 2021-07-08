@@ -61,6 +61,11 @@ const routes = [
     component: () => import('@/pages/OrderHistory.vue')
   },
   {
+    path: '/referal/list',
+    name: "referal_list",
+    component: () => import('@/pages/ReferalList.vue')
+  },
+  {
     path: '/refferal/order/history',
     name: 'refferal_order_history',
     component: () => import('@/pages/RefferalOrderHistory.vue')

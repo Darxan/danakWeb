@@ -3,8 +3,8 @@
         <section class="mt-9vh">
             <div class="container">
                 <div class="text">
-                    <h1 class="m-t2">Доход от друзей</h1>
-                    <p>Здесь Вы можете увидеть доход от друзей, приведённых Вами. Пожалуйста, свяжитесь с нами, если у вас есть вопросы.</p>
+                    <h1 class="m-t2"> {{ $t("doxod_ot_druzey") }} </h1>
+                    <p> {{ $t("doxod_ot_druzey_2") }} </p>
                 </div>
                 <div class="links">
                     <a :href="link.link" v-for="link in links" :key="link.id"> {{ link.title }} </a>
@@ -16,45 +16,43 @@
                         <div class="cards">
                             <div class="container text-center">
                                 <div class="texts">
-                                    <h2 class="p-2">Приведи друга и заработай</h2>
-                                    <p class="p-2">Каждый друг, который зарегистрируется по вашей ссылке,
-                                    принесет вам доход до 50% от суммы своего кэшбэка</p>
-                                    <p>Ссылка для ваших друзей:</p>
+                                    <h2 class="p-2"> {{ $t("privedi_druga") }} </h2>
+                                    <p class="p-2"> {{ $t("privedi_druga_2") }} </p>
+                                    <p> {{ $t("ssilka_dlya_vashix_druzey") }} </p>
                                 </div>
                                 <div class="content">
                                     <div>
                                         <h1 class="margin copy_text" id="copy_text"><input type="text" v-model="url"  id="myInput" readonly="true"></h1>
                                         <div class="tooltip">
                                             <button @click="myFunction()" @mouseout="outFunc()" class="copy_button">
-                                            <span class="tooltiptext" id="myTooltip">Copy</span>Copy url</button>
+                                            <span class="tooltiptext" id="myTooltip"> {{ $t("copy") }} </span> {{ $t("copy_url") }} </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="cards">
-                            <p>Доход от друзей появится в этом разделе.
+                            <p>{{ $t("doxod_ot_druzey_etom_razdele") }} 
                             </p>
                         </div>
                         <div class="cards text-center p-4">
                             <div class="texts p-1">
-                                <h1>Создай кэшбэк-ссылку</h1>
-                                <p>Создайте кэшбэк-ссылку на товар и поделитесь ею с другом. Если друг совершит покупку — Вы получите за нее кэшбэк.</p>
+                                <h1> {{ $t("create_cashback_link") }} </h1>
+                                <p>{{ $t("create_link") }}</p>
                             </div>
                             <div class="inputs p-3">
                                 <input type="text" placeholder="Укажите ссылку на товар">
-                                <button class="copy_button">Создать</button>
+                                <button class="copy_button">{{$t("create")}}</button>
                             </div>
                         </div> 
                     </div>
                     <div class="card_2">
                         <div class="cards text-center">
-                            <p class="font-bold p-4">Условия выплаты
-                                дохода от друзей</p>
+                            <p class="font-bold p-4"> {{ $t("istoriya_viiplati") }} </p>
                             <h1 class="font-bold font-50">50%</h1>
-                            <p class="font-bold p-3">Вы получаете 50% от кэшбэка друзей, которых вы привели. А ваши друзья получат повышенный кэшбэк.</p>
+                            <p class="font-bold p-3"> {{ $t("istoriya_viiplati_2") }} </p>
 
-                            <router-link to="/about" class="font-bold c-link u-none">Подробнее</router-link>
+                            <router-link to="/about" class="font-bold c-link u-none"> {{ $t("podrobnee") }} </router-link>
                         </div>
                     </div>
                 </div>
@@ -71,9 +69,9 @@ import Information from '@/components/InformationComponent'
             return {
                 url: 'http://danak.uz',
                 links: [
-                    {id: 1, link: 'youtube.com', title: 'Как это работает?'},
-                    {id: 2, link: 'youtube.com', title: 'Что такое кэшбэк-ссылка?'},
-                    {id: 3, link: 'youtube.com', title: 'Как привести друзей?'}
+                    {id: 1, link: 'youtube.com', title: this.$i18n.t("kak_eto_rabotaet")},
+                    {id: 2, link: 'youtube.com', title: this.$i18n.t("chto_takoe_cashback_link")},
+                    {id: 3, link: 'youtube.com', title: this.$i18n.t("kak_privesti_druzey")}
                 ]
             }
         },

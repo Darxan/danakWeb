@@ -4,40 +4,46 @@
         <section class="section_table pt-5 pb-5 flex-column mt-5">
             <div class="container ">
                 <h1 class="w-100 text-center align-items-center"> {{ $t("order_history") }}  </h1>
-                <div class="section_table_body">
-                    <table id="customers">
-                        <tr>
-                            <th> {{ $t("order_id") }} </th>
-                            <th> {{ $t("tolov_qilingan_summa") }} </th>
-                            <th> {{ $t("cashback") }} </th>
-                            <th> {{ $t("percentage") }} </th>
-                            <th> {{ $t("date") }} </th>
-                            <th> {{ $t("status") }} </th>
-                        </tr>
-                        <tr v-for="order in orders" :key="order.id">
-                            <td>{{ order.ali_express_order }}</td>
-                            <td>{{ order.payment_amount }}</td>
-                            <td>{{ order.comission_user }} $</td>
-                            <td>{{ order.percentage_user }} %</td>
-                            <td>{{ order.order_time }}</td>
-                            <td v-if="order.cash_status == 'Buyer Confirmed Receipt'">
-                                <span class="badge bg-success text-light py-2 px-2">
-                                    {{ $t("tasdiqlangan") }}
-                                </span> 
-                            </td>   
-                            <td v-else-if="order.cash_status == 'Payment Completed'">
-                                <span class="badge bg-warning text-dark py-2 px-2">
-                                    {{ $t("kutilmoqda")}}
-                                </span> 
-                            </td>
-                            <td v-else>
-                                <span class="badge bg-danger text-light py-2 px-2">
-                                    {{ $t("bekor_qilingan") }}
-                                </span>
-                            </td>
-                        </tr>
+                    <div class="table_container">
+                        <div class="section_table_body">
+                            <table id="customers">
+                                <tr>
+                                    <th> {{ $t("order_id") }} </th>
+                                    <th> {{ $t("tolov_qilingan_summa") }} </th>
+                                    <th> {{ $t("cashback") }} </th>
+                                    <th> {{ $t("percentage") }} </th>
+                                    <th> {{ $t("date") }} </th>
+                                    <th> {{ $t("status") }} </th>
+                                </tr>
+                                <tr v-for="order in orders" :key="order.id">
+                                    <td>{{ order.ali_express_order }}</td>
+                                    <td>{{ order.payment_amount }}</td>
+                                    <td>{{ order.comission_user }} $</td>
+                                    <td>{{ order.percentage_user }} %</td>
+                                    <td>{{ order.order_time }}</td>
+                                    <td v-if="order.cash_status == 'Buyer Confirmed Receipt'">
+                                        <span class="badge bg-success text-light py-2 px-2">
+                                            {{ $t("tasdiqlangan") }}
+                                        </span> 
+                                    </td>   
+                                    <td v-else-if="order.cash_status == 'Payment Completed'">
+                                        <span class="badge bg-warning text-dark py-2 px-2">
+                                            {{ $t("kutilmoqda")}}
+                                        </span> 
+                                    </td>
+                                    <td v-else>
+                                        <span class="badge bg-danger text-light py-2 px-2">
+                                            {{ $t("bekor_qilingan") }}
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <table class="table table-dark table-hover">
+                        ...
                     </table>
-                </div>
                 <ul class="pagination mt-3" v-if="paginationCount > 1">
                     <li v-if="orderList.previous"> 
                         <button class="prev border-0 bg-light"
@@ -236,8 +242,18 @@ ul li:last-child {
     flex-direction: column;
     height: 100%;
 }
-.section_table_body {
+.table_container {
     width: 100%;
+    height: auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    overflow-x: auto;
+}
+.section_table_body {
+    width: 150vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -251,8 +267,8 @@ ul li:last-child {
 #customers {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: auto;
   }
   
   #customers td, #customers th {
@@ -371,7 +387,6 @@ ul li:last-child {
 }
 .section_1 .container {
     width: 82%;
-    overflow: hidden;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
@@ -448,11 +463,6 @@ ul li:last-child {
 .section_1 .container .section_cards .items:nth-child(2) h1{
     font-weight: 600;
     color: #a6aeb7;
-}
-@media (max-width: 1000px){
-    .section_table_body {
-        width: auto;
-    }
 }
 </style>
 

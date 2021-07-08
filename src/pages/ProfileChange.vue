@@ -22,9 +22,9 @@
                         <input type="date" class="form-control" v-model="birthday">
                     </div>
                     <div v-if="showButton">
-                        <button class="btn btn-primary">{{ message }}</button><br>
+                        <button class="btn btn-danger w-50">{{ message }}</button><br>
                         <br>
-                        <button class="btn btn-light" @click="delit">{{ del }}</button>
+                        <button class="btn btn-warning w-50" @click="delit">{{ del }}</button>
                     </div>
                 </div>
                 <div class="cards_2 text-center">
@@ -42,9 +42,9 @@
                         <input type="" class="form-control" v-model="passwordNewAgain">
                     </div>
                      <div v-if="showButtonPassword">
-                        <button class="btn btn-primary">{{ message }}</button><br>
+                        <button class="btn btn-danger w-50">{{ message }}</button><br>
                         <br>
-                        <button class="btn btn-light" @click="delit_passwords">{{ del }}</button>
+                        <button class="btn btn-warning w-50" @click="delit_passwords">{{ del }}</button>
                     </div>
                 </div>
             </div> 
@@ -114,7 +114,7 @@ import { axiosPost } from '@/store/axiosBase'
     height: auto;
 }
 .cards, .cards_2  {
-    padding: 2rem;
+    padding: 0rem 2rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
