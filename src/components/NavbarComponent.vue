@@ -5,26 +5,22 @@
     {{scrolling}}
       <div class="container navbar__container">
         <div class="content">
-        <div class="navbar_left__box">
-           <!-- <a @click="sidebar = true" class="border-0" v-if="!sidebar">
-              <img src="@/assets/icons/menu.svg" alt="">
-           </a> 
-           <a v-if="sidebar" @click="sidebar = false">
-             <img src="@/assets/icons/x.svg" alt="">
-           </a> -->
-           <button @click="toggleMenu()" class="hamburger">
-            <span class="hamburger-line hamburger-line-1"></span>
-            <span class="hamburger-line hamburger-line-2"></span>
-            <span class="hamburger-line hamburger-line-3"></span>
-           </button>
-           </div>
-            <div class="imgBx">
-              <router-link to="/" class="link_for_image"><img src="@/assets/images/danak.png" alt=""></router-link>
+              <!-- <a @click="sidebar = true" class="border-0" v-if="!sidebar">
+                  <img src="@/assets/icons/menu.svg" alt="">
+              </a> 
+              <a v-if="sidebar" @click="sidebar = false">
+                <img src="@/assets/icons/x.svg" alt="">
+              </a> -->
+              <button @click="toggleMenu()" class="hamburger">
+                <span class="hamburger-line hamburger-line-1"></span>
+                <span class="hamburger-line hamburger-line-2"></span>
+                <span class="hamburger-line hamburger-line-3"></span>
+              </button>
+              <router-link to="/" class="link_for_image"><img src="@/assets/images/danak.png" alt="" width="50"></router-link>
               <router-link to="/" style="text-decoration:none;" class="link_for_danak">
                   <h1 class="c-black">Danak</h1>
-                </router-link>
-            </div> 
-          </div>
+              </router-link>
+        </div>
           <div class="btns d-flex align-items-center"> 
               <router-link 
                           to="/about" 
@@ -35,7 +31,9 @@
               </router-link>
               <template v-if="!isUserAuthenticated">
                 <router-link to="/login" class="login">{{ $t("kirish")}}</router-link>
-                <router-link to="/register" class="btn btn-outline-success" >{{ $t("royxatdan_otish")}}</router-link>
+                <div class="p-2">
+                  <router-link to="/register" class="btn btn-outline-success " >{{ $t("royxatdan_otish")}}</router-link>
+                </div>
               </template>
               <template v-else>
                 <button
@@ -92,7 +90,7 @@ export default {
           {title: 'Register', path: '/register'}
         ]
     },
-    scrolling(){
+    scrolling(){ 
       window.addEventListener('scroll', function(){
         const header = document.querySelector('.navbar');
         header.classList.toggle("sticky", window.scrollY > 0);
@@ -178,19 +176,19 @@ export default {
   justify-content: space-between;
   width: 100px;
 }
-.navbar_left__box{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center ;
-  width: 34px;
-  cursor: pointer;
-}
 .content {
     display: flex;
-    width: 18%;
+    width: auto;
     justify-content: space-between; 
     overflow: hidden;
     align-items: center;
+}
+.link_for_image {
+  padding: 0rem 1rem;
+}
+@media (max-width: 500px){
+  .link_for_danak {
+    display: none;
+  }
 }
 </style>

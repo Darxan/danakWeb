@@ -2,11 +2,11 @@
     <div v-if="isMounted">
         
         <section class="section_table pt-5 pb-5 flex-column mt-5">
-            <div class="container ">
+            <div class="container " >
                 <h1 class="w-100 text-center align-items-center"> {{ $t("order_history") }}  </h1>
                     <div class="table_container">
                         <div class="section_table_body">
-                            <table id="customers">
+                            <table id="customers" v-if="orderList.results.length > 0">
                                 <tr>
                                     <th> {{ $t("order_id") }} </th>
                                     <th> {{ $t("tolov_qilingan_summa") }} </th>
@@ -38,12 +38,11 @@
                                     </td>
                                 </tr>
                             </table>
+                            <h1 v-else class="text-muted"> {{ $t("xozircha_yoq") }} </h1>
                         </div>
                     </div>
 
-                    <table class="table table-dark table-hover">
-                        ...
-                    </table>
+                    
                 <ul class="pagination mt-3" v-if="paginationCount > 1">
                     <li v-if="orderList.previous"> 
                         <button class="prev border-0 bg-light"
@@ -67,6 +66,7 @@
                     </li>
                 </ul>
             </div>
+          
         </section>
         <Additional />
         <Information />

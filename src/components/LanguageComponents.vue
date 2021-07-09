@@ -41,6 +41,7 @@ export default ({
 <style scoped>
 .nav-wrapper {
   text-align: center;
+  padding: 0rem 1rem;
 }
 .sl-nav {
   display: inline;

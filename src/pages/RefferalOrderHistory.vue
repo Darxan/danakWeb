@@ -5,7 +5,7 @@
             <div class="container ">
                 <h1 class="w-100 text-center align-items-center"> {{ $t("doxod_ot_druzey") }} </h1>
                 <div class="section_table_body">
-                    <table id="customers">
+                    <table id="customers" v-if="orderList.results.length > 0">
                         <tr>
                             <th> {{ $t("order_id") }} </th>
                             <th> {{ $t("tolov_qilingan_summa")}}</th>
@@ -37,6 +37,7 @@
                             </td>
                         </tr>
                     </table>
+                     <h1 v-else class="text-muted"> Xozircha yo'q </h1>
                 </div>
                 <ul class="pagination mt-3" v-if="paginationCount > 1">
                     <li v-if="orderList.previous"> 
@@ -46,7 +47,7 @@
                         </button>
                     </li>
                     <template v-for="item in paginationCount">
-                        <li v-if="item < 11" class="pageNumber"
+                        <li v-if="item < 11" class="pageNumber" :key="item"
                             :class="[currentPage == item ? 'active' : '']">
                         <span class="border-0"
                                 @click="getTransactionData(item)">
@@ -78,7 +79,8 @@ export default {
         return {
             orderList: null,
             isMounted: false,
-            currentPage: 1
+            currentPage: 1,
+            totalPages: null
         }
     },
 
@@ -95,6 +97,7 @@ export default {
         },
         paginationCount() {
             if(this.orderList.count > 10){
+                this.totalPages = Math.ceil(this.orderList.count / 10)
                 return Math.ceil(this.orderList.count / 10)
             }
                 
@@ -112,16 +115,17 @@ export default {
         getTransactionData(page){
             let url = "/api/v1/referral/product/history?page=" + this.currentPage
             if(page == 'next'){
-                this.currentPage++
+                if(this.totalPages > this.currentPage) this.currentPage++
                 url = this.orderList.next
             }else if(page == 'previous') {
-                this.currentPage--
+                if(this.currentPage > 1) this.currentPage--
+                
                 url = this.orderList.previous
             } else {
                 this.currentPage = page
                 url = "/api/v1/referral/product/history?page=" + page
             }
-            axiosGet(url).then(response => {
+            axiosGet.get(url).then(response => {
                 this.orderList = response.data
             })
         }

@@ -32,6 +32,7 @@
 <script>
 import Information from '@/components/InformationComponent'
 export default {
+  name: 'my-wallet',
   data () {
     return {
         cards: [

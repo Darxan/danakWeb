@@ -1,5 +1,5 @@
 <template>
-  <div style="background:#eee;" v-if="isMounted">
+  <div v-if="isMounted">
         <section class="section_one mt-9vh">
         <div class="container">
             <div class="row w-100 d-flex align-items-center justify-content-center">

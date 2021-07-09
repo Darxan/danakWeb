@@ -6,7 +6,6 @@ export default ({
       isAuthenticated: localStorage.getItem('_uidt') ? true : false,
       token: localStorage.getItem('_uidt') || null,
     },
-
   },
   getters: {
     loggedIn: (state) => state.user.token,
