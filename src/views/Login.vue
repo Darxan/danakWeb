@@ -61,7 +61,7 @@ export default ({
         return {
             form: {
                 email: 'admin@admin.com',
-                password: 123
+                password: 123321123
             },
             googleSignInParams: {
                 client_id: '91323451042-qhv2n2miqpkv7mdggp1pbkkmiodft1nf.apps.googleusercontent.com'
@@ -94,7 +94,8 @@ export default ({
             })
         },
         onSignInSuccess (googleUser) {
-            this.$store.dispatch('googleAuth', {access_token: googleUser.qc.access_token})
+            console.log("🚀 ~ file: Login.vue ~ line 97 ~ onSignInSuccess ~ googleUser", googleUser)
+            this.$store.dispatch('googleAuth', {access_token: googleUser.mc.access_token})
             .then(response =>{
                 this.showMessage('login', 'success', 'Success', 'Вы успешно вошли в систему')
                 if(response.status == 200){

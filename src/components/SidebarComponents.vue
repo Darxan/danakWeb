@@ -2,15 +2,16 @@
   <div id="mySidenav" class="sidenav">
     <div class="aside">
       <router-link tag="a"
-                 v-if="sidebarMenus" 
-                 class="col" 
-                 class-active="active"
-                 exact
-                 v-for="item in sidebarMenus"
-                 :key="item.id"
-                 :to="item.path"
+                    v-if="sidebarMenus" 
+                    class="col" 
+                    class-active="active"
+                    exact
+                    v-for="item in sidebarMenus"
+                    :key="item.id"
+                    :to="item.path"
+                   
                  >
-                <div @click="close">
+              <div @click="close" class="w-100">
                     <img :src="getImgUrl(item.imgUrl)" alt="" style="width:18px">
                 <span >{{ $t(item.title) }}</span>
                 </div>
