@@ -94,7 +94,6 @@ export default ({
             })
         },
         onSignInSuccess (googleUser) {
-            console.log("🚀 ~ file: Login.vue ~ line 97 ~ onSignInSuccess ~ googleUser", googleUser)
             this.$store.dispatch('googleAuth', {access_token: googleUser.mc.access_token})
             .then(response =>{
                 this.showMessage('login', 'success', 'Success', 'Вы успешно вошли в систему')

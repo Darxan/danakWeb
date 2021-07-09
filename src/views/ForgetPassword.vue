@@ -34,7 +34,7 @@ export default ({
     data() {
         return {
             form: {
-                email: 'admin@admin.com'
+                email: ''
             },
         }
     },
@@ -43,14 +43,14 @@ export default ({
         ...mapActions(["forgetPass"]),
         async forget() {
             const {...userdata} = this.form;
-            let resp = await this.forgetPass(userdata)    
-            if(resp.response.status === 200){
-                this.showMessage('login', 'success', 'Success', 'Вы успешно вошли в систему')
+            let resp = await this.forgetPass(userdata)
+            if(resp.status === 204){
+                this.showMessage('forget', 'success', 'Success', 'Вам отправлено инструксия на почту')
                 setTimeout(() =>{
                     this.$router.push({ path: '/' })
                 }, 1500)
             }
-            if(resp.response.status === 400){
+            if(resp.status === 400){
                 let msg = "Пользователь с данным электронной адресом не существует"
                 this.showMessage('forget', 'warn', 'Ошибка', msg)
             }

@@ -82,7 +82,8 @@ export default {
         return {
             orderList: null,
             isMounted: false,
-            currentPage: 1
+            currentPage: 1,
+            totalPages: null
         }
     },
 
@@ -99,9 +100,9 @@ export default {
         },
         paginationCount() {
             if(this.orderList.count > 10){
+                this.totalPages = Math.ceil(this.orderList.count / 10)
                 return Math.ceil(this.orderList.count / 10)
-            }
-                
+            }  
         }
     },
     methods:{
@@ -116,14 +117,14 @@ export default {
         getTransactionData(page){
             let url = "/api/v1/history/?page=" + this.currentPage
             if(page == 'next'){
-                this.currentPage++
-                url = this.orderList.next
+                if(this.totalPages > this.currentPage) this.currentPage++
+                url = "/api/v1/history/?page=" + this.currentPage
             }else if(page == 'previous') {
-                this.currentPage--
-                url = this.orderList.previous
+                if(this.currentPage > 1) this.currentPage--
+                url = "/api/v1/history/?page=" + this.currentPage
             } else {
                 this.currentPage = page
-                url = "/api/v1/history/?page=" + page
+                url = "/api/v1/history/?page=" + this.currentPage
             }
             axiosGet(url).then(response => {
                 this.orderList = response.data
