@@ -57,6 +57,11 @@ const routes = [
     component: () => import('@/pages/TransactionHistory.vue')
   },
   {
+    path: '/forget/password',
+    name: 'forget_password',
+    component: () => import('@/pages/forgetpassword.vue')
+  },
+  {
     path: '/transaction/create',
     name: 'transaction_create',
     meta: {requiresAuth: true},

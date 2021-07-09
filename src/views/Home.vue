@@ -8,7 +8,7 @@
                     <p class="cash text-center">{{ $t("cashback_dokonlar")}}</p>
                 </div>
                 <div class="col-md-3 mt-5" v-for="item in partnerList" :key="item.id">
-                    <div class="card border bg-white py-4 px-2 shadow">
+                    <div class=" bg-white py-4 px-2 shadow">
                         <a :href="item.url" target="_blank">
                             <div class="text-center markets">
                                 <img :src="getImgUrl(item.image)" alt="" style="max-width:120px; max-height: 120px">

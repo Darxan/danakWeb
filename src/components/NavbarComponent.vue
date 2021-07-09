@@ -45,10 +45,12 @@
               <LanguageDropdown />
                <!-- bitta button qo'shildi -->
                <template v-if="isUserAuthenticated">
-                <a @click="profile" class="profile_button">
-                  <img src="@/assets/icons/user.svg" alt="">
-                </a>
-                <Profile v-if="profileModal" @close="profileModal = false"/>
+                  <div class="profile_button">
+                    <a @click="profile" class="p-1">
+                      <img src="@/assets/icons/user.svg" alt="">
+                    </a>
+                    <Profile v-if="profileModal" @close="profileModal = false"/>
+                  </div>
                </template>
           </div>
       </div>
@@ -185,6 +187,9 @@ export default {
 }
 .link_for_image {
   padding: 0rem 1rem;
+}
+.profile_button {
+  position: relative;
 }
 @media (max-width: 500px){
   .link_for_danak {
