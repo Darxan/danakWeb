@@ -1,5 +1,5 @@
 <template>
-    <footer class="section_five">
+    <footer class="section_five bg-light">
         <div class="container">
             <!-- <div class="images">
                 <img src="@/assets/images/paypal.svg" alt="">
@@ -9,8 +9,9 @@
                 <img src="@/assets/images/qiwi.svg" alt="">
                 <img src="@/assets/images/webmoney.svg" alt="">
             </div> -->
-            <p class="cash">{{ $t("bizga_ergashing")}}</p>
+            <!-- <p class="cash my-0 py-0">{{ $t("bizga_ergashing")}}</p> -->
             <div class="social_btns">
+                
                 <a href="#"><i class="fab fa-vk"></i></a>
                 <a href="#"><i class="fab fa-odnoklassniki"></i></a>
                 <a href="#"><i class="fab fa-facebook-f"></i></a>

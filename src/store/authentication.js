@@ -74,23 +74,9 @@ export default ({
           })
       })
     },
-    async loginUser2({commit,dispatch}, payload) {
-      try {
-        const response = await axiosBase.post('/api/v1/rest-auth/login/', {
-          username: payload.username,
-          password: payload.password
-        })
-        const token = await response.data.key
-        commit('updateLocalStorage', token)
-        dispatch('getProfiles')
-        return response
-      } catch (e) {
-        commit('SET_ERROR', e.message)
-      }
-    },
     googleAuth({ commit, dispatch }, payload) {
       return new Promise((resolve, reject) => {
-        axiosBase.post('/api/v1/user/google/', payload)
+        axiosBase.post('/user/google/', payload)
           .then(response => {
             console.log("response", response)
             commit('updateLocalStorage', response.data.key)
@@ -103,7 +89,7 @@ export default ({
     },
     facebookAuth({ commit, dispatch }, payload) {
       return new Promise((resolve, reject) => {
-        axiosBase.post('/api/v1/user/facebook/', payload)
+        axiosBase.post('/user/facebook/', payload)
           .then(response => {
             console.log("response", response)
             commit('updateLocalStorage', response.data.key)

@@ -107,7 +107,7 @@ export default {
         maskCardNumber(numbers){
             let result =""
             for (let index = 0; index < numbers.length; index++) {
-                if(index > 4 && index < 14 && numbers[index] != " ") result += '*'
+                if(index > 4 && index < 14 && numbers[index] != "-") result += '*'
                 else result += numbers[index]
             }
             return result
@@ -116,15 +116,15 @@ export default {
             let url = "/api/v1/referral/product/history?page=" + this.currentPage
             if(page == 'next'){
                 if(this.totalPages > this.currentPage) this.currentPage++
-                url = this.orderList.next
+                url = "/api/v1/referral/product/history?page=" + this.currentPage
             }else if(page == 'previous') {
                 if(this.currentPage > 1) this.currentPage--
-                
-                url = this.orderList.previous
+                url = "/api/v1/referral/product/history?page=" + this.currentPage
             } else {
                 this.currentPage = page
                 url = "/api/v1/referral/product/history?page=" + page
             }
+            console.log("🚀 ~ file: RefferalOrderHistory.vue ~ line 126 ~ getTransactionData ~ url", url)
             axiosGet.get(url).then(response => {
                 this.orderList = response.data
             })

@@ -21,21 +21,22 @@
                 </div>
             </div>
         </div>
-        <a href="#section_two" class="arrow"><img src="@/assets/icons/arrow-down.svg" alt=""></i></a>
+        <a href="#section_two" 
+           class="arrow">
+           <img src="@/assets/icons/arrow-down.svg" alt=""></i>
+        </a>
     </section>
     <!-- birinchi section tugadi -->
     <section class="bg-light my-5 py-5" id="section_two">
          <div class="container pt-3" >
         <div class="text-center mt-5">
-                <h2> {{ $t("section_2_title") }} </h2>
-                <p> {{ $t("section_2_title_2") }} </p>
-            </div>
+            <h2> {{ $t("section_2_title") }} </h2>
+            <p> {{ $t("section_2_title_2") }} </p>
+        </div>
         <div class="row bg-white " style="border-left: 2px solid green">
-            
             <div class="col-md-2 py-4 d-flex align-items-center justify-content-center" v-for="item in withdrawMethodsList" :key="item.id">
                 <div class="card border-0">
-                    <div class="d-flex align-items-center justify-content-center border-0"
-                         >
+                    <div class="d-flex align-items-center justify-content-center border-0">
                         <img :src="getImgUrl(item.image)" 
                             alt=""
                             style="max-width: 120px; max-height: 120px"
@@ -52,7 +53,7 @@
     <section class="section_three">
         <div class="container">
             <h1> {{ $t("section_3_title") }}  <i class="fas fa-heart text-danger"></i>   {{ $t("section_3_title_2qismi") }} </h1>
-            <p class="cash mt-3"> {{ $t("section_3_title_2") }} </p>
+            <p class="cash mt-5"> {{ $t("section_3_title_2") }} </p>
             <img src="@/assets/images/announcement.svg" alt="" style="max-width: 300px;">
             <div class="social_btns">
                 <a href=""><button><i class="fab fa-facebook-f"></i><p style="margin: 0">Facebook</p>&nbsp;<p style="margin: 0">1711</p></button></a>
@@ -103,7 +104,7 @@
 </template>
 
 <script>
-import { axiosGet } from '@/store/axiosBase'
+import axios from  'axios'
 export default {
   name: 'Home',
   data:() => {
@@ -114,18 +115,22 @@ export default {
       }
   },
   mounted() {
-      axiosGet('/api/v1/web/partner/list/').then(response => {
+      axios.get('https://api.danak.uz/api/v1/web/partner/list/').then(response => {
           this.isMounted = true
           this.partnerList = response.data
+      }).catch(error => {
+          this.$router.reload()
       })
-      axiosGet('api/v1/payment/method/list').then(response => {
+      axios.get('https://api.danak.uz/api/v1/payment/method/list').then(response => {
         this.withdrawMethodsList = response.data.data
+      }).catch(error => {
+          this.$router.reload()
       })
   },
   methods: {
       getImgUrl(pic) {
         // return require('../assets/'+pic)
-        return "https://danak.uz"+pic
+        return "https://api.danak.uz"+pic
       },
   },
 }

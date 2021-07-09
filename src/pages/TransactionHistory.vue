@@ -62,12 +62,13 @@ export default {
         return {
             transactionData: null,
             isMounted: false,
-            currentPage: 1
+            currentPage: 1,
+            totalPages: null
         }
     },
 
     async mounted () {
-        let resoponse = await axiosGet(`/api/v1/transaction/history?page=${this.currentPage}`);
+        let resoponse = await axiosGet.get(`/api/v1/transaction/history?page=${this.currentPage}`);
         if(resoponse.status == 200){
             this.isMounted = true
             this.transactionData = resoponse.data
@@ -79,10 +80,9 @@ export default {
         },
         paginationCount() {
             if(this.transactionData.count > 10){
-                console.log(Math.ceil(this.transactionData.count / 10))
+                this.totalPages = Math.ceil(this.transactionData.count / 10)
                 return Math.ceil(this.transactionData.count / 10)
-            }
-                
+            }  
         }
     },
     methods:{
@@ -98,14 +98,13 @@ export default {
             return require('../assets/'+pic)
         },
         getTransactionData(page){
-            console.log("🚀 ~ file: Transactionhistory.vue ~ line 100 ~ getTransactionData ~ page", page)
             let url = "/api/v1/transaction/history?page=" + this.currentPage
             if(page == 'next'){
-                this.currentPage++
-                url = this.transactionData.next
+                if(this.totalPages > this.currentPage) this.currentPage++
+                url = "/api/v1/transaction/history?page=" + this.currentPage
             }else if(page == 'previous') {
-                this.currentPage--
-                url = this.transactionData.previous
+                if(this.currentPage > 1) this.currentPage--
+                url = "/api/v1/transaction/history?page=" + this.currentPage
             } else {
                 this.currentPage = page
                 url = "/api/v1/transaction/history?page=" + page
