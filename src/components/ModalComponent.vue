@@ -1,6 +1,7 @@
 <template>
-  <div class="modal" v-if="state">
-    <div class="modal-wrapper">
+
+  <div class="modal" v-if="state" @click="closeModal">
+    <div class="modal-wrapper" @click.stop>
       <div class="modal-container">
         <div class="modal-body">
             <h3> {{ $t("change_withdraw_account") }} </h3>
@@ -10,7 +11,7 @@
                   type="text"
                   class="form-control"
                   id="payment"
-                  v-model="cardObject.card_number">
+                  v-model="currentCart.card_number">
             </div>
             <div class="d-flex justify-content-between mt-4">
                 <button class="btn btn-success btn-sm" 
@@ -34,6 +35,11 @@ export default {
     state: Boolean,
     cardObject: Object
   },
+  computed:{
+    currentCart(){
+      return this.cardObject
+    }
+  },
   methods:{
     closeModal(){
         this.$emit('close', this.state)
@@ -46,6 +52,7 @@ export default {
 </script>
 
 <style scoped>
+
 .modal {
   position: fixed;
   top: 0;

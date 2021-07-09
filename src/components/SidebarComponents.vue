@@ -2,15 +2,16 @@
   <div id="mySidenav" class="sidenav">
     <div class="aside">
       <router-link tag="a"
-                 v-if="sidebarMenus" 
-                 class="col" 
-                 class-active="active"
-                 exact
-                 v-for="item in sidebarMenus"
-                 :key="item.id"
-                 :to="item.path"
+                    v-if="sidebarMenus" 
+                    class="col" 
+                    class-active="active"
+                    exact
+                    v-for="item in sidebarMenus"
+                    :key="item.id"
+                    :to="item.path"
+                   
                  >
-                <div @click="close">
+              <div @click="close" class="w-100">
                     <img :src="getImgUrl(item.imgUrl)" alt="" style="width:18px">
                 <span >{{ $t(item.title) }}</span>
                 </div>
@@ -62,7 +63,7 @@ export default {
                 {id:3, title: "my_wallets", imgUrl: 'icons/wallet.svg', path:'/user-wallets'},
                 {id:4, title: "transaction_history", imgUrl: 'icons/money_back.svg', path:'/transaction/history'},
                 {id:5, title: "my_wallets", imgUrl: 'icons/wallet.svg', path:'/mywallet'},
-                {id:6, title: "doxod_ot_druzey", imgUrl: 'icons/from_friends.svg', path:'/referal/list'},
+                // {id:6, title: "doxod_ot_druzey", imgUrl: 'icons/from_friends.svg', path:'/referal/list'},
                 {id:7, title: "doxod_ot_druzey", imgUrl: 'icons/from_friends.svg', path:'/refferal/order/history'},
                 {id:8, title: "darodmadli_link", imgUrl: 'icons/home.svg', path:'/generate/link'},
                 {id:9, title: "daromadni_yechib_olish", imgUrl: 'icons/home.svg', path: '/transaction/create'},

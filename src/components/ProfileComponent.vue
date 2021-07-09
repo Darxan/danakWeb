@@ -1,42 +1,45 @@
 <template>
-<!-- profil card boshlandi -->
-<div class="profile_card" id="card" v-if="userData">
-    <div class="header_profile">
-        <i class="far fa-user-circle user_icon"></i>
-        <p>{{ userData.username }}</p>
-        <a href="#"><img src="@/assets/icons/settings.svg" alt="" style="max-width:24px"></a>
-        <a @click="logout"><img src="@/assets/icons/log-out.svg" alt=""></a>
-    </div>
-    <div class="profile_texts">
-        <h1>{{ $t("cashback_ustasi") }}</h1>
-        <p>{{ $t("sadoqat_darajasi") }}</p>
-        <p><strong>{{ $t("darajani_oshirish") }}</strong><br><br>
-            {{ $t("maksimal_daraja") }}
-        </p>
-        <div class="profile_link">
-            <p>{{ $t("chiqarilgan_summa") }}<strong>$ {{ userData.all_transaction }}</strong></p>
-            <a href="#"><img src="@/assets/icons/arrow-right-circle.svg" alt="">
-            </a>
+<div class="profile_container" @click="closeProfileModal">
+    <!-- profil card boshlandi -->
+    <div class="profile_card" id="card" v-if="userData">
+        <div class="header_profile">
+            <i class="far fa-user-circle user_icon"></i>
+            <p class="pt-3">{{ userData.username }}</p>
+            <a href="#"><img src="@/assets/icons/settings.svg" alt="" style="max-width:24px"></a>
+            <a @click="logout"><img src="@/assets/icons/log-out.svg" alt=""></a>
+        </div>
+        <div class="profile_texts">
+            <h1>{{ $t("cashback_ustasi") }}</h1>
+            <p>{{ $t("sadoqat_darajasi") }}</p>
+            <p><strong>{{ $t("darajani_oshirish") }}</strong><br><br>
+                {{ $t("maksimal_daraja") }}
+            </p>
+            <div class="profile_link">
+                <p>{{ $t("chiqarilgan_summa") }}<strong>$ {{ userData.all_transaction }}</strong></p>
+                <a href="#"><img src="@/assets/icons/arrow-right-circle.svg" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="profile_body d-flex justify-content-center align-items-center">
+            <img src="@/assets/images/finger.svg" alt="">
+            <p class="ml-3">{{ $t("qanday_ishlashi") }}</p>
+        </div>
+        <div class="cashback">
+            <h1>{{ $t("naqd_pul") }}</h1>
+            <p>{{ $t("tasdiqlash") }}</p>
+            <h2 class="grey_number">$ {{ userData.estimated }}</h2>
+            <p class="border_bottom"></p>
+            <p>{{ $t("yechib_olish_uchun_mavjud") }}:</p>
+            <h2 class="black_number">$ {{ userData.all }}</h2>
+            <button
+                class="btn btn-success btn-sm px-4"
+                @click="withdrawHandler">
+            {{$t("pulni_olish")}} sadas
+            </button>
         </div>
     </div>
-    <div class="profile_body d-flex justify-content-center align-items-center">
-        <img src="@/assets/images/finger.svg" alt="">
-        <p class="ml-3">{{ $t("qanday_ishlashi") }}</p>
-    </div>
-    <div class="cashback">
-        <h1>{{ $t("naqd_pul") }}</h1>
-        <p>{{ $t("tasdiqlash") }}</p>
-        <h2 class="grey_number">$ {{ userData.estimated }}</h2>
-        <p class="border_bottom"></p>
-        <p>{{ $t("yechib_olish_uchun_mavjud") }}:</p>
-        <h2 class="black_number">$ {{ userData.all }}</h2>
-        <button
-            class="btn btn-success btn-sm px-4"
-            @click="withdrawHandler">
-          {{$t("pulni_olish")}} sadas
-        </button>
-    </div>
 </div>
+
 <!-- profil card muvaffaqiyatli yakunlandi -->
 </template>
 
@@ -78,12 +81,21 @@ export default {
 
 <style  scoped>
 /* PROFILE BEGIN */
+.profile_container{
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    position: fixed;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    display: flex;
+}
 .profile_card {
     position: absolute;
-    width: 320px;
+    width: 320px;   
     height: 68vh;
-    top: 110%;
-    right: 8%;
+    top: 9%;
+    right: .4%;
     background: #fff;
     box-shadow: 0 2px 24px 0 rgb(17 27 45 / 11%);
     border-radius: 8px;

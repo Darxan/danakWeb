@@ -24,14 +24,13 @@
         <a href="#section_two" class="arrow"><img src="@/assets/icons/arrow-down.svg" alt=""></i></a>
     </section>
     <!-- birinchi section tugadi -->
-
-    <!-- ikkinchi section boshlandi -->
-    <div class="container mt-3" id="section_two">
-        <div class="text-center">
-                <h5> {{ $t("section_2_title") }} </h5>
+    <section class="bg-light my-5 py-5" id="section_two">
+         <div class="container pt-3" >
+        <div class="text-center mt-5">
+                <h2> {{ $t("section_2_title") }} </h2>
                 <p> {{ $t("section_2_title_2") }} </p>
             </div>
-        <div class="row bg-white my-5" style="border-left: 2px solid green">
+        <div class="row bg-white " style="border-left: 2px solid green">
             
             <div class="col-md-2 py-4 d-flex align-items-center justify-content-center" v-for="item in withdrawMethodsList" :key="item.id">
                 <div class="card border-0">
@@ -46,6 +45,9 @@
             </div>
         </div>
     </div>
+    </section>
+    <!-- ikkinchi section boshlandi -->
+   
     <!-- uchinchi section boshlandi -->
     <section class="section_three">
         <div class="container">

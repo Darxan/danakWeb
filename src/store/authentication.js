@@ -60,7 +60,7 @@ export default ({
           commit('getProfile', null)
       }
     },
-    loginUser({commit,dispatch}, payload) {
+    loginUser({commit, dispatch}, payload) {
       return new Promise((resolve, reject) => {
         axiosBase.post('/rest-auth/login/', payload)
           .then(response => {

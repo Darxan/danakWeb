@@ -9,8 +9,6 @@
                 <div class="links">
                     <a :href="link.link" v-for="link in links" :key="link.id"> {{ link.title }} </a>
                 </div>
-
-
                 <div class="card_container">
                     <div class="card_1">
                         <div class="cards">
