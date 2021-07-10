@@ -57,9 +57,9 @@ const routes = [
     component: () => import('@/pages/TransactionHistory.vue')
   },
   {
-    path: '/forget/password',
-    name: 'forget_password',
-    component: () => import('@/pages/forgetpassword.vue')
+    path: '/confirm/new/password',
+    name: 'confirm-new-password',
+    component: () => import('@/pages/ConfirmNewPassword.vue')
   },
   {
     path: '/transaction/create',

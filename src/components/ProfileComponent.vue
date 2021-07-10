@@ -32,9 +32,9 @@
             <p>{{ $t("yechib_olish_uchun_mavjud") }}:</p>
             <h2 class="black_number">$ {{ userData.all }}</h2>
             <button
-                class="btn btn-success btn-sm px-4"
+                class="btn btn-outline-success btn-sm px-4"
                 @click="withdrawHandler">
-            {{$t("pulni_olish")}} sadas
+            {{$t("pulni_olish")}} 
             </button>
         </div>
     </div>

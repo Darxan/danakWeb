@@ -1,5 +1,5 @@
 <template>
-    <div class="row d-flex align-items-center justify-content-center" 
+    <div class="row d-flex align-items-center justify-content-center minheight" 
         style="margin-top:90px; height: auto"
         v-cloak>
         <notifications position='center top' width="400" group="transaction"/>

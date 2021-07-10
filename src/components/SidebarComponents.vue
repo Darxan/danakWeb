@@ -67,8 +67,7 @@ export default {
                 {id:7, title: "doxod_ot_druzey", imgUrl: 'icons/from_friends.svg', path:'/refferal/order/history'},
                 {id:8, title: "darodmadli_link", imgUrl: 'icons/home.svg', path:'/generate/link'},
                 {id:9, title: "daromadni_yechib_olish", imgUrl: 'icons/home.svg', path: '/transaction/create'},
-                {id:10, title: "sozlamalar", imgUrl: 'icons/settings.svg', path:'/profile/change'},
-                {id:11, title: "sozlamalar", imgUrl: 'icons/settings.svg', path: '/forget/password'}
+                {id:10, title: "sozlamalar", imgUrl: 'icons/settings.svg', path:'/profile/change'}
 
             ]
         }
