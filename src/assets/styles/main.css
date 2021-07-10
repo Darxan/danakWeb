@@ -78,10 +78,6 @@ input[type="color"]:focus,
     align-items: center;
     width: auto;
 }
-.navbar .container .btns button{
-    color: black;
-    background: none;
-}
 .navbar .container .btns .login {
     font-size: 16px;
     font-weight: bold;
