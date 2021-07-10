@@ -102,6 +102,14 @@ export default ({
                         this.$router.push({ path: '/' })
                     }, 2000)
                 }
+            }).catch((e) => {
+                let msg = e.response.data
+                if(msg?.email){
+                    this.showMessage('login', 'warn', 'Email', msg?.email[0])
+                }
+                if(msg?.non_field_errors){
+                    this.showMessage('login', 'warn', 'Password error', msg?.non_field_errors[0])
+                }
             })
         },
         onSignInError (error) {

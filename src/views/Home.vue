@@ -104,7 +104,7 @@
 </template>
 
 <script>
-import axios from  'axios'
+import { axiosGet } from '@/store/axiosBase'
 export default {
   name: 'Home',
   data:() => {
@@ -115,13 +115,13 @@ export default {
       }
   },
   mounted() {
-      axios.get('https://api.danak.uz/api/v1/web/partner/list/').then(response => {
+      axiosGet.get('/api/v1/web/partner/list/').then(response => {
           this.isMounted = true
           this.partnerList = response.data
       }).catch(error => {
           this.$router.reload()
       })
-      axios.get('https://api.danak.uz/api/v1/payment/method/list').then(response => {
+      axiosGet.get('/api/v1/payment/method/list').then(response => {
         this.withdrawMethodsList = response.data.data
       }).catch(error => {
           this.$router.reload()
@@ -135,3 +135,16 @@ export default {
   },
 }
 </script>
+<style scoped>
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+</style>
