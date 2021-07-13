@@ -124,7 +124,6 @@ export default {
                 this.currentPage = page
                 url = "/api/v1/referral/product/history?page=" + page
             }
-            console.log("🚀 ~ file: RefferalOrderHistory.vue ~ line 126 ~ getTransactionData ~ url", url)
             axiosGet.get(url).then(response => {
                 this.orderList = response.data
             })

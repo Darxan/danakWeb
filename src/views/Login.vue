@@ -3,7 +3,7 @@
         <notifications position='center center' width="400" group="login"/>
         <div class="section" :style="{ backgroundImage: 'url(' + require('@/assets/images/dala.png') + ')' }">
             <div class="card">
-                <router-link to="/" class="back">
+                <router-link to="/home" class="back">
                     <i class="fa fa-chevron-left"></i>
                 </router-link>
                 <img src="@/assets/logo/danak.svg" alt="" class="card_image">
@@ -44,7 +44,18 @@
                     </div>
                     <button class="card_submit_button" @click.prevent="login">Kirish</button>
                     <div class="card_parol_t">
-                        <router-link to="/forget">Parolni unutdingizmi?</router-link>
+                        <router-link
+                          to="/forget"
+                          class="border-bottom">
+                          Parolni unutdingizmi?
+                        </router-link>
+                        <br>
+                        <router-link 
+                            to="/resend/activation/code/"
+                            class="border-bottom"
+                            >
+                            Email tasdiqlovchi linkni qayta yuborish
+                        </router-link>
                     </div>
             </div>
         </div>
@@ -60,13 +71,12 @@ export default ({
     data() {
         return {
             form: {
-                email: 'admin@admin.com',
-                password: 123321123
+                email: '',
+                password: ""
             },
             googleSignInParams: {
                 client_id: '91323451042-qhv2n2miqpkv7mdggp1pbkkmiodft1nf.apps.googleusercontent.com'
             }
-            
         }
     },
     components: {
@@ -80,7 +90,7 @@ export default ({
                 this.showMessage('login', 'success', 'Success', 'Вы успешно вошли в систему')
                 if(response.status == 200){
                     setTimeout(() =>{
-                        this.$router.push({ path: '/' })
+                        this.$router.push({ path: '/home?isLoginPage=true' })
                     }, 1500)
                 }
             }).catch((e) => {
@@ -98,8 +108,9 @@ export default ({
             .then(response =>{
                 this.showMessage('login', 'success', 'Success', 'Вы успешно вошли в систему')
                 if(response.status == 200){
-                    setTimeout(() =>{
-                        this.$router.push({ path: '/' })
+                    setTimeout(() => {
+                        this.$router.push({ path: '/home' })
+                        this.$router.reload()
                     }, 2000)
                 }
             }).catch((e) => {
@@ -119,6 +130,7 @@ export default ({
             this.loading = true;
             const token = resp.response.authResponse.access_token;
             this.$store.dispatch('facebookAuth', {access_token: token})
+            this.$router.reload()
         },
         onFacebookInError(error) {
             this.$store.dispatch("SET_ERROR", error);

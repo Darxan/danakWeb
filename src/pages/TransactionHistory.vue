@@ -66,9 +66,8 @@ export default {
             totalPages: null
         }
     },
-
     async mounted () {
-        let resoponse = await axiosGet.get(`/api/v1/transaction/history?page=${this.currentPage}`);
+        let resoponse = await axiosGet(`/api/v1/transaction/history?page=${this.currentPage}`);
         if(resoponse.status == 200){
             this.isMounted = true
             this.transactionData = resoponse.data

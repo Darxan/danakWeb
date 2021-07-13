@@ -3,44 +3,23 @@
         <notifications position='center center' width="400" group="confirm"/>
         <h1 class="text-dark"></h1>
         <section class="form mt-9vh" v-if="!successCardState">
-            <div class="password_form_container text-center">
-                <form class="password_form d-flex align-items-center flex-column" 
-                      @submit.prevent="fetchNewPassword">
+            <div class="password_form_container text-center ">
+                <div class="password_form d-flex align-items-center flex-column py-4 px-4" 
+                      >
                     <a href="#">
                         <img src="../assets/logo/danak.svg" alt="" width="220">
                     </a>
-                    <div class="from-groups w-100  d-flex align-items-center flex-column">
-                        <label for="password" class="text-left pb-2">New password</label>
-                        <input
-                          type="password"
-                          v-model="form.new_password"
-                          id="password"
-                          class="form-control w-75">
+                    <div class="border py-4 px-2 my-2">
+                        <h3 class="text-left">Accountingizni faollashtirish uchun ushbu tugmachaga bosing</h3>
                     </div>
-                    <div class="from-groups w-100  d-flex align-items-center flex-column">
-                        <label
-                            for="confirm"
-                            class="text-left pb-2">
-                          Confirm password
-                          </label>
-                        <input
-                          type="password"
-                          v-model="form.confirmpassword"
-                          id="confirm"
-                          class="form-control w-75">
-                    </div>
-                    <br>
-                    <div  class="d-flex align-items-center flex-row justify-content-around w-100 mt-2">
-                        <router-link to="/" class="btn btn-warning btn-sm py-1 text-center  px-2 w-25">
-                            Home
-                        </router-link>
-                        <button class="btn btn-success btn-sm py-1 text-center px-2 w-25"
-                                type="submit"
-                                :disabled="!showButtons">
-                            Confirm
+                    
+                    <div class="d-flex align-items-center flex-row justify-content-around w-100 mt-2">
+                        <button class="btn btn-success btn-sm py-1 text-center px-2 w-50"
+                                type="submit" @click="confirmAccount">
+                            Tasdiqlash
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
         </section>
         <div class="row my-6 mb-4 d-flex align-items-center justify-content-center" v-if="successCardState">
@@ -62,19 +41,19 @@ export default {
     data () {
         return {
             form: {
-                new_password: '',
-                confirmpassword: '',
                 uid: this.$route.query.uid,
                 token: this.$route.query.key,
             },
             successCardState: false
-            
         }
     },
     methods: {
-        fetchNewPassword(){
+        confirmAccount(){
+            if(this.form.uid == undefined && this.form.token == undefined){
+                return this.showMessage('confirm', 'warn', 'Error', 'Xatolik yuz berdi yangitdan tasdiqlash codini oling')
+            } 
             const {...newData} = this.form
-            axios.post("https://api.danak.uz/auth/users/reset_password_confirm/", newData)
+            axios.post("https://api.danak.uz/auth/users/activation/", newData)
             .then(response => {
                 this.successCardState = true
                 setTimeout(() => {
@@ -83,13 +62,6 @@ export default {
             }).catch((e) => {
                 this.showMessage('confirm', 'warn', 'uid', e.response.data?.uid[0])
             })
-        }
-    },
-    computed: {
-        showButtons(){
-            if(this.form.new_password == this.form.confirmpassword && this.form.new_password.length > 7 ){
-                return true
-            }
         }
     }
     
