@@ -123,6 +123,16 @@
   "xozircha_yoq": "Пока ничего нет",
   "new_password": "Новый пароль",
   "confirm_password": "Подтвердить Пароль",
-  "confirm": "Подтверждать"
-  
+  "confirm": "Подтверждать",
+  "new_password_created": "Ваш новый пароль успешно создано",
+  "profile_change": "Изменить профиль ",
+  "change_password": "Изменить пароль",
+  "ism": "Твое имя",
+  "familiya": "Ваша фамилия",
+  "data_rojdeniya": "День рождения",
+  "old_password": "Прежний пароль",
+  "save": "Сохранить",
+  "parol": "Пароль",
+  "elektron_pochta_orqali_kirish": "По электронной почте:",
+  "parol_unutdingizmi": "Забыли пароль ?"
 }

@@ -22,10 +22,9 @@
                             @error="onSignInError">
                            <i class="fab fa-google"></i>&nbsp; Google
                         </g-signin-button>
-                        <a href="#"><i class="fab fa-google"></i><span>&nbsp; Google - Orqali kirish</span></a>
                     </div>
-                    <div class="card_t">
-                    <p>Elektron pochta orqali</p>
+                    <div class="card_t pt-2">
+                    <p> {{ $t("elektron_pochta_orqali_kirish") }} </p>
                     </div>
                     <div class="card_inputs">
                         <span class="first_input input_container">
@@ -36,15 +35,14 @@
                         </span>
                         <span class="second_input input_container">
                             <input 
-                                    type="password" 
-                                    placeholder="Parol"
+                                    type="password" :placeholder="$t('parol')"
                                     v-model="form.password"
                                     >
                         </span>
                     </div>
                     <button class="card_submit_button" @click.prevent="login">Kirish</button>
                     <div class="card_parol_t">
-                        <router-link to="/forget">Parolni unutdingizmi?</router-link>
+                        <router-link to="/forget"> {{ $t("parol_unutdingizmi") }} </router-link>
                     </div>
             </div>
         </div>
@@ -60,8 +58,8 @@ export default ({
     data() {
         return {
             form: {
-                email: 'admin@admin.com',
-                password: 123321123
+                email: '',
+                password: ''
             },
             googleSignInParams: {
                 client_id: '91323451042-qhv2n2miqpkv7mdggp1pbkkmiodft1nf.apps.googleusercontent.com'
@@ -80,7 +78,7 @@ export default ({
                 this.showMessage('login', 'success', 'Success', 'Вы успешно вошли в систему')
                 if(response.status == 200){
                     setTimeout(() =>{
-                        this.$router.push({ path: '/' })
+                        this.$router.push({ path: '/home' })
                     }, 1500)
                 }
             }).catch((e) => {
@@ -137,15 +135,12 @@ export default ({
 }
 .section {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-size: cover;
-    margin-top: 9.3vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    padding-top: 5rem;
-    padding-bottom: 4rem;
 }
 .section .card {
     width: 400px;

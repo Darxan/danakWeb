@@ -41,7 +41,7 @@
             </div>        
             <div class="text" v-if="text">
                 <div>
-                    <h1>Yangi parol muvaffaqiyatli yakunlandi</h1>
+                    <h1> {{ $t("new_password_created") }} </h1>
                     <router-link to="/"  class="btn btn-warning btn-sm py-1 text-center  px-1 w-25 mt-1">
                         {{ $t("bosh_sahifa") }}
                     </router-link>
@@ -49,7 +49,6 @@
             </div>
             <div class="loader_container"  v-if="loader">   
                 <div class="loader"></div>
-
             </div>
         </section>
     </div>

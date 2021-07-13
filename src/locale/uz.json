@@ -123,5 +123,16 @@
   "xozircha_yoq": "Hech narsa yo'q",
   "new_password": "Yangi Parol",
   "confirm_password": "Parolni tasdiqlang",
-  "confirm": "Tasdiqlang"
+  "confirm": "Tasdiqlang",
+  "new_password_created": "Sizning yangi parolingiz muvaffaqiyatli yaratildi",
+  "profile_change": "Profilni o'zgartirish",
+  "change_password": "Parolni o'zgartirish",
+  "ism": "Ismingiz",
+  "familiya": "Familiyangiz",
+  "data_rojdeniya": "Tug'ilgan kun",
+  "old_password": "Eski parol",
+  "save": "Saqlash",
+  "parol": "Parol",
+  "elektron_pochta_orqali_kirish": "Elektron pochta orqali:",
+  "parol_unutdingizmi": "Parolni unutdingizmi ?"
 }

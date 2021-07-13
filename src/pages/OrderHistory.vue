@@ -74,6 +74,14 @@
 </template>
 
 <script>
+const axios = require('axios');
+
+// Make a request for a user with a given ID
+axios.get('/user?ID=12345')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
 import Additional from '@/components/AdditionalActions'
 import Information from '@/components/InformationComponent'
 import { axiosGet } from '@/store/axiosBase.js'
@@ -92,8 +100,9 @@ export default {
         if(resoponse.status == 200){
             this.isMounted = true
             this.orderList = resoponse.data
-        }
+        }   
     },
+    
     computed:{
         orders(){
             return this.orderList.results

@@ -123,5 +123,16 @@
   "xozircha_yoq": "Nothing yet",
   "new_password": "New password",
   "confirm_password": "Confirm password",
-  "confirm": "Confirm"
+  "confirm": "Confirm",
+  "new_password_created": "Your new password has been successfully created",
+  "profile_change": "Change profile",
+  "change_password": "Change password",
+  "ism": "Your name",
+  "familiya": "Your last name",
+  "data_rojdeniya": "Birthday",
+  "old_password": "Old password",
+  "save": "Save",
+  "parol": "Password",
+  "elektron_pochta_orqali_kirish": "By email:",
+  "parol_unutdingizmi": "Forgot password"
 }
