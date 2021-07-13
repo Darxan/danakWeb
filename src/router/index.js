@@ -51,11 +51,6 @@ const routes = [
     component: () => import('@/pages/UserWallets.vue')
   },
   {
-    path: '/confirm/email',
-    name: "confirm_email",
-    component: () => import('@/pages/confirmEmail.vue')
-  },
-  {
     path: '/transaction/history',
     meta: {requiresAuth: true},
     name: 'transaction_history',

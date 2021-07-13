@@ -48,11 +48,11 @@
                         <button class="btn btn-warning w-50" @click="delit_passwords">{{ del }}</button>
                     </div>
                 </div>
-            </div> 
+            </div>  
         </div> -->
         <div class="container">
 
-            <div class="cards">
+            <!-- <div class="cards">
                 <h1> {{ $t("profile_change") }} </h1>
                 <div class="card_image">
                     <img src="../assets/logo/danak.svg" alt="">
@@ -75,15 +75,16 @@
                     <button class="btn btn-outline-danger"  :disabled="!showProfilButtons" @click="delete_input_length"> {{ $t("delete") }} </button>
                     <button class="btn btn-outline-success" :disabled="!showProfilButtons"> {{ $t("save") }} </button>
                 </div>
-            </div>
+            </div> -->
 
             <!-- ikkinchi card boshlandi -->
 
             <div class="cards">
-               <h1> {{ $t("change_password") }} </h1>
+               
                <div class="card_image">
                     <img src="../assets/logo/danak.svg" alt="">
                </div>
+               <h3 class="text-center"> {{ $t("change_password") }} </h3>
                <div class="card_inputs">
                    <div class="input mt-3">
                        <label for="new_password"> {{ $t("new_password") }} </label>
@@ -95,8 +96,14 @@
                    </div>
                </div>
                <div class="card_buttons mt-4">
-                   <button class="btn btn-outline-danger"  :disabled="!showPasswordButtons" @click="delete_password_input_length"> {{ $t("delete") }} </button>
-                   <button class="btn btn-outline-success" :disabled="!showPasswordButtons" @click="save"><a href="/"> {{ $t("save") }} </a></button>
+                   <router-link to="/home" 
+                                class="btn btn-outline-danger btn-sm py-2 px-4"  
+                                > 
+                            {{ $t("bosh_sahifa") }} 
+                    </router-link>
+                   <button class="btn btn-outline-success btn-sm py-2 px-4"         
+                            @click="save">{{ $t("save") }}
+                    </button>
                </div>
             </div>
         </div>
@@ -127,10 +134,13 @@ import notification from '@/mixins/notification'
             this.showMessage('login', 'success', 'Success', response.data.detail)
             console.log("response", response)
             setTimeout(() => {
-                this.$router.push('/')
+                this.$router.push('/home')
             }, 2000);
         })
-          .catch((e) => console.log("e", e))  
+          .catch((e) => {
+              this.showMessage('login', 'warn', 'Error', 'Error')
+              console.log("e", e.response.data)
+          })  
         },
 
 
