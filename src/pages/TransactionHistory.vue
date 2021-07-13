@@ -4,7 +4,7 @@
             <div class="container" >
                 <h1 class="w-100 text-center align-items-center"> {{ $t("transaction_history") }} </h1>
                 <div class="section_table_body" >
-                    <table id="customers" v-if="transactionData.length > 0">
+                    <table id="customers" v-if="transactionData.results.length > 0">
                         <tr>
                             <th> {{ $t("card_number") }} </th>
                             <th>{{ $t("date") }}</th>

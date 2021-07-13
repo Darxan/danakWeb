@@ -50,7 +50,7 @@ export default {
     methods: {
         confirmAccount(){
             if(this.form.uid == undefined && this.form.token == undefined){
-                return this.showMessage('confirm', 'warn', 'Error', 'Xatolik yuz berdi yangitdan tasdiqlash codini oling')
+                return this.showMessage('confirm', 'warn', 'Error', 'Xatolik yuz berdi yangi tasdiqlash codini oling')
             } 
             const {...newData} = this.form
             axios.post("https://api.danak.uz/auth/users/activation/", newData)
