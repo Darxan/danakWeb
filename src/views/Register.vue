@@ -3,7 +3,7 @@
         <notifications position='center center' width="400px" :duration='5000' group="register"/>
         <div class="section" :style="{ backgroundImage: 'url(' + require('@/assets/images/dala.png') + ')' }">
             <div class="card">
-                <router-link to="/" class="back">
+                <router-link to="/home" class="back">
                     <i class="fa fa-chevron-left"></i>
                 </router-link>
                 <img src="@/assets/logo/danak.svg" alt="" class="card_image">
@@ -128,7 +128,7 @@ export default ({
                 this.showMessage('register', 'success', 'Success', 'Вы успешно вошли в систему')
                 if(response.status == 200){
                     setTimeout(() =>{
-                        this.$router.push({ path: '/' })
+                        this.$router.push({ path: '/home' })
                     }, 1500)
                 }
             })

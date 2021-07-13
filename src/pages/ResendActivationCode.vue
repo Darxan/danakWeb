@@ -7,26 +7,26 @@
                     <i class="fa fa-chevron-left"></i>
                 </router-link>
                  <img src="@/assets/logo/danak.svg" alt="" class="card_image">
-                    <div class="card_btns">
-                    </div>
+                   
                     <div class="card_t">
-                    <p>{{ $t("Elektron pochta") }}</p>
+                    <p>Email address</p>
                     </div>
                     <div class="card_inputs">
                         <span class="first_input input_container">
                             <input 
-                                type="text" 
+                                type="email" 
                                 placeholder="Email" 
-                                v-model="form.email">
+                                v-model="form.email"
+                                class="form-controller">
                         </span>
                     </div>
-                    <button class="card_submit_button" @click.prevent="forget">Kirish</button>
+                    <button class="card_submit_button" @click="resendActivationCode">Kirish</button>
             </div>
         </div>
     </div>
 </template>
 <script>
-import { mapActions } from "vuex";
+import axios from 'axios'
 import notification from '@/mixins/notification'
 export default ({
     name: 'forget',
@@ -40,20 +40,23 @@ export default ({
     },
     
     methods:{
-        ...mapActions(["forgetPass"]),
-        async forget() {
+        async resendActivationCode() {
             const {...userdata} = this.form;
-            let resp = await this.forgetPass(userdata)
-            if(resp.status === 204){
-                this.showMessage('forget', 'success', 'Success', 'Вам отправлено инструксия на почту')
-                setTimeout(() =>{
-                    this.$router.push({ path: '/home' })
-                }, 1500)
-            }
-            if(resp.status === 400){
-                let msg = "Пользователь с данным электронной адресом не существует"
-                this.showMessage('forget', 'warn', 'Ошибка', msg)
-            }
+            axios.post('https://api.danak.uz/auth/users/resend_activation/', {...userdata})
+            .then((response) => console.log(response))
+            .catch((error) =>  {
+                this.showMessage('forget', 'warn', 'Ошибка', error.response.data[0])
+            })
+            // if(resp.status === 204){
+            //     this.showMessage('forget', 'success', 'Success', 'Вам отправлено инструксия на почту')
+            //     setTimeout(() =>{
+            //         this.$router.push({ path: '/home' })
+            //     }, 1500)
+            // }
+            // if(resp.status === 400){
+            //     let msg = "Пользователь с данным электронной адресом не существует"
+            //     this.showMessage('forget', 'warn', 'Ошибка', msg)
+            // }
            
         },
     }

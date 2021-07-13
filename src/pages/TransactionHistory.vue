@@ -4,7 +4,7 @@
             <div class="container" >
                 <h1 class="w-100 text-center align-items-center"> {{ $t("transaction_history") }} </h1>
                 <div class="section_table_body" >
-                    <table id="customers" v-if="transactionData.length > 0">
+                    <table id="customers" v-if="transactionData.results.length > 0">
                         <tr>
                             <th> {{ $t("card_number") }} </th>
                             <th>{{ $t("date") }}</th>
@@ -66,9 +66,8 @@ export default {
             totalPages: null
         }
     },
-
     async mounted () {
-        let resoponse = await axiosGet.get(`/api/v1/transaction/history?page=${this.currentPage}`);
+        let resoponse = await axiosGet(`/api/v1/transaction/history?page=${this.currentPage}`);
         if(resoponse.status == 200){
             this.isMounted = true
             this.transactionData = resoponse.data

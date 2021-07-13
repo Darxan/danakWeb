@@ -23,7 +23,8 @@
                 <span><a href="#">{{ $t("foydalanuvchi_shartnomasi") }} </a><span> {{ $t("and") }} </span><a href="#"> {{ $t("maxfiylik_siyosati")}}</a></span>
             </div>
             <div class="download_img">
-                <a href="#"><img src="@/assets/images/playmarket.svg" alt=""></a>
+                <a href="https://play.google.com/store/apps/details?id=uz.devpro.Danak" target="_blank">
+                <img src="@/assets/images/playmarket.svg" alt=""></a>
                 <a href="#"><img src="@/assets/images/appstore.svg" alt=""></a>
             </div>
         </div>

@@ -55,7 +55,7 @@
                 </fieldset>
             </form>
             <div class="d-flex justify-content-between mt-4" v-if="card">
-                <router-link to="/" 
+                <router-link to="/home" 
                              class="btn btn-secondary btn-sm px-4 py-1"
                              style="color:#fff !important;">
                     Close

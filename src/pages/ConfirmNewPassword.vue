@@ -1,8 +1,11 @@
 <template>
     <div class="minheight">
-        <section class="form mt-9vh d-flex justify-content-center align-items-center" style="height: 100vh">
-            <div class="password_form_container text-center" v-if="form">
-                <form class="password_form d-flex align-items-center flex-column" @submit.prevent>
+        <notifications position='center center' width="400" group="confirm"/>
+        <h1 class="text-dark"></h1>
+        <section class="form mt-9vh" v-if="!successCardState">
+            <div class="password_form_container text-center">
+                <form class="password_form d-flex align-items-center flex-column" 
+                      @submit.prevent="fetchNewPassword">
                     <a href="#">
                         <img src="../assets/logo/danak.svg" alt="" width="220">
                     </a>
@@ -10,31 +13,31 @@
                         <label for="password" class="text-left pb-2"> {{ $t("new_password") }} </label>
                         <input
                           type="password"
-                          v-model="password"
+                          v-model="form.new_password"
                           id="password"
                           class="form-control w-75">
                     </div>
                     <div class="from-groups w-100  d-flex align-items-center flex-column">
                         <label
-                          for="confirm"
-                          class="text-left pb-2">
-                          {{ $t("confirm_password") }}
+                            for="confirm"
+                            class="text-left pb-2">
+                          Confirm password
                           </label>
                         <input
                           type="password"
-                          v-model="confirmpassword"
+                          v-model="form.confirmpassword"
                           id="confirm"
                           class="form-control w-75">
                     </div>
                     <br>
                     <div  class="d-flex align-items-center flex-row justify-content-around w-100 mt-2">
-                        
-                        <router-link to="/" class="btn btn-warning btn-sm py-1 text-center  px-1 w-25">
-                            {{ $t("bosh_sahifa") }}
+                        <router-link to="/home" class="btn btn-warning btn-sm py-1 text-center  px-2 w-25">
+                            Home
                         </router-link>
                         <button class="btn btn-success btn-sm py-1 text-center px-2 w-25"
-                                :disabled="!showButtons" @click="showText">
-                            {{ $t("confirm") }}
+                                type="submit"
+                                :disabled="!showButtons">
+                            Confirm
                         </button>
                     </div>
                 </form>
@@ -51,26 +54,45 @@
                 <div class="loader"></div>
             </div>
         </section>
+        <div class="row my-6 mb-4 d-flex align-items-center justify-content-center" v-if="successCardState">
+            <div class="col-md-3 ">
+                <div class="card shadow py-5 px-2 w-100 text-center ">
+                    <h1 class="text-muted">Successfuly updated your password😊</h1>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import axios from 'axios'
+import notification from '@/mixins/notification'
 export default {
     name: 'confirm-new-password',
+    mixins: [notification], 
     data () {
         return {
-            password: '',
-            confirmpassword: '',
-            form: true,
-            text: false,
-            loader: false
+            form: {
+                new_password: '',
+                confirmpassword: '',
+                uid: this.$route.query.uid,
+                token: this.$route.query.key,
+            },
+            successCardState: false
+            
         }
     },
     methods: {
         fetchNewPassword(){
-            axios.post("https://api.danak.uz/auth/users/confirm/password/", {
-                
+            const {...newData} = this.form
+            axios.post("https://api.danak.uz/auth/users/reset_password_confirm/", newData)
+            .then(response => {
+                this.successCardState = true
+                setTimeout(() => {
+                    this.$router.push('/home')
+                }, 1500)
+            }).catch((e) => {
+                this.showMessage('confirm', 'warn', 'uid', e.response.data?.uid[0])
             })
         },
         showText(){
@@ -84,7 +106,7 @@ export default {
     },
     computed: {
         showButtons(){
-            if(this.password == this.confirmpassword && this.password.length > 7 ){
+            if(this.form.new_password == this.form.confirmpassword && this.form.new_password.length > 7 ){
                 return true
             }
         }

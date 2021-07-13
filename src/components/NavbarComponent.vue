@@ -16,8 +16,12 @@
                 <span class="hamburger-line hamburger-line-2"></span>
                 <span class="hamburger-line hamburger-line-3"></span>
               </button>
-              <router-link to="/" class="link_for_image"><img src="@/assets/images/danak.png" alt="" width="50"></router-link>
-              <router-link to="/" style="text-decoration:none;" class="link_for_danak">
+              <router-link to="/home" class="link_for_image">
+                <img 
+                    src="@/assets/images/danak.png" 
+                    alt="" width="50">
+              </router-link>
+              <router-link to="/home" style="text-decoration:none;" class="link_for_danak">
                   <h1 class="c-black">Danak</h1>
               </router-link>
         </div>

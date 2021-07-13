@@ -58,7 +58,7 @@ export default {
     data:() =>{
         return {
             sidebarMenus:[
-                {id:1, title: 'bosh_sahifa', imgUrl: 'icons/home.svg', path: '/'},
+                {id:1, title: 'bosh_sahifa', imgUrl: 'icons/home.svg', path: '/home'},
                 {id:2, title: "order_history", imgUrl: 'icons/history.svg', path: '/order/history'},
                 {id:3, title: "my_wallets", imgUrl: 'icons/wallet.svg', path:'/user-wallets'},
                 {id:4, title: "transaction_history", imgUrl: 'icons/money_back.svg', path:'/transaction/history'},

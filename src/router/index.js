@@ -5,11 +5,11 @@ import Home from '../views/Home.vue'
 Vue.use(VueRouter)
 
 const routes = [
+  
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: Home,
-    // meta: {requiresAuth: true}
   },
   {
     path: '/login',
@@ -62,9 +62,19 @@ const routes = [
     component: () => import('@/pages/TransactionHistory.vue')
   },
   {
-    path: '/confirm/new/password',
+    path: '/confirm/new/password/',
     name: 'confirm-new-password',
     component: () => import('@/pages/ConfirmNewPassword.vue')
+  },
+  {
+    path: '/confirm/email/account/',
+    name: 'confirm-email-account',
+    component: () => import('@/pages/ConfirmEmailAccount.vue')
+  },
+  {
+    path: '/resend/activation/code/',
+    name: 'resend-activation-code',
+    component: () => import('@/pages/ResendActivationCode.vue')
   },
   {
     path: '/transaction/create',
@@ -98,11 +108,9 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import('../views/About.vue')
-  }
+  },
+  { path: '*', component:() => import('@/views/Home.vue')}
 ]
 
 const router = new VueRouter({

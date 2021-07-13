@@ -23,12 +23,12 @@
         </div>
         <a href="#section_two" 
            class="arrow">
-           <img src="@/assets/icons/arrow-down.svg" alt=""></i>
+           <img src="@/assets/icons/arrow-down.svg" alt="">
         </a>
     </section>
     <!-- birinchi section tugadi -->
     <section class="bg-light my-5 py-5" id="section_two">
-         <div class="container pt-3" >
+        <div class="container pt-3">
         <div class="text-center mt-5">
             <h2> {{ $t("section_2_title") }} </h2>
             <p> {{ $t("section_2_title_2") }} </p>
@@ -48,7 +48,6 @@
     </div>
     </section>
     <!-- ikkinchi section boshlandi -->
-   
     <!-- uchinchi section boshlandi -->
     <section class="section_three">
         <div class="container">
@@ -64,7 +63,6 @@
         </div>
     </section>
     <!-- uchinchi section tugadi -->
-
     <!-- to'rtinchi section boshlandi -->
     <section class="section_four">
         <div class="container">
@@ -105,6 +103,7 @@
 
 <script>
 import { axiosGet } from '@/store/axiosBase'
+import axios from 'axios'
 export default {
   name: 'Home',
   data:() => {
@@ -116,16 +115,22 @@ export default {
   },
   mounted() {
       axiosGet.get('/api/v1/web/partner/list/').then(response => {
-          this.isMounted = true
-          this.partnerList = response.data
-      }).catch(error => {
-          this.$router.reload()
-      })
-      axiosGet.get('/api/v1/payment/method/list').then(response => {
-        this.withdrawMethodsList = response.data.data
-      }).catch(error => {
-          this.$router.reload()
-      })
+            this.isMounted = true
+            this.partnerList = response.data
+        }).catch(error => {
+            this.isMounted = true
+            axios.get('https://api.danak.uz/api/v1/web/partner/list/').then(response => {
+                this.partnerList = response.data
+            })
+        })
+        axiosGet.get('/api/v1/payment/method/list').then(response => {
+            this.withdrawMethodsList = response.data.data
+        }).catch(error => {
+            axios.get('https://api.danak.uz/api/v1/payment/method/list').then(response => {
+                this.withdrawMethodsList = response.data.data
+            })
+        })
+      
   },
   methods: {
       getImgUrl(pic) {
